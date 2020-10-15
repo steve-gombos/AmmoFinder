@@ -28,11 +28,11 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal --collect:"Code Coverage"
-#    - name: Upload coverage to Codecov
-#      uses: codecov/codecov-action@v1
-#      with:
-#        token: ${{ secrets.CODECOV_TOKEN }}
-#        file: ./coverage.xml
-#        flags: ${{ runner.os }},netcore${{ matrix.dotnet }}
+      run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage"
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./coverage.xml
+        flags: ${{ runner.os }},netcore${{ matrix.dotnet }}
 #        fail_ci_if_error: true
