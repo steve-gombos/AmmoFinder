@@ -2,37 +2,37 @@
 {
     public static class Extension
     {
-        public static CasingParser Casing { get; set; } = new CasingParser();
+        private static CasingParser Casing = new CasingParser();
         public static string GetCasing(this string description)
         {
             return Casing.Parse(description);
         }
 
-        public static RoundCountParser RoundCount { get; set; } = new RoundCountParser();
+        private static RoundCountParser RoundCount = new RoundCountParser();
         public static string GetRoundCount(this string description)
         {
             return RoundCount.Parse(description);
         }
 
-        public static GrainParser Grain { get; set; } = new GrainParser();
+        private static GrainParser Grain = new GrainParser();
         public static string GetGrain(this string description)
         {
             return Grain.Parse(description);
         }
 
-        public static CaliberParser Caliber { get; set; } = new CaliberParser();
+        private static CaliberParser Caliber = new CaliberParser();
         public static string GetCaliber(this string description)
         {
             return Caliber.Parse(description);
         }
 
-        public static ProjectileTypeParser ProjectileType { get; set; } = new ProjectileTypeParser();
+        private static ProjectileTypeParser ProjectileType = new ProjectileTypeParser();
         public static string GetProjectileType(this string description)
         {
             return ProjectileType.Parse(description);
         }
 
-        public static BrandParser Brand { get; set; } = new BrandParser();
+        private static BrandParser Brand = new BrandParser();
         public static string GetBrand(this string description)
         {
             return Brand.Parse(description);
