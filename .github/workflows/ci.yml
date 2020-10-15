@@ -26,11 +26,11 @@ jobs:
     - name: Restore
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-build /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=json
+      run: dotnet test --no-restore --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1.0.13
       with:
-        file: "!**/.nuget/packages/**/*.*"
+        file: "**/*opencover*"
         flags: ${{ runner.os }},netcore${{ matrix.dotnet }}
