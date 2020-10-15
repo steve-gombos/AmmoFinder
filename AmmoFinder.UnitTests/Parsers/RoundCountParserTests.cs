@@ -12,6 +12,7 @@ namespace AmmoFinder.UnitTests.Parsers
         [InlineData("Federal Range Target Practice .45Auto 230grn FMJ (RTP45230) 50rd box", "50")]
         [InlineData("Red Army Standard 7.62x54R FMJ 148grn", null)]
         [InlineData("1000 Rounds of .25 ACP Ammo by Aguila - 50gr FMJ", "1000")]
+        [InlineData("1000 Rounds of .25 ACP Ammo by Aguila - 50gr FMJ", "10")]
         public void RoundCount_IsValid(string input, string expected)
         {
             // Arrange
