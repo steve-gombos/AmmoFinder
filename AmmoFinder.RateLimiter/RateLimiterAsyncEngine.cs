@@ -22,11 +22,6 @@ namespace AmmoFinder.RateLimiter
         {
             var now = DateTimeOffset.UtcNow;
 
-            if (_callLog.Count == limitCount)
-            {
-                var test = "";
-            }
-
             lock (_callLog)
             {
                 _callLog.Add(now);

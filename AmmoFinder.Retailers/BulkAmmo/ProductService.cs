@@ -68,7 +68,7 @@ namespace AmmoFinder.Retailers.BulkAmmo
                 var productUrl = productSection.QuerySelector<IHtmlAnchorElement>("a.product-name").Href;
                 var details = await GetProductDetails(productUrl);
                 var mappedProduct = _mapper.Map<ProductModel>(Tuple.Create(productSection, details));
-                
+
                 products.Add(mappedProduct);
             }
 

@@ -58,8 +58,8 @@ namespace AmmoFinder.Retailers.Cabelas
             {
                 var jsonString = productSection.Children.ToCollection().Where(x => x.Id.Contains("entitledItem")).FirstOrDefault();
                 var attributeData = JsonSerializer.Deserialize<IEnumerable<AttributeData>>(jsonString.Text());
-                
-                foreach(var attribute in attributeData)
+
+                foreach (var attribute in attributeData)
                 {
                     var mappedProduct = _mapper.Map<ProductModel>(Tuple.Create(productSection, attribute));
                     products.Add(mappedProduct);

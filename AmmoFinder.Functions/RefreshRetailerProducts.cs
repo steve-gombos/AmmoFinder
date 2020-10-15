@@ -17,7 +17,7 @@ namespace AmmoFinder.Functions
         }
 
         [FunctionName("RefreshRetailerProducts")]
-        public void Run([TimerTrigger("0 */15 * * * *")]TimerInfo myTimer)
+        public void Run([TimerTrigger("0 */15 * * * *")] TimerInfo myTimer)
         {
             _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
@@ -25,7 +25,7 @@ namespace AmmoFinder.Functions
             {
                 _refreshProducts.Refresh().Wait();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message);
             }

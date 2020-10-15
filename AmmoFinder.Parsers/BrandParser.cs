@@ -23,7 +23,7 @@ namespace AmmoFinder.Parsers
                     if (!Brands.Variances.ContainsKey(indicator))
                         continue;
 
-                    foreach(var variance in Brands.Variances[indicator])
+                    foreach (var variance in Brands.Variances[indicator])
                     {
                         if (!descriptionLower.Contains(variance.ToLower().Replace(" ", "")))
                             continue;
@@ -33,7 +33,7 @@ namespace AmmoFinder.Parsers
 
                     continue;
                 }
-                    
+
 
                 return indicator;
             }
