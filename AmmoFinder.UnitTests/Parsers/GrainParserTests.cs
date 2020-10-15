@@ -6,6 +6,7 @@ namespace AmmoFinder.UnitTests.Parsers
     public class GrainParserTests
     {
         [Theory]
+        [InlineData("", null)]
         [InlineData("Red Army Standard 7.62x39 122grn FMJ Ammunition 20rd box", "122")]
         [InlineData("Prvi Partizan PPU .308/7.62x51 M80 145grn FMJ 500RD CAN", "145")]
         [InlineData("Federal Range Target Practice .45Auto 230grn FMJ (RTP45230) 50rd box", "230")]

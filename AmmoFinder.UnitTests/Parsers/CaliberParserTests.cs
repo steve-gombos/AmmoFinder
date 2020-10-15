@@ -6,6 +6,8 @@ namespace AmmoFinder.UnitTests.Parsers
     public class CaliberParserTests
     {
         [Theory]
+        [InlineData("", null)]
+
         //Rimfire
         [InlineData("Norma .17 HMR 17grn V-MAX Polymer Tip Ammunition 50rd box", "17 HMR")]
         [InlineData("50 Rounds of .17HMR Ammo by Winchester Non-Toxic - 15.5gr Polymer Tipped", "17 HMR")]
@@ -101,8 +103,6 @@ namespace AmmoFinder.UnitTests.Parsers
         [InlineData("Prvi Partizan PPU 7mm Magnum 174gr PSP 20rd Box", "7mm Mag")]
         [InlineData("Prvi Partizan PPU 8mm Mauser FMJ 198grn 20rd Box", "8mm Mauser")]
         [InlineData("Prvi 8mm Maus 196grn SP 20rd Box", "8mm Mauser")]
-
-
         public void Caliber_IsValid(string input, string expected)
         {
             // Arrange

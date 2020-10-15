@@ -6,6 +6,7 @@ namespace AmmoFinder.UnitTests.Parsers
     public class RoundCountParserTests
     {
         [Theory]
+        [InlineData("", null)]
         [InlineData("Red Army Standard 7.62x39 122grn FMJ Ammunition 20rd box", "20")]
         [InlineData("Prvi Partizan PPU .308/7.62x51 M80 145grn FMJ 500RD CAN", "500")]
         [InlineData("PMC 12GA One Shot High Velocity Buckshot 00 9 Pellet 2-3/4 in. 5rd Box", "5")]

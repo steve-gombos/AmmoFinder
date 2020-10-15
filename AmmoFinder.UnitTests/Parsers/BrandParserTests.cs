@@ -33,6 +33,7 @@ namespace AmmoFinder.UnitTests.Parsers
         [InlineData("250 Rounds of 20ga Ammo by NobelSport - 7/8 ounce #7 steel shot", Brands.NobelSport)]
         [InlineData("250 Rounds of 12ga Ammo by Winchester - 1 ounce #8 shot", Brands.Winchester)]
         [InlineData("250 Rounds of 12ga Ammo by Browning - 1-1/8 Ounce #7.5 Shot", Brands.Browning)]
+        [InlineData("", null)]
         public void Brand_IsValid(string input, string expected)
         {
             // Arrange
