@@ -30,9 +30,9 @@ namespace AmmoFinder.Retailers.BulkAmmo
                     AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate | DecompressionMethods.Brotli
                 })
                 .AddPolicyHandler(RateLimiterAsyncPolicy<HttpResponseMessage>.Create(25, TimeSpan.FromMinutes(1)));
-                //.AddPolicyHandler(throttler);
-                //.AddHttpMessageHandler(() => new RateLimitHttpMessageHandler(50, TimeSpan.FromMinutes(1)))
-                //.SetHandlerLifetime(Timeout.InfiniteTimeSpan);
+            //.AddPolicyHandler(throttler);
+            //.AddHttpMessageHandler(() => new RateLimitHttpMessageHandler(50, TimeSpan.FromMinutes(1)))
+            //.SetHandlerLifetime(Timeout.InfiniteTimeSpan);
 
             return services;
         }

@@ -44,7 +44,7 @@ namespace AmmoFinder.Retailers.AimSurplus
 
             var result = await response.Content.ReadFromJsonAsync<Response>();
 
-            foreach(var product in result.Products)
+            foreach (var product in result.Products)
             {
                 var details = await GetProductDetails(product.Url.ToString());
                 var mappedProduct = _mapper.Map<ProductModel>(Tuple.Create(product, details));
