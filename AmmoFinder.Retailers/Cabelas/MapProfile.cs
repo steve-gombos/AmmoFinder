@@ -1,5 +1,6 @@
 ﻿using AmmoFinder.Common.Models;
 using AmmoFinder.Parsers;
+using AmmoFinder.Retailers.Cabelas.Models;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 using AutoMapper;

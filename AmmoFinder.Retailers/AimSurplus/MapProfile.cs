@@ -1,5 +1,6 @@
 ﻿using AmmoFinder.Common.Models;
 using AmmoFinder.Parsers;
+using AmmoFinder.Retailers.AimSurplus.Models;
 using AutoMapper;
 using System;
 

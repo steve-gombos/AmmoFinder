@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace AmmoFinder.Retailers.AimSurplus
+namespace AmmoFinder.Retailers.AimSurplus.Models
 {
     public partial class Response
     {

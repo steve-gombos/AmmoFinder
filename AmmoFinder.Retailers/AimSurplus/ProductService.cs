@@ -1,4 +1,5 @@
 ﻿using AmmoFinder.Common.Models;
+using AmmoFinder.Retailers.AimSurplus.Models;
 using AngleSharp;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
