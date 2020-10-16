@@ -5,6 +5,7 @@ namespace AmmoFinder.Parsers.Models
 {
     public static class Brands
     {
+        //Small Change
         public static readonly ImmutableDictionary<string, List<string>> Variances = new Dictionary<string, List<string>>
         {
             {EstateCartridge, new List<string>{"Estate Cartidge"} },
