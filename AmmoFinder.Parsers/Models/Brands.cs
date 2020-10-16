@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace AmmoFinder.Parsers.Models
 {
-    public class Brands
+    public static class Brands
     {
-        public static readonly Dictionary<string, List<string>> Variances = new Dictionary<string, List<string>>
+        public static readonly ImmutableDictionary<string, List<string>> Variances = new Dictionary<string, List<string>>
         {
-            {Brands.EstateCartridge, new List<string>{"Estate Cartidge"} },
-            {Brands.PrviPartizan, new List<string>{"PPU"} },
-            {Brands.SigSauer, new List<string>{"Sig"} }
-        };
+            {EstateCartridge, new List<string>{"Estate Cartidge"} },
+            {PrviPartizan, new List<string>{"PPU"} },
+            {SigSauer, new List<string>{"Sig"} }
+        }.ToImmutableDictionary();
 
 
         public const string Aguila = "Aguila";

@@ -9,7 +9,7 @@ namespace AmmoFinder.Retailers
 {
     public abstract class ProductServiceBase : IProductService
     {
-        public ProductServiceBase(HttpClient httpClient, IMapper mapper)
+        protected ProductServiceBase(HttpClient httpClient, IMapper mapper)
         {
         }
 

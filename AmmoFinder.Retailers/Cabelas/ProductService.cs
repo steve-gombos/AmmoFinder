@@ -47,17 +47,14 @@ namespace AmmoFinder.Retailers.Cabelas
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(source));
 
-            //var productSections = document.QuerySelectorAll<IHtmlDivElement>("div.product");
-
             var list = document.QuerySelector<IHtmlElement>("ul.grid");
             var productSections = list.QuerySelectorAll<IHtmlListItemElement>("li");
-
 
             var products = new List<ProductModel>();
 
             foreach (var productSection in productSections)
             {
-                var jsonString = productSection.Children.ToCollection().Where(x => x.Id.Contains("entitledItem")).FirstOrDefault();
+                var jsonString = productSection.Children.ToCollection().FirstOrDefault(x => x.Id.Contains("entitledItem"));
                 var attributeData = JsonSerializer.Deserialize<IEnumerable<AttributeData>>(jsonString.Text());
 
                 foreach (var attribute in attributeData)

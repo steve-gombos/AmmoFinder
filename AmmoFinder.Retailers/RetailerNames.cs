@@ -1,6 +1,6 @@
 ﻿namespace AmmoFinder.Retailers
 {
-    public class RetailerNames
+    public static class RetailerNames
     {
         public const string AimSurplus = "Aim Surplus";
         public const string BulkAmmo = "Bulk Ammo";
