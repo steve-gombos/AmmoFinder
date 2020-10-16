@@ -2,11 +2,17 @@ name: CI
 
 on:
   push:
-    branches: 
+    branches:
       - master
+    tags:
+      - v*
+    paths:
+      - "**"
+      - "!**.md"
   pull_request:
-    branches: 
-      - master
+    paths:
+      - "**"
+      - "!**.md"
 
 jobs:     
   build:
