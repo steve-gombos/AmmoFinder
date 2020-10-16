@@ -12,7 +12,7 @@ namespace AmmoFinder.Parsers
             "round",
             "rd",
             "rnd",
-            "boxof",
+            "box of",
             "per",
             "box"
         };
@@ -26,9 +26,6 @@ namespace AmmoFinder.Parsers
                 while (descriptionLowered.Contains(indicator))
                 {
                     var index = descriptionLowered.IndexOf(indicator);
-
-                    if (index < 0)
-                        break;
 
                     var leftStart = index - VARIANCE > 0 ? index - VARIANCE : 0;
                     var rightStart = index + indicator.Length;
