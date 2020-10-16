@@ -14,6 +14,10 @@ on:
       - "**"
       - "!**.md"
 
+env:
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+
 jobs:     
   build:
     name: Build & Test
@@ -41,4 +45,19 @@ jobs:
         token: ${{ secrets.CODECOV_TOKEN }}
         file: /**/*coverage*.xml
         flags: ${{ runner.os }},netcore${{ matrix.dotnet }}
-#        fail_ci_if_error: true
+
+  sonarscan:
+    name: SonarScan
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
+    - name: sonarscan-dotnet
+      uses: highbyte/sonarscan-dotnet@1.0
+      with:
+        sonarProjectKey: steve-gombos_AmmoFinder
+        sonarProjectName: AmmoFinder
+        sonarOrganization: steve-gombos
+        dotnetTestArguments: --logger trx --collect:"XPlat Code Coverage"
+        sonarBeginArguments: /d:sonar.cs.cobertura.reportsPaths="**/TestResults/**/coverage.cobertura.xml" -d:sonar.cs.vstest.reportsPaths="**/TestResults/*.trx"
