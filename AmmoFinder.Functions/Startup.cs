@@ -17,7 +17,6 @@ namespace AmmoFinder.Functions
         public override void Configure(IFunctionsHostBuilder builder)
         {
             var context = builder.GetContext();
-            var configuration = context.Configuration;
 
             builder.Services.AddAutoMapper(config =>
             {
@@ -26,8 +25,6 @@ namespace AmmoFinder.Functions
 
             builder.Services.AddProductPersistence(context.Configuration.GetConnectionString("Products"));
             builder.Services.AddRetailers();
-
-            //app.UpdateAndSeedDatabase<ProductsContext>();
         }
 
         public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)

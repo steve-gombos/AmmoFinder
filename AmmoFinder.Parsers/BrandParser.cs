@@ -11,7 +11,7 @@ namespace AmmoFinder.Parsers
 
             foreach (var brand in brands)
             {
-                if (brand.GetValue(brand).GetType() != typeof(string))
+                if (!(brand.GetValue(brand) is string))
                     continue;
 
                 var indicator = (string)brand.GetValue(brand);

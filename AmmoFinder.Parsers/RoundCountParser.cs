@@ -1,6 +1,7 @@
 ﻿using AmmoFinder.Common.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace AmmoFinder.Parsers
 {
@@ -60,36 +61,38 @@ namespace AmmoFinder.Parsers
         {
             var sub = description.Substring(start, end);
 
-            string numeric = null;
+            var sb = new StringBuilder();
             if (isLeft)
             {
                 for (var i = sub.Length - 1; i >= 0; i--)
                 {
-                    if (char.IsWhiteSpace(sub[i]) && !string.IsNullOrWhiteSpace(numeric))
+                    if (char.IsWhiteSpace(sub[i]) && !string.IsNullOrWhiteSpace(sb.ToString()))
                         break;
 
                     if (char.IsDigit(sub[i]))
-                        numeric += sub[i];
+                        sb.Append(sub[i]);
                 }
 
-                if (numeric == null)
+                if (string.IsNullOrWhiteSpace(sb.ToString()))
                     return null;
 
-                numeric = string.Join("", numeric.Reverse());
+                var reverseCopy = sb.ToString().Reverse();
+                sb.Clear();
+                sb.Append(string.Join("", reverseCopy));
             }
             else
             {
                 for (var i = 0; i < sub.Length; i++)
                 {
-                    if (char.IsWhiteSpace(sub[i]) && !string.IsNullOrWhiteSpace(numeric))
+                    if (char.IsWhiteSpace(sub[i]) && !string.IsNullOrWhiteSpace(sb.ToString()))
                         break;
 
                     if (char.IsDigit(sub[i]))
-                        numeric += sub[i];
+                        sb.Append(sub[i]);
                 }
             }
             //var numeric = string.Join("", sub.Where(char.IsDigit).ToArray());
-            var result = int.TryParse(numeric, out int intValue);
+            var result = int.TryParse(sb.ToString(), out int intValue);
             if (result && intValue % 5 == 0)
                 return intValue.ToString();
 

@@ -9,13 +9,13 @@ namespace AmmoFinder.Retailers.BulkAmmo
 {
     public static class Extension
     {
-        public const string BaseUrl = "https://www.bulkammo.com/";
+        public static readonly Uri BaseUrl = new Uri("https://www.bulkammo.com/");
 
         public static IServiceCollection AddBulkAmmoClient(this IServiceCollection services)
         {
             services.AddHttpClient<IProductService, ProductService>(RetailerNames.BulkAmmo, client =>
                 {
-                    client.BaseAddress = new Uri(BaseUrl);
+                    client.BaseAddress = BaseUrl;
                     client.DefaultRequestHeaders.Add("Accept", "text/html");
                     client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip, deflate, br");
                 })
