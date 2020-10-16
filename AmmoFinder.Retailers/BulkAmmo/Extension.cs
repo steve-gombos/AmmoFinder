@@ -12,8 +12,10 @@ using System.Threading.Tasks;
 
 namespace AmmoFinder.Retailers.BulkAmmo
 {
-    public static class ServiceCollectionExtension
+    public static class Extension
     {
+        public const string BaseUrl = "https://www.bulkammo.com/";
+
         public static IServiceCollection AddBulkAmmoClient(this IServiceCollection services)
         {
             var maxParallelism = 10;
@@ -21,7 +23,7 @@ namespace AmmoFinder.Retailers.BulkAmmo
 
             services.AddHttpClient<IProductService, ProductService>(RetailerNames.BulkAmmo, client =>
                 {
-                    client.BaseAddress = new System.Uri("https://www.bulkammo.com/");
+                    client.BaseAddress = new Uri(BaseUrl);
                     client.DefaultRequestHeaders.Add("Accept", "text/html");
                     client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip, deflate, br");
                 })

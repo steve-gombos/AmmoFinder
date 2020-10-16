@@ -8,9 +8,9 @@ using System.Linq;
 
 namespace AmmoFinder.Retailers.Cabelas
 {
-    public class Mapper : Profile
+    public class MapProfile : Profile
     {
-        public Mapper()
+        public MapProfile()
         {
             CreateMap<Tuple<IHtmlListItemElement, AttributeData>, ProductModel>()
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => GetProductDiv(src.Item1).QuerySelector<IHtmlAnchorElement>("a").Text))

@@ -5,9 +5,9 @@ using System;
 
 namespace AmmoFinder.Retailers.AimSurplus
 {
-    public class Mapper : Profile
+    public class MapProfile : Profile
     {
-        public Mapper()
+        public MapProfile()
         {
             CreateMap<Product, ProductModel>()
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.Name))
