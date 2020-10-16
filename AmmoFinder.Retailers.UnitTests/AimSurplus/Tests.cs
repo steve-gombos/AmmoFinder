@@ -1,5 +1,7 @@
-﻿using AmmoFinder.Retailers.AimSurplus;
+﻿using AmmoFinder.Common.Interfaces;
+using AmmoFinder.Retailers.AimSurplus;
 using AutoMapper;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace AmmoFinder.Retailers.UnitTests.AimSurplus
@@ -26,6 +28,26 @@ namespace AmmoFinder.Retailers.UnitTests.AimSurplus
 
             // Assert
             mapper.ConfigurationProvider.AssertConfigurationIsValid();
+        }
+
+        [Fact]
+        public void ServiceCollectionExtension_IsValid()
+        {
+            // Arrange
+            var provider = new ServiceCollection()
+                .AddAutoMapper(config =>
+                {
+                    config.AddProfile<MapProfile>();
+                })
+                .AddAimSurplusClient()
+                .BuildServiceProvider();
+
+            // Act
+            var productService = provider.GetRequiredService<IProductService>();
+
+            // Assert
+            Assert.IsType<ProductService>(productService);
+            Assert.Equal(RetailerNames.AimSurplus, productService.Retailer);
         }
 
         //[Fact]

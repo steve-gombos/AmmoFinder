@@ -1,5 +1,7 @@
-﻿using AmmoFinder.Retailers.BulkAmmo;
+﻿using AmmoFinder.Common.Interfaces;
+using AmmoFinder.Retailers.BulkAmmo;
 using AutoMapper;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace AmmoFinder.Retailers.UnitTests.BulkAmmo
@@ -26,6 +28,26 @@ namespace AmmoFinder.Retailers.UnitTests.BulkAmmo
 
             // Assert
             mapper.ConfigurationProvider.AssertConfigurationIsValid();
+        }
+
+        [Fact]
+        public void ServiceCollectionExtension_IsValid()
+        {
+            // Arrange
+            var provider = new ServiceCollection()
+                .AddAutoMapper(config =>
+                {
+                    config.AddProfile<MapProfile>();
+                })
+                .AddBulkAmmoClient()
+                .BuildServiceProvider();
+
+            // Act
+            var productService = provider.GetRequiredService<IProductService>();
+
+            // Assert
+            Assert.IsType<ProductService>(productService);
+            Assert.Equal(RetailerNames.BulkAmmo, productService.Retailer);
         }
 
         //[Fact]

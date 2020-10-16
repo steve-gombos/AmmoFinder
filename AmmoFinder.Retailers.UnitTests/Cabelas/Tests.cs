@@ -1,5 +1,7 @@
-﻿using AmmoFinder.Retailers.Cabelas;
+﻿using AmmoFinder.Common.Interfaces;
+using AmmoFinder.Retailers.Cabelas;
 using AutoMapper;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace AmmoFinder.Retailers.UnitTests.Cabelas
@@ -26,6 +28,26 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
 
             // Assert
             mapper.ConfigurationProvider.AssertConfigurationIsValid();
+        }
+
+        [Fact]
+        public void ServiceCollectionExtension_IsValid()
+        {
+            // Arrange
+            var provider = new ServiceCollection()
+                .AddAutoMapper(config =>
+                {
+                    config.AddProfile<MapProfile>();
+                })
+                .AddCabelasClient()
+                .BuildServiceProvider();
+
+            // Act
+            var productService = provider.GetRequiredService<IProductService>();
+
+            // Assert
+            Assert.IsType<ProductService>(productService);
+            Assert.Equal(RetailerNames.Cabelas, productService.Retailer);
         }
 
         //[Fact]
