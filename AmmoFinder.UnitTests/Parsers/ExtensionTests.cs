@@ -1,4 +1,5 @@
 ﻿using AmmoFinder.Parsers;
+using AmmoFinder.Parsers.Models;
 using Xunit;
 
 namespace AmmoFinder.UnitTests.Parsers
