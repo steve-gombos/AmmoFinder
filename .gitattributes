@@ -62,4 +62,4 @@
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
 
-*UnitTests/*.html linguist-vendored
+*Retailers.UnitTests/**/*.html linguist-vendored

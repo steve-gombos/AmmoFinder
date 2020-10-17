@@ -12,6 +12,7 @@
     <None Remove="BulkAmmo\products.html" />
     <None Remove="Cabelas\product-details.html" />
     <None Remove="Cabelas\products.html" />
+    <None Remove="Cabelas\productstest.html" />
   </ItemGroup>
 
   <ItemGroup>
