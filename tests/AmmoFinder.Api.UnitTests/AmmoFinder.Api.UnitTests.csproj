@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AmmoFinder.Common\AmmoFinder.Common.csproj" />
-    <ProjectReference Include="..\AmmoFinder.Testing\AmmoFinder.Testing.csproj" />
+    <ProjectReference Include="..\..\src\AmmoFinder.Api\AmmoFinder.Api.csproj" />
+    <ProjectReference Include="..\..\src\AmmoFinder.Testing\AmmoFinder.Testing.csproj" />
   </ItemGroup>
 
 </Project>

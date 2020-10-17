@@ -3,37 +3,37 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Api", "AmmoFinder.Api\AmmoFinder.Api.csproj", "{19912FFF-5759-4B66-8B1D-AC828A49E848}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Api", "src\AmmoFinder.Api\AmmoFinder.Api.csproj", "{19912FFF-5759-4B66-8B1D-AC828A49E848}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Common", "AmmoFinder.Common\AmmoFinder.Common.csproj", "{FD8C280A-3BD5-46BE-BDAE-08DE771AFEFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Common", "src\AmmoFinder.Common\AmmoFinder.Common.csproj", "{FD8C280A-3BD5-46BE-BDAE-08DE771AFEFD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Data", "AmmoFinder.Data\AmmoFinder.Data.csproj", "{F8A5F95D-475F-4161-99D6-C78E5D876631}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Data", "src\AmmoFinder.Data\AmmoFinder.Data.csproj", "{F8A5F95D-475F-4161-99D6-C78E5D876631}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Retailers", "AmmoFinder.Retailers\AmmoFinder.Retailers.csproj", "{11B6CE1B-237C-4DF5-8039-2CCC9EAD512C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Retailers", "src\AmmoFinder.Retailers\AmmoFinder.Retailers.csproj", "{11B6CE1B-237C-4DF5-8039-2CCC9EAD512C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Persistence", "AmmoFinder.Persistence\AmmoFinder.Persistence.csproj", "{38AF0112-445C-4C5A-BC69-992A38D8F892}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Persistence", "src\AmmoFinder.Persistence\AmmoFinder.Persistence.csproj", "{38AF0112-445C-4C5A-BC69-992A38D8F892}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Parsers", "AmmoFinder.Parsers\AmmoFinder.Parsers.csproj", "{0FFFCD32-B9D0-43C4-820C-F8BF660FD837}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Parsers", "src\AmmoFinder.Parsers\AmmoFinder.Parsers.csproj", "{0FFFCD32-B9D0-43C4-820C-F8BF660FD837}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.RateLimiter", "AmmoFinder.RateLimiter\AmmoFinder.RateLimiter.csproj", "{86E9962C-1B28-411C-B40E-1B6FCB5E20FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.RateLimiter", "src\AmmoFinder.RateLimiter\AmmoFinder.RateLimiter.csproj", "{86E9962C-1B28-411C-B40E-1B6FCB5E20FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Functions", "AmmoFinder.Functions\AmmoFinder.Functions.csproj", "{5C5B3136-B8EE-4108-B123-D42EF9B20438}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Functions", "src\AmmoFinder.Functions\AmmoFinder.Functions.csproj", "{5C5B3136-B8EE-4108-B123-D42EF9B20438}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Retailers.UnitTests", "AmmoFinder.Retailers.UnitTests\AmmoFinder.Retailers.UnitTests.csproj", "{5354143A-CF04-447E-8B61-AFFB2484682E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Retailers.UnitTests", "tests\AmmoFinder.Retailers.UnitTests\AmmoFinder.Retailers.UnitTests.csproj", "{5354143A-CF04-447E-8B61-AFFB2484682E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Parsers.UnitTests", "AmmoFinder.Parsers.UnitTests\AmmoFinder.Parsers.UnitTests.csproj", "{CB62A727-A6A4-4A08-8E0A-50649FA75409}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Parsers.UnitTests", "tests\AmmoFinder.Parsers.UnitTests\AmmoFinder.Parsers.UnitTests.csproj", "{CB62A727-A6A4-4A08-8E0A-50649FA75409}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{24D27E12-E159-4379-B553-9159E1A3076C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{81DEEFB1-4E9C-4B28-A122-80A408ED3ADA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Common.UnitTests", "AmmoFinder.Common.UnitTests\AmmoFinder.Common.UnitTests.csproj", "{0823694D-616B-4C3D-AFBD-E469A0E7A08F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Common.UnitTests", "tests\AmmoFinder.Common.UnitTests\AmmoFinder.Common.UnitTests.csproj", "{0823694D-616B-4C3D-AFBD-E469A0E7A08F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Functions.UnitTests", "AmmoFinder.Functions.UnitTests\AmmoFinder.Functions.UnitTests.csproj", "{AF89B3E0-908D-41A0-A78C-EC284FF1EEF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Functions.UnitTests", "tests\AmmoFinder.Functions.UnitTests\AmmoFinder.Functions.UnitTests.csproj", "{AF89B3E0-908D-41A0-A78C-EC284FF1EEF7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Testing", "AmmoFinder.Testing\AmmoFinder.Testing.csproj", "{9B7ACB12-A9E3-4E7A-B63E-9CEC8BD24384}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Testing", "src\AmmoFinder.Testing\AmmoFinder.Testing.csproj", "{9B7ACB12-A9E3-4E7A-B63E-9CEC8BD24384}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmmoFinder.Api.UnitTests", "AmmoFinder.Api.UnitTests\AmmoFinder.Api.UnitTests.csproj", "{7A276C19-19E1-4722-BC12-776599180A8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmmoFinder.Api.UnitTests", "tests\AmmoFinder.Api.UnitTests\AmmoFinder.Api.UnitTests.csproj", "{7A276C19-19E1-4722-BC12-776599180A8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

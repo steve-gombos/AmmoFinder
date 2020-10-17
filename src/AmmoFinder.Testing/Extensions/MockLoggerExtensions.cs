@@ -6,10 +6,6 @@ namespace AmmoFinder.Testing.Extensions
 {
     public static class MockLoggerExtensions
     {
-        public static void VerifyLog<T>(this Mock<ILogger<T>> loggerMock, LogLevel level, string message, string failMessage = null)
-        {
-            loggerMock.VerifyLog(level, message, Times.Once(), failMessage);
-        }
         public static void VerifyLog<T>(this Mock<ILogger<T>> loggerMock, LogLevel level, string message, Times times, string failMessage = null)
         {
             loggerMock.Verify(l => l.Log(level, It.IsAny<EventId>(),
