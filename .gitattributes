@@ -62,4 +62,4 @@
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
 
-tests/AmmoFinder.Retailers.UnitTests/**/*.html linguist-vendored
+tests/**/*.html linguist-vendored
