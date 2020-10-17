@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <None Remove="AimSurplus\product-detail.html" />
+    <None Remove="AimSurplus\products-1.json" />
+    <None Remove="AimSurplus\products-2.json" />
     <None Remove="BulkAmmo\product-detail.html" />
     <None Remove="BulkAmmo\products.html" />
     <None Remove="Cabelas\product-details.html" />
@@ -17,6 +19,12 @@
 
   <ItemGroup>
     <Content Include="AimSurplus\product-detail.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AimSurplus\products-1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AimSurplus\products-2.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="BulkAmmo\product-detail.html">
