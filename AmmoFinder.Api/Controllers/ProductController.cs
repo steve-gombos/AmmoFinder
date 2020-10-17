@@ -3,7 +3,6 @@ using AmmoFinder.Common.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Internal;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace AmmoFinder.Api.Controllers
 {
@@ -11,12 +10,10 @@ namespace AmmoFinder.Api.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IRefreshProducts _refreshProducts;
         private readonly IProductsRepository _productsRepository;
 
-        public ProductsController(IProductsRepository productsRepository, IRefreshProducts refreshProducts)
+        public ProductsController(IProductsRepository productsRepository)
         {
-            _refreshProducts = refreshProducts;
             _productsRepository = productsRepository;
         }
 
@@ -29,14 +26,6 @@ namespace AmmoFinder.Api.Controllers
                 return NotFound();
 
             return Ok(products);
-        }
-
-        [HttpPost("refresh")]
-        public async Task<IActionResult> RefreshProducts()
-        {
-            await _refreshProducts.Refresh();
-
-            return Ok();
         }
     }
 }

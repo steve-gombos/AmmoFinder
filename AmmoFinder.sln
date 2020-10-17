@@ -21,17 +21,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Functions", "Amm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Retailers.UnitTests", "AmmoFinder.Retailers.UnitTests\AmmoFinder.Retailers.UnitTests.csproj", "{5354143A-CF04-447E-8B61-AFFB2484682E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmmoFinder.Parsers.UnitTests", "AmmoFinder.Parsers.UnitTests\AmmoFinder.Parsers.UnitTests.csproj", "{CB62A727-A6A4-4A08-8E0A-50649FA75409}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Parsers.UnitTests", "AmmoFinder.Parsers.UnitTests\AmmoFinder.Parsers.UnitTests.csproj", "{CB62A727-A6A4-4A08-8E0A-50649FA75409}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{24D27E12-E159-4379-B553-9159E1A3076C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{81DEEFB1-4E9C-4B28-A122-80A408ED3ADA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmmoFinder.Common.UnitTests", "AmmoFinder.Common.UnitTests\AmmoFinder.Common.UnitTests.csproj", "{0823694D-616B-4C3D-AFBD-E469A0E7A08F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Common.UnitTests", "AmmoFinder.Common.UnitTests\AmmoFinder.Common.UnitTests.csproj", "{0823694D-616B-4C3D-AFBD-E469A0E7A08F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmmoFinder.Functions.UnitTests", "AmmoFinder.Functions.UnitTests\AmmoFinder.Functions.UnitTests.csproj", "{AF89B3E0-908D-41A0-A78C-EC284FF1EEF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Functions.UnitTests", "AmmoFinder.Functions.UnitTests\AmmoFinder.Functions.UnitTests.csproj", "{AF89B3E0-908D-41A0-A78C-EC284FF1EEF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmmoFinder.Testing", "AmmoFinder.Testing\AmmoFinder.Testing.csproj", "{9B7ACB12-A9E3-4E7A-B63E-9CEC8BD24384}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Testing", "AmmoFinder.Testing\AmmoFinder.Testing.csproj", "{9B7ACB12-A9E3-4E7A-B63E-9CEC8BD24384}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmmoFinder.Api.UnitTests", "AmmoFinder.Api.UnitTests\AmmoFinder.Api.UnitTests.csproj", "{7A276C19-19E1-4722-BC12-776599180A8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,10 @@ Global
 		{9B7ACB12-A9E3-4E7A-B63E-9CEC8BD24384}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B7ACB12-A9E3-4E7A-B63E-9CEC8BD24384}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B7ACB12-A9E3-4E7A-B63E-9CEC8BD24384}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A276C19-19E1-4722-BC12-776599180A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A276C19-19E1-4722-BC12-776599180A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A276C19-19E1-4722-BC12-776599180A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A276C19-19E1-4722-BC12-776599180A8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,6 +115,7 @@ Global
 		{0823694D-616B-4C3D-AFBD-E469A0E7A08F} = {81DEEFB1-4E9C-4B28-A122-80A408ED3ADA}
 		{AF89B3E0-908D-41A0-A78C-EC284FF1EEF7} = {81DEEFB1-4E9C-4B28-A122-80A408ED3ADA}
 		{9B7ACB12-A9E3-4E7A-B63E-9CEC8BD24384} = {81DEEFB1-4E9C-4B28-A122-80A408ED3ADA}
+		{7A276C19-19E1-4722-BC12-776599180A8C} = {81DEEFB1-4E9C-4B28-A122-80A408ED3ADA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {796E156A-4CF2-45E7-AC76-33F9F8BAB25F}
