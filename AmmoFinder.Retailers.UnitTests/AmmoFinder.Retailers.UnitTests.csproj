@@ -8,10 +8,26 @@
 
   <ItemGroup>
     <None Remove="AimSurplus\product-detail.html" />
+    <None Remove="BulkAmmo\product-detail.html" />
+    <None Remove="BulkAmmo\products.html" />
+    <None Remove="Cabelas\product-details.html" />
+    <None Remove="Cabelas\products.html" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="AimSurplus\product-detail.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BulkAmmo\product-detail.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BulkAmmo\products.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Cabelas\product-details.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Cabelas\products.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

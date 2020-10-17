@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AmmoFinder.Retailers.Cabelas.Models
 {
+    [ExcludeFromCodeCoverage]
     public class AttributeData
     {
         public string catentry_id { get; set; }
@@ -13,6 +15,7 @@ namespace AmmoFinder.Retailers.Cabelas.Models
         public string ItemThumbnailImage { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class AttributeDataWrapper
     {
         public List<AttributeData> AttributeData { get; set; }

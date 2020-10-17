@@ -38,9 +38,11 @@ namespace AmmoFinder.Retailers.Cabelas
 
         private async Task<IEnumerable<ProductModel>> FetchProducts()
         {
+            var products = new List<ProductModel>();
             var response = await _httpClient.PostAsync($"BVProductListingView?categoryId=3074457345616967890&resultsPerPage=36&storeId=10651", null);
 
-            response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                return products;
 
             var source = await response.Content.ReadAsStringAsync();
 
@@ -49,8 +51,6 @@ namespace AmmoFinder.Retailers.Cabelas
 
             var list = document.QuerySelector<IHtmlElement>("ul.grid");
             var productSections = list.QuerySelectorAll<IHtmlListItemElement>("li");
-
-            var products = new List<ProductModel>();
 
             foreach (var productSection in productSections)
             {

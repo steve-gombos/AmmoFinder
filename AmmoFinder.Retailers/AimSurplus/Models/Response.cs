@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace AmmoFinder.Retailers.AimSurplus.Models
 {
+    [ExcludeFromCodeCoverage]
     public partial class Response
     {
         [JsonPropertyName("page")]
@@ -33,6 +35,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
         public Category Category { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public partial class Category
     {
         [JsonPropertyName("parents")]
@@ -45,6 +48,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
         public Child[] Children { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public partial class Child
     {
         [JsonPropertyName("bc_id")]
@@ -60,6 +64,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
         public long Total { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public partial class Facet
     {
         [JsonPropertyName("id")]
@@ -101,6 +106,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
         public Option[] Options { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public partial class Option
     {
         [JsonPropertyName("name")]
@@ -113,6 +119,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
         public bool Chosen { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public partial class Product
     {
         [JsonPropertyName("id")]
@@ -155,6 +162,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
         public long Score { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public partial class CreatedAt
     {
         [JsonPropertyName("date")]
@@ -171,6 +179,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
 
     public enum Timezone { AmericaNewYork };
 
+    [ExcludeFromCodeCoverage]
     public class TimeZoneConverter : JsonConverter<Timezone>
     {
         public override Timezone Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

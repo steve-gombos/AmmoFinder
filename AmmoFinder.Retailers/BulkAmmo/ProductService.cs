@@ -50,9 +50,12 @@ namespace AmmoFinder.Retailers.BulkAmmo
 
         private async Task<IEnumerable<ProductModel>> FetchProducts(string category)
         {
+            var products = new List<ProductModel>();
+
             var response = await _httpClient.GetAsync($"{category}?limit=all", HttpCompletionOption.ResponseHeadersRead);
 
-            response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                return products;
 
             var source = await response.Content.ReadAsStringAsync();
 
@@ -60,8 +63,6 @@ namespace AmmoFinder.Retailers.BulkAmmo
             var document = await context.OpenAsync(req => req.Content(source));
 
             var productSections = document.QuerySelectorAll<IHtmlListItemElement>("li.item");
-
-            var products = new List<ProductModel>();
 
             foreach (var productSection in productSections)
             {

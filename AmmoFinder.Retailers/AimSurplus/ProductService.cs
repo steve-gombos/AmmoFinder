@@ -41,7 +41,8 @@ namespace AmmoFinder.Retailers.AimSurplus
 
             var response = await _httpClient.GetAsync($"search/?q=null&g=6&category=30&filter=&sort_by=best&page={page}&mode=category");
 
-            response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                return products;
 
             var result = await response.Content.ReadFromJsonAsync<Response>();
 
