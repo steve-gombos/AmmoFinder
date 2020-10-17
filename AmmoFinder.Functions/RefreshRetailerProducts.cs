@@ -8,18 +8,16 @@ namespace AmmoFinder.Functions
     public class RefreshRetailerProducts
     {
         private readonly IRefreshProducts _refreshProducts;
-        private readonly ILogger<RefreshRetailerProducts> _logger;
 
-        public RefreshRetailerProducts(IRefreshProducts refreshProducts, ILogger<RefreshRetailerProducts> logger)
+        public RefreshRetailerProducts(IRefreshProducts refreshProducts)
         {
             _refreshProducts = refreshProducts;
-            _logger = logger;
         }
 
         [FunctionName("RefreshRetailerProducts")]
-        public void Run([TimerTrigger("0 */15 * * * *")] TimerInfo myTimer)
+        public void Run([TimerTrigger("0 */15 * * * *")] TimerInfo myTimer, ILogger logger)
         {
-            _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+            logger.LogInformation("C# Timer trigger function executed.");
 
             try
             {
@@ -27,7 +25,7 @@ namespace AmmoFinder.Functions
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
+                logger.LogError(ex, ex.Message);
             }
         }
     }

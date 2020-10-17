@@ -74,5 +74,22 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
             // Assert
             Assert.True(products.Any());
         }
+
+        [Fact]
+        public async Task ProductService_Fetch_NoProducts_IsValid()
+        {
+            // Arrange
+            var mapper = CreateMapper();
+            var mockedHttp = new MockHttpMessageHandler();
+            var mockedHttpClient = mockedHttp.ToHttpClient();
+            mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
+            var productService = new ProductService(mockedHttpClient, mapper);
+
+            // Act
+            var products = await productService.Fetch();
+
+            // Assert
+            Assert.True(!products.Any());
+        }
     }
 }
