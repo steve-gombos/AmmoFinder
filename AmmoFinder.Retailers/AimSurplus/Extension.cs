@@ -8,13 +8,13 @@ namespace AmmoFinder.Retailers.AimSurplus
 {
     public static class Extension
     {
-        public static readonly Uri BaseUrl = new Uri("https://web.aimsurplus.com/");
+        public const string BaseUrl = "https://web.aimsurplus.com/";
 
         public static IServiceCollection AddAimSurplusClient(this IServiceCollection services)
         {
             services.AddHttpClient<IProductService, ProductService>(RetailerNames.AimSurplus, config =>
                 {
-                    config.BaseAddress = BaseUrl;
+                    config.BaseAddress = new Uri(BaseUrl);
                     config.DefaultRequestHeaders.Add("Accept", "application/json");
                 })
                 .AddPolicyHandler(RateLimiterAsyncPolicy<HttpResponseMessage>.Create(25, TimeSpan.FromMinutes(1)));

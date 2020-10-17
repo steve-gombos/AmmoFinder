@@ -9,13 +9,13 @@ namespace AmmoFinder.Retailers.Cabelas
 {
     public static class Extension
     {
-        public static readonly Uri BaseUrl = new Uri("https://www.cabelas.com/shop/");
+        public const string BaseUrl = "https://www.cabelas.com/shop/";
 
         public static IServiceCollection AddCabelasClient(this IServiceCollection services)
         {
             services.AddHttpClient<IProductService, ProductService>(RetailerNames.Cabelas, client =>
                 {
-                    client.BaseAddress = BaseUrl;
+                    client.BaseAddress = new Uri(BaseUrl);
                     client.DefaultRequestHeaders.Add("Accept", "text/html");
                     client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip, deflate, br");
                     client.DefaultRequestHeaders.Add("Origin", "https://www.cabelas.com");
