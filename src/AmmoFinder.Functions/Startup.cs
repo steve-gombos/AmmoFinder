@@ -26,7 +26,6 @@ namespace AmmoFinder.Functions
 
             builder.Services.AddProductPersistence(context.Configuration.GetConnectionString("Products"));
             builder.Services.AddRetailers();
-            builder.Services.AddLogging();
         }
 
         public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
