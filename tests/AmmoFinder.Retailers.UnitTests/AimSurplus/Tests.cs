@@ -2,6 +2,8 @@
 using AmmoFinder.Retailers.AimSurplus;
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Moq;
 using RichardSzalay.MockHttp;
 using System.IO;
 using System.Linq;
@@ -59,6 +61,7 @@ namespace AmmoFinder.Retailers.UnitTests.AimSurplus
         {
             // Arrange
             var mapper = CreateMapper();
+            var mockedLogger = new Mock<ILogger<ProductService>>();
             var mockedHttp = new MockHttpMessageHandler();
             mockedHttp.When(Extension.BaseUrl + "search/?q=null&g=6&category=30&filter=&sort_by=best&page=1&mode=category")
                 .Respond("application/json", File.OpenRead("AimSurplus/products-1.json"));
@@ -68,7 +71,7 @@ namespace AmmoFinder.Retailers.UnitTests.AimSurplus
                 .Respond("text/html", File.OpenRead("AimSurplus/product-detail.html"));
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
-            var productService = new ProductService(mockedHttpClient, mapper);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
 
             // Act
             var products = await productService.Fetch();
@@ -82,10 +85,11 @@ namespace AmmoFinder.Retailers.UnitTests.AimSurplus
         {
             // Arrange
             var mapper = CreateMapper();
+            var mockedLogger = new Mock<ILogger<ProductService>>();
             var mockedHttp = new MockHttpMessageHandler();
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
-            var productService = new ProductService(mockedHttpClient, mapper);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
 
             // Act
             var products = await productService.Fetch();

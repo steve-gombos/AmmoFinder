@@ -1,11 +1,15 @@
-﻿using AmmoFinder.Common.Models;
+﻿using AmmoFinder.Common.Extensions;
+using AmmoFinder.Common.Models;
 using AngleSharp;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 using AutoMapper;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace AmmoFinder.Retailers.BulkAmmo
@@ -25,17 +29,21 @@ namespace AmmoFinder.Retailers.BulkAmmo
 
         private readonly HttpClient _httpClient;
         private readonly IMapper _mapper;
+        private readonly ILogger<ProductService> _logger;
 
-        public ProductService(HttpClient httpClient, IMapper mapper) : base(httpClient, mapper)
+        public ProductService(HttpClient httpClient, IMapper mapper, ILogger<ProductService> logger) : base(httpClient, mapper, logger)
         {
             _httpClient = httpClient;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public override string Retailer => RetailerNames.BulkAmmo;
 
         public async override Task<IEnumerable<ProductModel>> Fetch()
         {
+            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
+
             var products = new List<ProductModel>();
 
             foreach (var category in _categories)
@@ -44,6 +52,8 @@ namespace AmmoFinder.Retailers.BulkAmmo
 
                 products.AddRange(categoryProducts);
             }
+
+            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}; Product Count: {products.Count()}");
 
             return products;
         }
@@ -55,7 +65,10 @@ namespace AmmoFinder.Retailers.BulkAmmo
             var response = await _httpClient.GetAsync($"{category}?limit=all", HttpCompletionOption.ResponseHeadersRead);
 
             if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
                 return products;
+            }
 
             var source = await response.Content.ReadAsStringAsync();
 
@@ -78,10 +91,15 @@ namespace AmmoFinder.Retailers.BulkAmmo
 
         private async Task<string> GetProductDetails(string url)
         {
+            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
+
             var response = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
 
             if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
                 return string.Empty;
+            }
 
             var source = await response.Content.ReadAsStringAsync();
 
@@ -89,6 +107,8 @@ namespace AmmoFinder.Retailers.BulkAmmo
             var document = await context.OpenAsync(req => req.Content(source));
 
             var details = document.QuerySelector<IHtmlDivElement>("div.std").Text();
+
+            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}");
 
             return details;
         }

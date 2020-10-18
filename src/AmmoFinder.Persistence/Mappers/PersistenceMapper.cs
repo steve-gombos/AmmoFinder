@@ -8,8 +8,11 @@ namespace AmmoFinder.Persistence.Mappers
     {
         public PersistenceMapper()
         {
-            CreateMap<ProductModel, Product>().ReverseMap();
-            CreateMap<RetailerModel, Retailer>().ReverseMap();
+            CreateMap<ProductModel, Product>()
+                .ForMember(dest => dest.UpdatedOn, opt => opt.Ignore())
+                .ReverseMap();
+            CreateMap<RetailerModel, Retailer>()
+                .ReverseMap();
         }
     }
 }

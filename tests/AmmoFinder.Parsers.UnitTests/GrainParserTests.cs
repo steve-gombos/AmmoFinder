@@ -12,6 +12,7 @@ namespace AmmoFinder.UnitTests.Parsers
         [InlineData("Federal Range Target Practice .45Auto 230grn FMJ (RTP45230) 50rd box", "230")]
         [InlineData("Red Army Standard 7.62x54R FMJ 148grn", "148")]
         [InlineData("1000 Rounds of .25 ACP Ammo by Aguila - 50gr FMJ", "50")]
+        //[InlineData("120 Grain", "120")]
         public void Grain_IsValid(string input, string expected)
         {
             // Arrange

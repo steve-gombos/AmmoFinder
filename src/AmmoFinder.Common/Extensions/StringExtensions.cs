@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AmmoFinder.Common.Extensions
 {
@@ -40,6 +41,53 @@ namespace AmmoFinder.Common.Extensions
                 }
             }
             return false;
+        }
+
+        public static string RightFromIndex(this string value, int startIndex, int maxLength)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return value;
+            }
+
+            var diff = value.Length - startIndex;
+            var maxLengthCorrected = diff < maxLength ? diff : maxLength;
+
+            return value.Substring(startIndex, maxLengthCorrected);
+        }
+
+        public static string LeftFromIndex(this string value, int startIndex, int maxLength)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return value;
+            }
+
+            var maxLengthCorrected = startIndex < maxLength ? startIndex : maxLength;
+            var indexDiff = startIndex - maxLengthCorrected;
+            var startIndexCorrected = indexDiff > 0 ? indexDiff : 0;
+
+            return value.Substring(startIndexCorrected, maxLengthCorrected);
+        }
+
+        public static string GetDigitsUntilWhiteSpace(this string value, bool isLeft = true)
+        {
+            var split = value.Split(" ");
+            if (isLeft)
+            {
+                split = split.Reverse().ToArray();
+            }
+
+            foreach (var set in split)
+            {
+                if (string.IsNullOrWhiteSpace(set))
+                    continue;
+
+                if (set.All(char.IsDigit))
+                    return set;
+            }
+
+            return null;
         }
     }
 }

@@ -3,6 +3,7 @@ using AmmoFinder.Data;
 using AmmoFinder.Data.Models;
 using AutoMapper;
 using EFCore.BulkExtensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,30 +23,39 @@ namespace AmmoFinder.Persistence.Services
             _mapper = mapper;
         }
 
-        public async Task Refresh()
+        public void Refresh()
         {
+            var tasks = new List<Task>();
+
             foreach (var productService in _productServices)
             {
-                var products = await productService.Fetch();
+                tasks.Add(Refresh(productService));
+            }
 
-                var dbProducts = _mapper.Map<IEnumerable<Product>>(products);
+            Task.WaitAll(tasks.ToArray());
+        }
 
-                var retailer = GetOrSetRetailer(productService.Retailer);
+        private async Task Refresh(IProductService productService)
+        {
+            var products = await productService.Fetch();
 
-                foreach (var product in dbProducts)
-                {
-                    product.Retailer = retailer;
-                }
+            var dbProducts = _mapper.Map<IEnumerable<Product>>(products);
 
-                using (var transaction = _productsContext.Database.BeginTransaction())
-                {
-                    _productsContext.Products.Where(p => p.Retailer.Id == retailer.Id).BatchDelete();
-                    _productsContext.BulkInsert(dbProducts.ToList());
+            var retailer = GetOrSetRetailer(productService.Retailer);
 
-                    _productsContext.SaveChanges();
+            foreach (var product in dbProducts)
+            {
+                product.Retailer = retailer;
+            }
 
-                    transaction.Commit();
-                }
+            using (var transaction = _productsContext.Database.BeginTransaction())
+            {
+                _productsContext.Products.Where(p => p.Retailer.Id == retailer.Id).BatchDelete();
+                _productsContext.BulkInsert(dbProducts.ToList());
+
+                _productsContext.SaveChanges();
+
+                transaction.Commit();
             }
         }
 
@@ -57,7 +67,8 @@ namespace AmmoFinder.Persistence.Services
             {
                 var test = _productsContext.Retailers.Add(new Retailer
                 {
-                    Name = retailerName
+                    Name = retailerName,
+                    CreatedOn = DateTime.Now
                 });
 
                 _productsContext.SaveChanges();

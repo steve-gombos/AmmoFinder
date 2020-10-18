@@ -1,13 +1,8 @@
 using AmmoFinder.Common.Interfaces;
 using AmmoFinder.Testing.Extensions;
-using AngleSharp;
-using Microsoft.Azure.Functions.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Moq;
 using System;
-using System.Linq;
 using Xunit;
 
 namespace AmmoFinder.Functions.UnitTests

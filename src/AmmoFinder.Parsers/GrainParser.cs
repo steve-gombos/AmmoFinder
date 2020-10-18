@@ -7,6 +7,7 @@ namespace AmmoFinder.Parsers
     {
         public List<string> SearchIndicators => new List<string>
         {
+            " grain",
             "grain",
             "grn",
             "gr",

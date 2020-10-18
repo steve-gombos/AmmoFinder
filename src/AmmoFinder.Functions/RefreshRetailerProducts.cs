@@ -21,7 +21,7 @@ namespace AmmoFinder.Functions
 
             try
             {
-                _refreshProducts.Refresh().Wait();
+                _refreshProducts.Refresh();
             }
             catch (Exception ex)
             {

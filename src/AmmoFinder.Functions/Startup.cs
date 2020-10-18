@@ -4,6 +4,7 @@ using AmmoFinder.Retailers;
 using AutoMapper;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -25,6 +26,7 @@ namespace AmmoFinder.Functions
 
             builder.Services.AddProductPersistence(context.Configuration.GetConnectionString("Products"));
             builder.Services.AddRetailers();
+            builder.Services.AddLogging();
         }
 
         public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)

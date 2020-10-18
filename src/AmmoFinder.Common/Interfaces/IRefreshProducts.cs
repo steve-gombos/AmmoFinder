@@ -1,9 +1,7 @@
-﻿using System.Threading.Tasks;
-
-namespace AmmoFinder.Common.Interfaces
+﻿namespace AmmoFinder.Common.Interfaces
 {
     public interface IRefreshProducts
     {
-        Task Refresh();
+        void Refresh();
     }
 }

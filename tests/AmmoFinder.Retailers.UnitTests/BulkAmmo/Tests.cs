@@ -2,6 +2,8 @@
 using AmmoFinder.Retailers.BulkAmmo;
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Moq;
 using RichardSzalay.MockHttp;
 using System.IO;
 using System.Linq;
@@ -59,6 +61,7 @@ namespace AmmoFinder.Retailers.UnitTests.BulkAmmo
         {
             // Arrange
             var mapper = CreateMapper();
+            var mockedLogger = new Mock<ILogger<ProductService>>();
             var mockedHttp = new MockHttpMessageHandler();
             mockedHttp.When(Extension.BaseUrl + "handgun?limit=all")
                 .Respond("text/html", File.OpenRead("BulkAmmo/products.html"));
@@ -68,7 +71,7 @@ namespace AmmoFinder.Retailers.UnitTests.BulkAmmo
                 .Respond("text/html", File.OpenRead("BulkAmmo/product-detail.html"));
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
-            var productService = new ProductService(mockedHttpClient, mapper);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
 
             // Act
             var products = await productService.Fetch();
@@ -82,10 +85,11 @@ namespace AmmoFinder.Retailers.UnitTests.BulkAmmo
         {
             // Arrange
             var mapper = CreateMapper();
+            var mockedLogger = new Mock<ILogger<ProductService>>();
             var mockedHttp = new MockHttpMessageHandler();
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
-            var productService = new ProductService(mockedHttpClient, mapper);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
 
             // Act
             var products = await productService.Fetch();

@@ -2,6 +2,8 @@
 using AmmoFinder.Retailers.Cabelas;
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Moq;
 using RichardSzalay.MockHttp;
 using System.IO;
 using System.Linq;
@@ -59,6 +61,7 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
         {
             // Arrange
             var mapper = CreateMapper();
+            var mockedLogger = new Mock<ILogger<ProductService>>();
             var mockedHttp = new MockHttpMessageHandler();
             mockedHttp.When(Extension.BaseUrl + "BVProductListingView?categoryId=3074457345616967890&resultsPerPage=36&storeId=10651")
                 .Respond("text/html", File.OpenRead("Cabelas/products.html"));
@@ -66,7 +69,7 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
                 .Respond("text/html", File.OpenRead("BulkAmmo/product-detail.html"));
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
-            var productService = new ProductService(mockedHttpClient, mapper);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
 
             // Act
             var products = await productService.Fetch();
@@ -80,10 +83,11 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
         {
             // Arrange
             var mapper = CreateMapper();
+            var mockedLogger = new Mock<ILogger<ProductService>>();
             var mockedHttp = new MockHttpMessageHandler();
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
-            var productService = new ProductService(mockedHttpClient, mapper);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
 
             // Act
             var products = await productService.Fetch();
