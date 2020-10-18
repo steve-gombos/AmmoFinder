@@ -5,6 +5,15 @@ namespace AmmoFinder.UnitTests.Parsers
 {
     public class CaliberParserTests
     {
+        //TODO: Create tests
+        /*
+         * --32 win spc
+            --224
+            --308
+            --350
+            --7mm rem mag
+            --280rem
+        */
         [Theory]
         [InlineData("", null)]
 
@@ -50,9 +59,8 @@ namespace AmmoFinder.UnitTests.Parsers
         [InlineData("20 Rounds of .500 S&W Mag Ammo by Armscor - 300 gr XTP", "500 S&W")]
         [InlineData("Sellier & Bellot 7.62x25 Tokarev, FMJ, 85 grn  50rd Box", "7.62x25 Tokarev")]
         [InlineData("CCI Blazer Brass 9mm 115gr FMJ 50rd Box", "9mm")]
-        //These interfere with 9mm search
-        //1000 Rounds of 7.62x39mm Ammo by Tula - 122gr FMJ
-        //750 Rounds of 5.45x39mm Ammo by Wolf WPA - 60gr FMJ
+        [InlineData("1000 Rounds of 7.62x39mm Ammo by Tula - 122gr FMJ", "7.62x39")]
+        [InlineData("750 Rounds of 5.45x39mm Ammo by Wolf WPA - 60gr FMJ", "5.45x39")]
         [InlineData("WOLF 9x18 Makarov FMJ 92grn 50rd Box", "9x18 Makarov")]
 
         //Shotgun
@@ -78,7 +86,7 @@ namespace AmmoFinder.UnitTests.Parsers
         [InlineData("20 Rounds of .300 Win Mag Ammo by Federal - 150gr SP", "300 Win Mag")]
         [InlineData("Prvi Partizan PPU .303 Brit 174grn FMJ 20rd Box", "303 Brit")]
         [InlineData("WPA (Wolf) .303 BRITISH 174grn FMJ 20rd Box", "303 Brit")]
-        [InlineData("Prvi Partizan 308/7.62x51 M80 Mil. Spec. 145grn FMJ 20rd box", "308/7.62")]
+        [InlineData("Prvi Partizan 308/7.62x51 M80 Mil. Spec. 145grn FMJ 20rd box", "308")]
         [InlineData("10 Rounds of .338 Lapua Ammo by Sellier & Bellot - 300 gr HPBT", "338 Lapua")]
         [InlineData("20 Rounds of .375 H&H Mag Ammo by Federal - 300 gr SP", "375 H&H")]
         [InlineData("Prvi 45-70 SJFP 405grn 20rd Box", "45-70")]

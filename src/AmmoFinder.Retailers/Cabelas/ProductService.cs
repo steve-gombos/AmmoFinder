@@ -72,41 +72,38 @@ namespace AmmoFinder.Retailers.Cabelas
 
                 foreach (var attribute in attributeData)
                 {
-                    //var productUrl = productSection.QuerySelector<IHtmlDivElement>("div.product_name").QuerySelector<IHtmlAnchorElement>("a").Href;
-                    //var productDetail = await GetProductDetails(productUrl, attribute);
-                    var mappedProduct = _mapper.Map<ProductModel>(Tuple.Create(productSection, attribute));
-                    products.Add(mappedProduct);
+                    var productUrl = productSection.QuerySelector<IHtmlDivElement>("div.product_name").QuerySelector<IHtmlAnchorElement>("a").Href;
+                    var product = await GetProductDetails(productUrl, attribute);
+                    products.Add(product);
                 }
             }
 
             return products;
         }
 
-        //private async Task<ProductModel> GetProductDetails(string url, AttributeData attributes)
-        //{
-        //    _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
+        private async Task<ProductModel> GetProductDetails(string url, AttributeData attribute)
+        {
+            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
 
-        //    var response = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
+            var response = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
 
-        //    if (!response.IsSuccessStatusCode)
-        //    {
-        //        _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
-        //        return new ProductModel();
-        //    }
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                return new ProductModel();
+            }
 
-        //    var source = await response.Content.ReadAsStringAsync();
+            var source = await response.Content.ReadAsStringAsync();
 
-        //    var context = BrowsingContext.New(Configuration.Default);
-        //    var document = await context.OpenAsync(req => req.Content(source));
+            var context = BrowsingContext.New(Configuration.Default);
+            var document = await context.OpenAsync(req => req.Content(source));
 
-        //    var mainDiv = document.QuerySelector<IHtmlDivElement>($"div#WC_Sku_List_Row_Content_{attributes.catentry_id}");
+            var productModel = _mapper.Map<ProductModel>(Tuple.Create(document, attribute));
+            productModel.Url = url;
 
-        //    var caliber = mainDiv.QuerySelector<IHtmlDivElement>("div.CartridgeorGauge").Text().GetCaliber();
-        //    var grain = mainDiv.QuerySelector<IHtmlDivElement>("div.Grain").Text().GetGrain();
+            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}");
 
-        //    _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}");
-
-        //    return new ProductModel();
-        //}
+            return productModel;
+        }
     }
 }

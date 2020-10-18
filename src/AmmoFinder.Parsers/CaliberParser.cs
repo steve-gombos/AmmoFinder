@@ -1,5 +1,7 @@
-﻿using AmmoFinder.Common.Interfaces;
+﻿using AmmoFinder.Common.Extensions;
+using AmmoFinder.Common.Interfaces;
 using AmmoFinder.Parsers.Models;
+using System.Linq;
 
 namespace AmmoFinder.Parsers
 {
@@ -13,7 +15,13 @@ namespace AmmoFinder.Parsers
             {
                 foreach (var caliber in firearmGrouping.Value)
                 {
-                    foreach (var indicator in caliber.SearchIndicators)
+                    var excludedIndicators = caliber.SearchIndicators.Where(x => x.StartsWith("!")).Select(x => x.Replace("!", ""));
+                    var includedIndicators = caliber.SearchIndicators.Where(x => !x.StartsWith("!"));
+
+                    if (descriptionLower.ContainsAny(excludedIndicators))
+                        continue;
+
+                    foreach (var indicator in includedIndicators)
                     {
                         if (!descriptionLower.Contains(indicator.ToLower()))
                             continue;

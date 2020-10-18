@@ -12,7 +12,7 @@ namespace AmmoFinder.Common.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="values">A variable-length parameters list containing values.</param>
         /// <returns>true if it contains any values, otherwise false.</returns>
-        public static bool ContainsAny(this string @this, List<string> values)
+        public static bool ContainsAny(this string @this, IEnumerable<string> values)
         {
             foreach (string value in values)
             {
@@ -31,7 +31,7 @@ namespace AmmoFinder.Common.Extensions
         /// <param name="comparisonType">Type of the comparison.</param>
         /// <param name="values">A variable-length parameters list containing values.</param>
         /// <returns>true if it contains any values, otherwise false.</returns>
-        public static bool ContainsAny(this string @this, StringComparison comparisonType, List<string> values)
+        public static bool ContainsAny(this string @this, StringComparison comparisonType, IEnumerable<string> values)
         {
             foreach (string value in values)
             {

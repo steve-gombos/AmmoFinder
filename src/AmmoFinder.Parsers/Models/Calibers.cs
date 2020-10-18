@@ -299,7 +299,9 @@ namespace AmmoFinder.Parsers.Models
                             Name = "9mm",
                             SearchIndicators = new List<string>
                             {
-                                "9mm"
+                                "9mm",
+                                "!5.45x39",
+                                "!7.62x39"
                             }
                         },
                     new SearchCriteria
@@ -432,6 +434,14 @@ namespace AmmoFinder.Parsers.Models
                     },
                  new SearchCriteria
                     {
+                        Name = "224",
+                        SearchIndicators = new List<string>
+                        {
+                            "224"
+                        }
+                    },
+                 new SearchCriteria
+                    {
                         Name = "243 Win",
                         SearchIndicators = new List<string>
                         {
@@ -467,7 +477,16 @@ namespace AmmoFinder.Parsers.Models
                         Name = "270 Win",
                         SearchIndicators = new List<string>
                         {
-                            "270win"
+                            "270win",
+                            "270wsmwin"
+                        }
+                    },
+                 new SearchCriteria
+                    {
+                        Name = "280 Rem",
+                        SearchIndicators = new List<string>
+                        {
+                            "280rem"
                         }
                     },
                  new SearchCriteria
@@ -525,7 +544,8 @@ namespace AmmoFinder.Parsers.Models
                         Name = "300 Win Mag",
                         SearchIndicators = new List<string>
                         {
-                            "300win"
+                            "300win",
+                            "300winchestermag"
                         }
                     },
                  new SearchCriteria
@@ -554,20 +574,21 @@ namespace AmmoFinder.Parsers.Models
                     },
                  new SearchCriteria
                     {
-                        Name = "308/7.62",
+                        Name = "308",
                         SearchIndicators = new List<string>
                         {
-                            "308/7.62"
+                            "308"
                         }
                     },
-                 //new SearchCriteria
-                 //   {
-                 //       Name = "32 Win Spc",
-                 //       SearchIndicators = new List<string>
-                 //       {
-                 //           "32winspc"
-                 //       }
-                 //   },
+                 new SearchCriteria
+                    {
+                        Name = "32 Win Special",
+                        SearchIndicators = new List<string>
+                        {
+                            "32winspc",
+                            "32winchesterspecial"
+                        }
+                    },
                  new SearchCriteria
                     {
                         Name = "338 Lapua",
@@ -582,6 +603,15 @@ namespace AmmoFinder.Parsers.Models
                         SearchIndicators = new List<string>
                         {
                             "338winmag"
+                        }
+                    },
+                 new SearchCriteria
+                    {
+                        Name = "350 Legend",
+                        SearchIndicators = new List<string>
+                        {
+                            "350legend",
+                            "350"
                         }
                     },
                  new SearchCriteria
@@ -763,6 +793,14 @@ namespace AmmoFinder.Parsers.Models
                     },
                  new SearchCriteria
                     {
+                        Name = "7x64mm",
+                        SearchIndicators = new List<string>
+                        {
+                            "7x64mm"
+                        }
+                    },
+                 new SearchCriteria
+                    {
                         Name = "7mm Mauser",
                         SearchIndicators = new List<string>
                         {
@@ -775,7 +813,8 @@ namespace AmmoFinder.Parsers.Models
                         Name = "7mm Mag",
                         SearchIndicators = new List<string>
                         {
-                            "7mmmag"
+                            "7mmmag",
+                            "7mmremingtonmagnum"
                         }
                     },
                  new SearchCriteria

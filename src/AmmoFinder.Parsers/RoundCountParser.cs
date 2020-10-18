@@ -33,7 +33,7 @@ namespace AmmoFinder.Parsers
 
                     var right = descriptionLowered
                         .RightFromIndex(index + indicator.Length, VARIANCE)
-                        .Trim().GetDigitsUntilWhiteSpace();
+                        .Trim().GetDigitsUntilWhiteSpace(false);
 
                     if (left != null)
                         return left;

@@ -1,4 +1,5 @@
-﻿using AmmoFinder.Common.Interfaces;
+﻿using AmmoFinder.Common.Extensions;
+using AmmoFinder.Common.Interfaces;
 using System.Collections.Generic;
 
 namespace AmmoFinder.Parsers
@@ -17,21 +18,48 @@ namespace AmmoFinder.Parsers
         {
             var descriptionLower = description.ToLower();
 
+            //foreach (var indicator in SearchIndicators)
+            //{
+            //    if (!descriptionLower.Contains(indicator))
+            //        continue;
+
+            //    var index = descriptionLower.IndexOf(indicator);
+            //    var i = index;
+            //    while (!char.IsWhiteSpace(descriptionLower[i]))
+            //    {
+            //        i--;
+            //    }
+
+            //    var substring = descriptionLower.Substring(i, index - i).Trim();
+
+            //    return substring;
+            //}
+
             foreach (var indicator in SearchIndicators)
             {
-                if (!descriptionLower.Contains(indicator))
-                    continue;
+                var descriptionLowered = description.ToLower();
 
-                var index = descriptionLower.IndexOf(indicator);
-                var i = index;
-                while (!char.IsWhiteSpace(descriptionLower[i]))
+                while (descriptionLowered.Contains(indicator))
                 {
-                    i--;
+                    var index = descriptionLowered.IndexOf(indicator);
+
+                    var left = descriptionLowered
+                        .LeftFromIndex(index, 6)
+                        .Trim().GetDigitsUntilWhiteSpace();
+
+                    var right = descriptionLowered
+                        .RightFromIndex(index + indicator.Length, 6)
+                        .Trim().GetDigitsUntilWhiteSpace(false);
+
+                    if (left != null)
+                        return left;
+
+                    if (right != null)
+                        return right;
+
+                    descriptionLowered = descriptionLowered.Substring(index + indicator.Length);
                 }
 
-                var substring = descriptionLower.Substring(i, index - i).Trim();
-
-                return substring;
             }
 
             return null;
