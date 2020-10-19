@@ -1,4 +1,5 @@
 ﻿using AmmoFinder.Common.Interfaces;
+using AmmoFinder.Retailers;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,12 +38,13 @@ namespace AmmoFinder.Functions.UnitTests
             mockedBuilder.Setup(b => b.Services).Returns(services);
             startup.Configure(mockedBuilder.Object);
             var provider = services.BuildServiceProvider();
+            var expectedCount = typeof(RetailerNames).GetFields().Count();
 
             // Act
             var productServices = provider.GetRequiredService<IEnumerable<IProductService>>();
 
             // Assert
-            Assert.True(productServices.Count() == 3);
+            Assert.Equal(productServices.Count(), expectedCount);
         }
     }
 }
