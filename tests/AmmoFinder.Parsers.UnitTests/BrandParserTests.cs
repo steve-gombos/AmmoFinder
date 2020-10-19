@@ -1,8 +1,7 @@
-﻿using AmmoFinder.Parsers;
-using AmmoFinder.Parsers.Models;
+﻿using AmmoFinder.Parsers.Models;
 using Xunit;
 
-namespace AmmoFinder.UnitTests.Parsers
+namespace AmmoFinder.Parsers.UnitTests
 {
     public class BrandParserTests
     {

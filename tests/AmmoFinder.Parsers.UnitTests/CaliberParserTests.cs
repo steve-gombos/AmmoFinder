@@ -1,7 +1,6 @@
-﻿using AmmoFinder.Parsers;
-using Xunit;
+﻿using Xunit;
 
-namespace AmmoFinder.UnitTests.Parsers
+namespace AmmoFinder.Parsers.UnitTests
 {
     public class CaliberParserTests
     {

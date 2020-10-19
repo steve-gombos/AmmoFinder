@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using Xunit;
 
-namespace AmmoFinder.UnitTests.Common
+namespace AmmoFinder.Common.UnitTests
 {
     public class ExtensionTests
     {
