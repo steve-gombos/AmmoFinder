@@ -31,7 +31,6 @@ namespace AmmoFinder.Parsers.UnitTests
             Assert.Equal(expected, actual);
         }
 
-        //TODO: Fix this, index exceptions
         [Theory]
         [InlineData("test 148grn", "148")]
         public void GrainExtension_IsValid(string input, string expected)
