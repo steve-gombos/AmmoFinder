@@ -8,7 +8,6 @@ namespace AmmoFinder.Parsers
     {
         public List<string> SearchIndicators => new List<string>
         {
-            " grain",
             "grain",
             "grn",
             "gr",
@@ -16,25 +15,6 @@ namespace AmmoFinder.Parsers
 
         public string Parse(string description)
         {
-            var descriptionLower = description.ToLower();
-
-            //foreach (var indicator in SearchIndicators)
-            //{
-            //    if (!descriptionLower.Contains(indicator))
-            //        continue;
-
-            //    var index = descriptionLower.IndexOf(indicator);
-            //    var i = index;
-            //    while (!char.IsWhiteSpace(descriptionLower[i]))
-            //    {
-            //        i--;
-            //    }
-
-            //    var substring = descriptionLower.Substring(i, index - i).Trim();
-
-            //    return substring;
-            //}
-
             foreach (var indicator in SearchIndicators)
             {
                 var descriptionLowered = description.ToLower();

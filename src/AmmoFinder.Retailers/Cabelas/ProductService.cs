@@ -1,6 +1,5 @@
 ﻿using AmmoFinder.Common.Extensions;
 using AmmoFinder.Common.Models;
-using AmmoFinder.Parsers;
 using AmmoFinder.Retailers.Cabelas.Models;
 using AngleSharp;
 using AngleSharp.Dom;
