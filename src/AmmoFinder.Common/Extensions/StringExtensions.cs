@@ -6,12 +6,6 @@ namespace AmmoFinder.Common.Extensions
 {
     public static class StringExtensions
     {
-        /// <summary>
-        ///     A string extension method that query if '@this' contains any values.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
-        /// <returns>true if it contains any values, otherwise false.</returns>
         public static bool ContainsAny(this string @this, IEnumerable<string> values)
         {
             foreach (string value in values)
@@ -24,14 +18,7 @@ namespace AmmoFinder.Common.Extensions
             return false;
         }
 
-        /// <summary>
-        ///     A string extension method that query if '@this' contains any values.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="comparisonType">Type of the comparison.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
-        /// <returns>true if it contains any values, otherwise false.</returns>
-        public static bool ContainsAny(this string @this, StringComparison comparisonType, IEnumerable<string> values)
+        public static bool ContainsAny(this string @this, IEnumerable<string> values, StringComparison comparisonType)
         {
             foreach (string value in values)
             {

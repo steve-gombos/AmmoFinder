@@ -16,6 +16,7 @@
     <None Remove="Cabelas\products.html" />
     <None Remove="Cabelas\productstest.html" />
     <None Remove="LuckyGunner\index.html" />
+    <None Remove="LuckyGunner\products-empty.html" />
     <None Remove="LuckyGunner\products.html" />
   </ItemGroup>
 
@@ -42,6 +43,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LuckyGunner\index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LuckyGunner\products-empty.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LuckyGunner\products.html">

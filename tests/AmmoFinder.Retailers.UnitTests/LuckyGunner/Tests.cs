@@ -67,6 +67,8 @@ namespace AmmoFinder.Retailers.UnitTests.LuckyGunner
                 .Respond("text/html", File.OpenRead("LuckyGunner/index.html"));
             mockedHttp.When("https://www.luckygunner.com/handgun/9mm-ammo?limit=all")
                 .Respond("text/html", File.OpenRead("LuckyGunner/products.html"));
+            mockedHttp.When("https://www.luckygunner.com/handgun/357-magnum-ammo?limit=all")
+                .Respond("text/html", File.OpenRead("LuckyGunner/products-empty.html"));
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
             var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
