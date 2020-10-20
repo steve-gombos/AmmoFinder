@@ -71,14 +71,6 @@ namespace AmmoFinder.Parsers.Models
                 {
                     new SearchCriteria
                         {
-                            Name = "10mm",
-                            SearchIndicators = new List<string>
-                            {
-                                "10mm"
-                            }
-                        },
-                    new SearchCriteria
-                        {
                             Name = "22 TCM",
                             SearchIndicators = new List<string>
                             {
@@ -113,25 +105,44 @@ namespace AmmoFinder.Parsers.Models
                         },
                     new SearchCriteria
                         {
+                            Name = "32 Long",
+                            SearchIndicators = new List<string>
+                            {
+                                "32long",
+                            }
+                        },
+                    new SearchCriteria
+                        {
                             Name = "32 S&W",
                             SearchIndicators = new List<string>
                             {
                                 "32sw",
                                 "32s&w",
-                                "32&amp;w"
+                                "32s&amp;w"
                             }
                         },
-                    //new SearchCriteria
-                    //    {
-                    //        Name = "327 Fed Mag",
-                    //        SearchIndicators = new List<string>
-                    //        {
-                    //            "327fed"
-                    //        }
-                    //    },
                     new SearchCriteria
                         {
-                            Name = "357 Mag",
+                            Name = "32 H&R Magnum",
+                            SearchIndicators = new List<string>
+                            {
+                                "32hr",
+                                "32h&r",
+                                "32h&amp;r"
+                            }
+                        },
+                    new SearchCriteria
+                        {
+                            Name = "327 Magnum",
+                            SearchIndicators = new List<string>
+                            {
+                                "327fed",
+                                "327mag"
+                            }
+                        },
+                    new SearchCriteria
+                        {
+                            Name = "357 Magnum",
                             SearchIndicators = new List<string>
                             {
                                 "357mag",
@@ -152,7 +163,7 @@ namespace AmmoFinder.Parsers.Models
                             {
                                 "38sw",
                                 "38s&w",
-                                "38&amp;w"
+                                "38s&amp;w"
                             }
                         },
                     new SearchCriteria
@@ -174,6 +185,15 @@ namespace AmmoFinder.Parsers.Models
                         },
                     new SearchCriteria
                         {
+                            Name = "38 Long Colt",
+                            SearchIndicators = new List<string>
+                            {
+                                "38lc",
+                                "38longcolt",
+                            }
+                        },
+                    new SearchCriteria
+                        {
                             Name = "380 ACP",
                             SearchIndicators = new List<string>
                             {
@@ -188,20 +208,20 @@ namespace AmmoFinder.Parsers.Models
                             {
                                 "40sw",
                                 "40s&w",
-                                "40&amp;w"
+                                "40s&amp;w"
                             }
                         },
-                    //new SearchCriteria
-                    //    {
-                    //        Name = "41 Rem Mag",
-                    //        SearchIndicators = new List<string>
-                    //        {
-                    //            "41remmag"
-                    //        }
-                    //    },
                     new SearchCriteria
                         {
-                            Name = "44 Mag",
+                            Name = "41 Rem Magnum",
+                            SearchIndicators = new List<string>
+                            {
+                                "41remmag"
+                            }
+                        },
+                    new SearchCriteria
+                        {
+                            Name = "44 Magnum",
                             SearchIndicators = new List<string>
                             {
                                 "44mag",
@@ -234,14 +254,15 @@ namespace AmmoFinder.Parsers.Models
                                 "45gap"
                             }
                         },
-                    //new SearchCriteria
-                    //    {
-                    //        Name = "45 LC",
-                    //        SearchIndicators = new List<string>
-                    //        {
-                    //            "45lc"
-                    //        }
-                    //    },
+                    new SearchCriteria
+                        {
+                            Name = "45 Long Colt",
+                            SearchIndicators = new List<string>
+                            {
+                                "45lc",
+                                "45longcolt"
+                            }
+                        },
                     new SearchCriteria
                         {
                             Name = "454 Casull",
@@ -250,16 +271,24 @@ namespace AmmoFinder.Parsers.Models
                                 "454casull"
                             }
                         },
-                    //new SearchCriteria
-                    //    {
-                    //        Name = "460 S&W",
-                    //        SearchIndicators = new List<string>
-                    //        {
-                    //            "460sw",
-                    //            "460s&w",
-                    //            "460&amp;w"
-                    //        }
-                    //    },
+                    new SearchCriteria
+                        {
+                            Name = "460 S&W",
+                            SearchIndicators = new List<string>
+                            {
+                                "460sw",
+                                "460s&w",
+                                "460s&amp;w"
+                            }
+                        },
+                    new SearchCriteria
+                        {
+                            Name = "480 Ruger",
+                            SearchIndicators = new List<string>
+                            {
+                                "480"
+                            }
+                        },
                     new SearchCriteria
                         {
                             Name = "5.7x28",
@@ -268,14 +297,14 @@ namespace AmmoFinder.Parsers.Models
                                 "5.7x28"
                             }
                         },
-                    //new SearchCriteria
-                    //    {
-                    //        Name = "50 AE",
-                    //        SearchIndicators = new List<string>
-                    //        {
-                    //            "50ae"
-                    //        }
-                    //    },
+                    new SearchCriteria
+                        {
+                            Name = "50 AE",
+                            SearchIndicators = new List<string>
+                            {
+                                "50ae"
+                            }
+                        },
                     new SearchCriteria
                         {
                             Name = "500 S&W",
@@ -283,7 +312,7 @@ namespace AmmoFinder.Parsers.Models
                             {
                                 "500sw",
                                 "500s&w",
-                                "500&amp;w"
+                                "500s&amp;w"
                             }
                         },
                     new SearchCriteria
@@ -310,6 +339,14 @@ namespace AmmoFinder.Parsers.Models
                             SearchIndicators = new List<string>
                             {
                                 "9x18makarov"
+                            }
+                        },
+                    new SearchCriteria
+                        {
+                            Name = "10mm",
+                            SearchIndicators = new List<string>
+                            {
+                                "10mm"
                             }
                         }
                 });

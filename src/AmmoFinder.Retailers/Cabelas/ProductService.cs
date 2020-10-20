@@ -72,8 +72,8 @@ namespace AmmoFinder.Retailers.Cabelas
                 foreach (var attribute in attributeData)
                 {
                     var productUrl = productSection.QuerySelector<IHtmlDivElement>("div.product_name").QuerySelector<IHtmlAnchorElement>("a").Href;
-                    var product = await GetProductDetails(productUrl, attribute);
-                    products.Add(product);
+                    var mappedProduct = await GetProductDetails(productUrl, attribute);
+                    products.Add(mappedProduct);
                 }
             }
 
@@ -97,12 +97,12 @@ namespace AmmoFinder.Retailers.Cabelas
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(source));
 
-            var productModel = _mapper.Map<ProductModel>(Tuple.Create(document, attribute));
-            productModel.Url = url;
+            var product = _mapper.Map<Product>(Tuple.Create(document, attribute));
+            product.Url = url;
 
             _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}");
 
-            return productModel;
+            return product;
         }
     }
 }

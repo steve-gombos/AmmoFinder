@@ -21,12 +21,13 @@ namespace AmmoFinder.Retailers.UnitTests
                 })
                 .AddRetailers()
                 .BuildServiceProvider();
+            var expectedCount = typeof(RetailerNames).GetFields().Count();
 
             // Act
             var productServices = provider.GetRequiredService<IEnumerable<IProductService>>();
 
             // Assert
-            Assert.True(productServices.Count() == 3);
+            Assert.Equal(expectedCount, productServices.Count());
         }
     }
 }

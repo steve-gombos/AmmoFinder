@@ -1,6 +1,7 @@
 ﻿using AmmoFinder.Retailers.AimSurplus;
 using AmmoFinder.Retailers.BulkAmmo;
 using AmmoFinder.Retailers.Cabelas;
+using AmmoFinder.Retailers.LuckyGunner;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AmmoFinder.Retailers
@@ -12,6 +13,7 @@ namespace AmmoFinder.Retailers
             services.AddAimSurplusClient();
             services.AddBulkAmmoClient();
             services.AddCabelasClient();
+            services.AddLuckyGunnerClient();
 
             return services;
         }

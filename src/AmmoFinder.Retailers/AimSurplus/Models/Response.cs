@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 namespace AmmoFinder.Retailers.AimSurplus.Models
 {
     [ExcludeFromCodeCoverage]
-    public partial class Response
+    internal partial class Response
     {
         [JsonPropertyName("page")]
         [JsonConverter(typeof(LongConverter))]
@@ -36,7 +36,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
     }
 
     [ExcludeFromCodeCoverage]
-    public partial class Category
+    internal partial class Category
     {
         [JsonPropertyName("parents")]
         public object[] Parents { get; set; }
@@ -49,7 +49,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
     }
 
     [ExcludeFromCodeCoverage]
-    public partial class Child
+    internal partial class Child
     {
         [JsonPropertyName("bc_id")]
         public long BcId { get; set; }
@@ -65,7 +65,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
     }
 
     [ExcludeFromCodeCoverage]
-    public partial class Facet
+    internal partial class Facet
     {
         [JsonPropertyName("id")]
         public long Id { get; set; }
@@ -107,7 +107,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
     }
 
     [ExcludeFromCodeCoverage]
-    public partial class Option
+    internal partial class Option
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -120,7 +120,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
     }
 
     [ExcludeFromCodeCoverage]
-    public partial class Product
+    internal partial class Product
     {
         [JsonPropertyName("id")]
         public long Id { get; set; }
@@ -163,7 +163,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
     }
 
     [ExcludeFromCodeCoverage]
-    public partial class CreatedAt
+    internal partial class CreatedAt
     {
         [JsonPropertyName("date")]
         [JsonConverter(typeof(DateTimeConverter))]
@@ -177,10 +177,10 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
         public Timezone Timezone { get; set; }
     }
 
-    public enum Timezone { AmericaNewYork };
+    internal enum Timezone { AmericaNewYork };
 
     [ExcludeFromCodeCoverage]
-    public class TimeZoneConverter : JsonConverter<Timezone>
+    internal class TimeZoneConverter : JsonConverter<Timezone>
     {
         public override Timezone Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
