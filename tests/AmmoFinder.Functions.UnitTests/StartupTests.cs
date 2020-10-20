@@ -44,7 +44,7 @@ namespace AmmoFinder.Functions.UnitTests
             var productServices = provider.GetRequiredService<IEnumerable<IProductService>>();
 
             // Assert
-            Assert.Equal(productServices.Count(), expectedCount);
+            Assert.Equal(expectedCount, productServices.Count());
         }
     }
 }

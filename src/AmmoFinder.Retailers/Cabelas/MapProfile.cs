@@ -1,11 +1,9 @@
-﻿using AmmoFinder.Common.Models;
-using AmmoFinder.Parsers;
+﻿using AmmoFinder.Parsers;
 using AmmoFinder.Retailers.Cabelas.Models;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 using AutoMapper;
 using System;
-using System.Linq;
 
 namespace AmmoFinder.Retailers.Cabelas
 {
@@ -13,7 +11,7 @@ namespace AmmoFinder.Retailers.Cabelas
     {
         public MapProfile()
         {
-            CreateMap<Tuple<IDocument, AttributeData>, ProductModel>()
+            CreateMap<Tuple<IDocument, AttributeData>, Product>()
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.Item1.QuerySelector<IHtmlElement>("h1.main_header").Text()))
                 .ForMember(dst => dst.Brand, opt => opt.MapFrom(src => src.Item1.QuerySelector<IHtmlElement>("h1.main_header").Text().GetBrand()))
                 .ForMember(dst => dst.Description, opt => opt.MapFrom(src => src.Item1

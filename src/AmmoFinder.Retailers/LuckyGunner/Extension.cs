@@ -13,7 +13,7 @@ namespace AmmoFinder.Retailers.LuckyGunner
 
         public static IServiceCollection AddLuckyGunnerClient(this IServiceCollection services)
         {
-            services.AddHttpClient<IProductService, ProductService>(RetailerNames.BulkAmmo, client =>
+            services.AddHttpClient<IProductService, ProductService>(RetailerNames.LuckyGunner, client =>
                 {
                     client.BaseAddress = new Uri(BaseUrl);
                     client.DefaultRequestHeaders.Add("Accept", "text/html");

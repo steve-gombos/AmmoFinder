@@ -83,7 +83,7 @@ namespace AmmoFinder.Common.Extensions
                 if (string.IsNullOrWhiteSpace(set))
                     continue;
 
-                if (set.All(char.IsDigit))
+                if (double.TryParse(set, out var _))
                     return set;
             }
 

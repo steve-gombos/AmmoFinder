@@ -1,5 +1,6 @@
 ﻿using AmmoFinder.Common.Extensions;
 using AmmoFinder.Common.Models;
+using AmmoFinder.Retailers.BulkAmmo.Models;
 using AngleSharp;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
@@ -81,7 +82,7 @@ namespace AmmoFinder.Retailers.BulkAmmo
             {
                 var productUrl = productSection.QuerySelector<IHtmlAnchorElement>("a.product-name").Href;
                 var details = await GetProductDetails(productUrl);
-                var mappedProduct = _mapper.Map<ProductModel>(Tuple.Create(productSection, details));
+                var mappedProduct = _mapper.Map<Product>(Tuple.Create(productSection, details));
 
                 products.Add(mappedProduct);
             }

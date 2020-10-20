@@ -1,5 +1,6 @@
 ﻿select * from products
-where retailerId = 3
+where brand is null
+--where retailerId = 3
 --where name like '%cci%'
 --where name like '%sierra%'
 --where name like '%30cal%'

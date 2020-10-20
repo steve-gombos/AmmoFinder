@@ -3,6 +3,7 @@ using AmmoFinder.Data;
 using AmmoFinder.Data.Models;
 using AutoMapper;
 using EFCore.BulkExtensions;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,16 +16,20 @@ namespace AmmoFinder.Persistence.Services
         private readonly IEnumerable<IProductService> _productServices;
         private readonly ProductsContext _productsContext;
         private readonly IMapper _mapper;
+        private readonly ILogger<RefreshProducts> _logger;
 
-        public RefreshProducts(IEnumerable<IProductService> productServices, ProductsContext productsContext, IMapper mapper)
+        public RefreshProducts(IEnumerable<IProductService> productServices, ProductsContext productsContext, IMapper mapper, ILogger<RefreshProducts> logger)
         {
             _productServices = productServices;
             _productsContext = productsContext;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public void Refresh()
         {
+            _logger.LogInformation($"Started product refresh for all retailers");
+
             var tasks = new List<Task>();
 
             foreach (var productService in _productServices)
@@ -33,10 +38,14 @@ namespace AmmoFinder.Persistence.Services
             }
 
             Task.WaitAll(tasks.ToArray());
+
+            _logger.LogInformation($"Completed product refresh for all retailers");
         }
 
         private async Task Refresh(IProductService productService)
         {
+            _logger.LogInformation($"Started Refresh Products; Retailer: {productService.Retailer}");
+
             var products = await productService.Fetch();
 
             var dbProducts = _mapper.Map<IEnumerable<Product>>(products);
@@ -57,10 +66,14 @@ namespace AmmoFinder.Persistence.Services
 
                 transaction.Commit();
             }
+
+            _logger.LogInformation($"Completed Refresh Products; Retailer: {productService.Retailer}");
         }
 
         private Retailer GetOrSetRetailer(string retailerName)
         {
+            _logger.LogInformation($"Started {nameof(GetOrSetRetailer)}; Retailer: {retailerName}");
+
             var retailer = _productsContext.Retailers.FirstOrDefault(r => r.Name == retailerName);
 
             if (retailer == null)
@@ -74,7 +87,11 @@ namespace AmmoFinder.Persistence.Services
                 _productsContext.SaveChanges();
 
                 retailer = test.Entity;
+
+                _logger.LogInformation($"Added retailer: {retailerName}");
             }
+
+            _logger.LogInformation($"Completed {nameof(GetOrSetRetailer)}; Retailer: {retailerName}");
 
             return retailer;
         }

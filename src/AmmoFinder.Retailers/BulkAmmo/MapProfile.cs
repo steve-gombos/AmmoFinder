@@ -1,5 +1,5 @@
-﻿using AmmoFinder.Common.Models;
-using AmmoFinder.Parsers;
+﻿using AmmoFinder.Parsers;
+using AmmoFinder.Retailers.BulkAmmo.Models;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 using AutoMapper;
@@ -9,9 +9,9 @@ namespace AmmoFinder.Retailers.BulkAmmo
 {
     public class MapProfile : Profile
     {
-        public MapProfile()
+        public MapProfile() : base(RetailerNames.BulkAmmo)
         {
-            CreateMap<IHtmlListItemElement, ProductModel>()
+            CreateMap<IHtmlListItemElement, Product>()
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.QuerySelector<IHtmlAnchorElement>("a.product-name").Text))
                 .ForMember(dst => dst.Description, opt => opt.MapFrom(src => src.QuerySelector<IHtmlAnchorElement>("a.product-name").Text))
                 .ForMember(dst => dst.IsAvailable, opt => opt.MapFrom(src => !string.IsNullOrEmpty(src.QuerySelector<IHtmlSpanElement>("span.stock-qty").Text())))
@@ -26,7 +26,7 @@ namespace AmmoFinder.Retailers.BulkAmmo
                 .ForMember(dst => dst.RetailerProductId, opt => opt.MapFrom(src => src.QuerySelector<IHtmlAnchorElement>("a.product-name").Text.Replace(" ", "-")))
                 .ForAllOtherMembers(opt => opt.Ignore());
 
-            CreateMap<Tuple<IHtmlListItemElement, string>, ProductModel>()
+            CreateMap<Tuple<IHtmlListItemElement, string>, Product>()
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.Item1.QuerySelector<IHtmlAnchorElement>("a.product-name").Text))
                 .ForMember(dst => dst.Description, opt => opt.MapFrom(src => src.Item1.QuerySelector<IHtmlAnchorElement>("a.product-name").Text))
                 .ForMember(dst => dst.IsAvailable, opt => opt.MapFrom(src => !string.IsNullOrEmpty(src.Item1.QuerySelector<IHtmlSpanElement>("span.stock-qty").Text())))
