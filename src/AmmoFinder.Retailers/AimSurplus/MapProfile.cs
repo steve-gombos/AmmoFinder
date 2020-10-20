@@ -8,7 +8,7 @@ namespace AmmoFinder.Retailers.AimSurplus
 {
     public class MapProfile : Profile
     {
-        public MapProfile() : base(RetailerNames.AimSurplus)
+        public MapProfile()
         {
             CreateMap<Product, ProductModel>()
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.Name))

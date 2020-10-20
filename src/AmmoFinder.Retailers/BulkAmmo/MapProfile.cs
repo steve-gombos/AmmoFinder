@@ -9,7 +9,7 @@ namespace AmmoFinder.Retailers.BulkAmmo
 {
     public class MapProfile : Profile
     {
-        public MapProfile() : base(RetailerNames.BulkAmmo)
+        public MapProfile()
         {
             CreateMap<IHtmlListItemElement, Product>()
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.QuerySelector<IHtmlAnchorElement>("a.product-name").Text))
