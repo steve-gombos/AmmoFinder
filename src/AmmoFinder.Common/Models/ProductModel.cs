@@ -10,7 +10,7 @@ namespace AmmoFinder.Common.Models
         public bool IsAvailable { get; set; }
         public long Inventory { get; set; }
         public decimal Price { get; set; }
-        public int RoundCount { get; set; }
+        public string RoundCount { get; set; }
         public string RoundType { get; set; }
         public string Caliber { get; set; }
         public string Casing { get; set; }

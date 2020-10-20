@@ -1,5 +1,6 @@
 ﻿using Polly;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace AmmoFinder.RateLimiter
@@ -11,6 +12,7 @@ namespace AmmoFinder.RateLimiter
     {
         private readonly int _limitCount;
         private readonly TimeSpan _limitTime;
+        private readonly List<DateTimeOffset> _callLog = new List<DateTimeOffset>();
 
         /* This is the non-generic ProactiveFooPolicy for synchronous executions.
          * With this policy, users can execute void-returning Actions, using .Execute(...),
@@ -46,6 +48,7 @@ namespace AmmoFinder.RateLimiter
                 action,
                 context,
                 cancellationToken,
+                _callLog,
                 _limitCount,
                 _limitTime);
         }

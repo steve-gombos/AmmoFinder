@@ -1,5 +1,6 @@
 ﻿using Polly;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,6 +13,7 @@ namespace AmmoFinder.RateLimiter
     {
         private readonly int _limitCount;
         private readonly TimeSpan _limitTime;
+        private readonly List<DateTimeOffset> _callLog = new List<DateTimeOffset>();
 
         /* This is the non-generic ProactiveFooPolicy for asynchronous executions.
          * With this policy, users can asynchronously execute Task-returning methods, using .ExecuteAsync(...),
@@ -50,6 +52,7 @@ namespace AmmoFinder.RateLimiter
                 context,
                 cancellationToken,
                 continueOnCapturedContext,
+                _callLog,
                 _limitCount,
                 _limitTime);
         }

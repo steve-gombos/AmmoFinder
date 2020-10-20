@@ -16,14 +16,14 @@ namespace AmmoFinder.Functions
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            var context = builder.GetContext();
+            var configuration = builder.GetContext().Configuration;
 
             builder.Services.AddAutoMapper(config =>
             {
                 config.AddMaps(new List<Assembly> { typeof(ProductServiceBase).Assembly, typeof(RefreshProducts).Assembly });
             });
 
-            builder.Services.AddProductPersistence(context.Configuration.GetConnectionString("Products"));
+            builder.Services.AddProductPersistence(configuration.GetConnectionString("Products"));
             builder.Services.AddRetailers();
         }
 

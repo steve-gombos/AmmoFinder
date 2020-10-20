@@ -23,7 +23,7 @@ namespace AmmoFinder.Api.UnitTests
                     IsAvailable = true,
                     Name = "9mm Ammo",
                     Price = 10.99m,
-                    RoundCount = 50,
+                    RoundCount = "50",
                     RoundType = "FMJ",
                     UpdatedOn = DateTime.Now,
                     Url = "https://test.test/test-product"

@@ -23,7 +23,7 @@ namespace AmmoFinder.Data.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
-        public int RoundCount { get; set; }
+        public string RoundCount { get; set; }
 
         public string RoundType { get; set; }
 
