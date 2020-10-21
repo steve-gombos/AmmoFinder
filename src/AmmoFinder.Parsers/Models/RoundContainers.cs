@@ -1,6 +1,6 @@
 ﻿namespace AmmoFinder.Parsers.Models
 {
-    public class RoundContainers
+    public static class RoundContainers
     {
         public const string Box = "Box";
         public const string Can = "Can";

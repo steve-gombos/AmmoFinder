@@ -15,7 +15,7 @@ namespace AmmoFinder.RateLimiter.UnitTests
              * This test is for illustrative purposes, to show the interfaces a typical asynchronous non-generic policy fulfills.
              * Real tests should check policy behaviour.
              */
-            RateLimiterAsyncPolicy policy = RateLimiterAsyncPolicy.Create(2, TimeSpan.FromSeconds(30));
+            RateLimiterAsyncPolicy policy = RateLimiterAsyncPolicy.Create(2, TimeSpan.FromSeconds(10));
 
             policy.Should().BeAssignableTo<IAsyncPolicy>();
             policy.Should().BeAssignableTo<IRateLimiterPolicy>();
@@ -25,7 +25,7 @@ namespace AmmoFinder.RateLimiter.UnitTests
         public async Task PolicyExecutesThePassedDelegate()
         {
             bool executed = false;
-            RateLimiterAsyncPolicy policy = RateLimiterAsyncPolicy.Create(2, TimeSpan.FromSeconds(30));
+            RateLimiterAsyncPolicy policy = RateLimiterAsyncPolicy.Create(1, TimeSpan.FromSeconds(10));
 
             await policy.ExecuteAsync(() =>
             {

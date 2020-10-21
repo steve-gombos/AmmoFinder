@@ -12,15 +12,15 @@ namespace AmmoFinder.Api.Controllers
         [HttpGet("cartridge-types")]
         public ActionResult<Dictionary<string, IEnumerable<string>>> GetCalibers()
         {
-            var Calibers = new Calibers().ToDictionary(k => k.Key, v => v.Value.Select(x => x.Name));
+            var calibers = new Calibers().ToDictionary(k => k.Key, v => v.Value.Select(x => x.Name));
 
-            return Ok(Calibers);
+            return Ok(calibers);
         }
 
         [HttpGet("brands")]
         public ActionResult<IEnumerable<string>> GetBrands()
         {
-            var brands = typeof(Brands).GetFields().Where(x => (x.GetValue(x) is string)).Select(x => (string)x.GetValue(x));
+            var brands = typeof(Brands).GetFields().Where(x => x.GetValue(x) is string).Select(x => (string)x.GetValue(x));
 
             return Ok(brands);
         }

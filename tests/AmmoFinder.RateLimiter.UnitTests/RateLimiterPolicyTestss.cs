@@ -14,7 +14,7 @@ namespace AmmoFinder.RateLimiter.UnitTests
              * This test is for illustrative purposes, to show the interfaces a typical synchronous non-generic policy fulfills.
              * Real tests should check policy behaviour.
              */
-            RateLimiterPolicy policy = RateLimiterPolicy.Create(2, TimeSpan.FromSeconds(30));
+            RateLimiterPolicy policy = RateLimiterPolicy.Create(2, TimeSpan.FromSeconds(10));
 
             policy.Should().BeAssignableTo<ISyncPolicy>();
             policy.Should().BeAssignableTo<IRateLimiterPolicy>();
@@ -24,7 +24,7 @@ namespace AmmoFinder.RateLimiter.UnitTests
         public void PolicyExecutesThePassedDelegate()
         {
             bool executed = false;
-            RateLimiterPolicy policy = RateLimiterPolicy.Create(2, TimeSpan.FromSeconds(30));
+            RateLimiterPolicy policy = RateLimiterPolicy.Create(1, TimeSpan.FromSeconds(10));
 
             policy.Execute(() => executed = true);
 
