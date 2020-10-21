@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AmmoFinder.Data.Migrations
 {
     [DbContext(typeof(ProductsContext))]
-    [Migration("20201018042833_Initial")]
+    [Migration("20201020230514_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,8 +62,8 @@ namespace AmmoFinder.Data.Migrations
                     b.Property<string>("RetailerProductId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RoundCount")
-                        .HasColumnType("int");
+                    b.Property<string>("RoundCount")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RoundType")
                         .HasColumnType("nvarchar(max)");

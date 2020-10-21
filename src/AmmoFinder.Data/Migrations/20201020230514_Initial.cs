@@ -33,7 +33,7 @@ namespace AmmoFinder.Data.Migrations
                     IsAvailable = table.Column<bool>(nullable: false),
                     Inventory = table.Column<long>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    RoundCount = table.Column<int>(nullable: false),
+                    RoundCount = table.Column<string>(nullable: true),
                     RoundType = table.Column<string>(nullable: true),
                     Caliber = table.Column<string>(nullable: true),
                     Casing = table.Column<string>(nullable: true),
