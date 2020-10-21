@@ -1,5 +1,5 @@
 ﻿select * from products
-where caliber is null
+--where caliber is null
 --where caliber is null
 --where name like '%cci%'
 --where name like '%sierra%'

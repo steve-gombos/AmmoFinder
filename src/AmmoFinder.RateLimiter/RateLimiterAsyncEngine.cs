@@ -1,7 +1,6 @@
 ﻿using Polly;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -19,45 +18,11 @@ namespace AmmoFinder.RateLimiter
             TimeSpan limitTime
             )
         {
-            var now = DateTimeOffset.UtcNow;
-
-            lock (callLog)
-            {
-                callLog.Add(now);
-
-                while (callLog.Count > limitCount)
-                    callLog.RemoveAt(0);
-            }
-
-            await LimitDelay(now, callLog, limitCount, limitTime);
+            await Delayer.LimitDelay(callLog, limitCount, limitTime);
 
             TResult result = await action(context, cancellationToken).ConfigureAwait(continueOnCapturedContext);
 
             return result;
-        }
-
-        private static async Task LimitDelay(DateTimeOffset now, List<DateTimeOffset> callLog, int limitCount, TimeSpan limitTime)
-        {
-            if (callLog.Count < limitCount)
-                return;
-
-            var limit = now.Add(-limitTime);
-
-            var lastCall = DateTimeOffset.MinValue;
-            var shouldLock = false;
-
-            lock (callLog)
-            {
-                lastCall = callLog.FirstOrDefault();
-                shouldLock = callLog.Count(x => x >= limit) >= limitCount;
-            }
-
-            var delayTime = shouldLock && (lastCall > DateTimeOffset.MinValue)
-                ? (lastCall - limit)
-                : TimeSpan.Zero;
-
-            if (delayTime > TimeSpan.Zero)
-                await Task.Delay(delayTime);
         }
     }
 }
