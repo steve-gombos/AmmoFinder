@@ -15,7 +15,7 @@ namespace AmmoFinder.RateLimiter
             int limitCount,
             TimeSpan limitTime)
         {
-            Delayer.LimitDelay(callLog, limitCount, limitTime).RunSynchronously();
+            Delayer.LimitDelay(callLog, limitCount, limitTime).Wait();
 
             TResult result = action(context, cancellationToken);
 
