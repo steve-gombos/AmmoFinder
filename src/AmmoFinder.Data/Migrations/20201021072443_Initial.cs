@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AmmoFinder.Data.Migrations
 {
@@ -34,6 +34,7 @@ namespace AmmoFinder.Data.Migrations
                     Inventory = table.Column<long>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     RoundCount = table.Column<string>(nullable: true),
+                    RoundContainer = table.Column<string>(nullable: true),
                     RoundType = table.Column<string>(nullable: true),
                     Caliber = table.Column<string>(nullable: true),
                     Casing = table.Column<string>(nullable: true),

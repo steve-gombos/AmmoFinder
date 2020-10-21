@@ -63,6 +63,7 @@ namespace AmmoFinder.Retailers.BulkAmmo
         {
             var products = new List<ProductModel>();
 
+            //TODO: research param ?mode=list
             var response = await _httpClient.GetAsync($"{category}?limit=all", HttpCompletionOption.ResponseHeadersRead);
 
             if (!response.IsSuccessStatusCode)

@@ -26,7 +26,9 @@ namespace AmmoFinder.Retailers.LuckyGunner
                 .ForMember(dst => dst.Grain, opt => opt.MapFrom(src => src.QuerySelector<IHtmlElement>("h3.product-name")
                     .QuerySelector<IHtmlSpanElement>("span").Text().GetGrain()))
                 .ForMember(dst => dst.RoundCount, opt => opt.MapFrom(src => src.QuerySelector<IHtmlElement>("h3.product-name")
-                    .QuerySelector<IHtmlSpanElement>("span").Text().GetRoundCount()))
+                    .QuerySelector<IHtmlSpanElement>("span").Text().GetRoundCount() ?? src.QuerySelector<IHtmlDivElement>("div.desc.std").OuterHtml.GetRoundCount()))
+                .ForMember(dst => dst.RoundContainer, opt => opt.MapFrom(src => src.QuerySelector<IHtmlElement>("h3.product-name")
+                    .QuerySelector<IHtmlSpanElement>("span").Text().GetRoundContainer() ?? src.QuerySelector<IHtmlDivElement>("div.desc.std").OuterHtml.GetRoundContainer()))
                 .ForMember(dst => dst.RetailerProductId, opt => opt.MapFrom(src => src.QuerySelector<IHtmlElement>("h3.product-name")
                     .QuerySelector<IHtmlSpanElement>("span").Text().Replace(" ", "-")))
                 .ForAllOtherMembers(opt => opt.Ignore());

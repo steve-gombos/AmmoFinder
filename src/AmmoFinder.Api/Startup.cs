@@ -1,3 +1,4 @@
+using AmmoFinder.Common;
 using AmmoFinder.Common.Extensions;
 using AmmoFinder.Data;
 using AmmoFinder.Persistence;
@@ -7,6 +8,7 @@ using AutoMapper;
 using GlobalExceptionHandler.WebApi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.Configuration;
@@ -41,6 +43,7 @@ namespace AmmoFinder.Api
             services.AddControllers(options =>
                 {
                     options.OutputFormatters.RemoveType<StringOutputFormatter>();
+                    options.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer()));
                 })
                 .AddJsonOptions(options =>
                 {

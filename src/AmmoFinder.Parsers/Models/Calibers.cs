@@ -4,6 +4,7 @@ namespace AmmoFinder.Parsers.Models
 {
     public class Calibers : Dictionary<string, IEnumerable<SearchCriteria>>
     {
+        //TODO: Let's refactor this at some point. 
         public Calibers()
         {
             Add("RimFire", new List<SearchCriteria>
@@ -81,7 +82,7 @@ namespace AmmoFinder.Parsers.Models
                     }
                 });
 
-            Add("Pistol", new List<SearchCriteria>
+            Add("Handgun", new List<SearchCriteria>
                 {
                     new SearchCriteria
                         {
@@ -351,6 +352,15 @@ namespace AmmoFinder.Parsers.Models
                         },
                     new SearchCriteria
                         {
+                            Name = "7.63mm Mauser",
+                            SearchIndicators = new List<string>
+                            {
+                                "7.63mmmauser",
+                                "7.63mauser"
+                            }
+                        },
+                    new SearchCriteria
+                        {
                             Name = "9x23mm Winchester",
                             SearchIndicators = new List<string>
                             {
@@ -372,7 +382,8 @@ namespace AmmoFinder.Parsers.Models
                             Name = "9x18 Makarov",
                             SearchIndicators = new List<string>
                             {
-                                "9x18makarov"
+                                "9x18makarov",
+                                "9x18"
                             }
                         },
                     new SearchCriteria
@@ -513,10 +524,10 @@ namespace AmmoFinder.Parsers.Models
                     },
                  new SearchCriteria
                     {
-                        Name = "224",
+                        Name = "224 Valkyrie",
                         SearchIndicators = new List<string>
                         {
-                            "224"
+                            "224valkyrie"
                         }
                     },
                  new SearchCriteria
@@ -755,16 +766,16 @@ namespace AmmoFinder.Parsers.Models
                         }
                     },
                  new SearchCriteria
+                    {
+                        Name = "470 Nitro",
+                        SearchIndicators = new List<string>
                         {
-                            Name = "470 Nitro",
-                            SearchIndicators = new List<string>
-                            {
-                                "470nitro"
-                            }
-                        },
+                            "470nitro"
+                        }
+                    },
                  new SearchCriteria
                     {
-                        Name = "5.45x39",
+                        Name = "5.45x39mm",
                         SearchIndicators = new List<string>
                         {
                             "5.45x39"
@@ -797,10 +808,26 @@ namespace AmmoFinder.Parsers.Models
                     },
                  new SearchCriteria
                     {
+                        Name = "5.6x52mm",
+                        SearchIndicators = new List<string>
+                        {
+                            "5.6x52mm",
+                        }
+                    },
+                 new SearchCriteria
+                    {
                         Name = "6mm Creedmoor",
                         SearchIndicators = new List<string>
                         {
                             "6mmcreedmoor"
+                        }
+                    },
+                 new SearchCriteria
+                    {
+                        Name = "6.5 Carcano",
+                        SearchIndicators = new List<string>
+                        {
+                            "6.5carcano"
                         }
                     },
                  new SearchCriteria
@@ -875,10 +902,18 @@ namespace AmmoFinder.Parsers.Models
                     },
                  new SearchCriteria
                     {
-                        Name = "7.62x39",
+                        Name = "7.62x39mm",
                         SearchIndicators = new List<string>
                         {
                             "7.62x39"
+                        }
+                    },
+                 new SearchCriteria
+                    {
+                        Name = "7.62x38mm Nagant",
+                        SearchIndicators = new List<string>
+                        {
+                            "7.62x38"
                         }
                     },
                  new SearchCriteria

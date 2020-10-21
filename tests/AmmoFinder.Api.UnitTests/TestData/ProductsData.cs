@@ -4,11 +4,11 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace AmmoFinder.Api.UnitTests
+namespace AmmoFinder.Api.UnitTests.TestData
 {
-    public class ProductsTestData : TheoryData<IEnumerable<ProductModel>, Type>
+    public class ProductsData : TheoryData<IEnumerable<ProductModel>, Type>
     {
-        public ProductsTestData()
+        public ProductsData()
         {
             Add(new List<ProductModel>
             {

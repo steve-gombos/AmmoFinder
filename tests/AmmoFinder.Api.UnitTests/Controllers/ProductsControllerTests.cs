@@ -1,4 +1,5 @@
 using AmmoFinder.Api.Controllers;
+using AmmoFinder.Api.UnitTests.TestData;
 using AmmoFinder.Common.Interfaces;
 using AmmoFinder.Common.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -8,11 +9,11 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace AmmoFinder.Api.UnitTests
+namespace AmmoFinder.Api.UnitTests.Controllers
 {
     public class ProductsControllerTests
     {
-        [Theory, ClassData(typeof(ProductsTestData))]
+        [Theory, ClassData(typeof(ProductsData))]
         public async Task GetProducts_ReturnsList(IEnumerable<ProductModel> expected, Type type)
         {
             // Arrange

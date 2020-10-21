@@ -71,7 +71,7 @@ namespace AmmoFinder.Common.Extensions
                     continue;
 
                 if (double.TryParse(set, out var _))
-                    return set;
+                    return set.Replace(",", "");
             }
 
             return null;

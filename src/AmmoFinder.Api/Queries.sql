@@ -1,6 +1,9 @@
-﻿select * from products
---where caliber is null
---where caliber is null
+﻿select distinct CAST(roundcount AS int) from products
+ORDER BY CAST(roundcount AS int)
+
+select * from products
+--where roundtype is null
+--where Caliber is null
 --where name like '%cci%'
 --where name like '%sierra%'
 --where name like '%30cal%'

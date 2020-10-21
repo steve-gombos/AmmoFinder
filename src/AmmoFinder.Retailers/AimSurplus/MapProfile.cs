@@ -22,6 +22,7 @@ namespace AmmoFinder.Retailers.AimSurplus
                 .ForMember(dst => dst.Caliber, opt => opt.MapFrom(src => src.Name.GetCaliber()))
                 .ForMember(dst => dst.Grain, opt => opt.MapFrom(src => src.Name.GetGrain() ?? src.Description.GetGrain()))
                 .ForMember(dst => dst.RoundCount, opt => opt.MapFrom(src => src.Name.GetRoundCount() ?? src.Description.GetRoundCount()))
+                .ForMember(dst => dst.RoundContainer, opt => opt.MapFrom(src => src.Name.GetRoundContainer() ?? src.Description.GetRoundContainer()))
                 .ForMember(dst => dst.RetailerProductId, opt => opt.MapFrom(src => src.Id))
                 .ForAllOtherMembers(opt => opt.Ignore());
 
@@ -37,6 +38,7 @@ namespace AmmoFinder.Retailers.AimSurplus
                 .ForMember(dst => dst.Caliber, opt => opt.MapFrom(src => src.Item1.Name.GetCaliber()))
                 .ForMember(dst => dst.Grain, opt => opt.MapFrom(src => src.Item1.Name.GetGrain() ?? src.Item1.Description.GetGrain()))
                 .ForMember(dst => dst.RoundCount, opt => opt.MapFrom(src => src.Item1.Name.GetRoundCount() ?? src.Item1.Description.GetRoundCount()))
+                .ForMember(dst => dst.RoundContainer, opt => opt.MapFrom(src => src.Item1.Name.GetRoundContainer() ?? src.Item1.Description.GetRoundContainer()))
                 .ForMember(dst => dst.RetailerProductId, opt => opt.MapFrom(src => src.Item1.Id))
                 .ForAllOtherMembers(opt => opt.Ignore());
         }

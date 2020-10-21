@@ -13,10 +13,10 @@ namespace AmmoFinder.Parsers
 
             foreach (var firearmGrouping in new Calibers())
             {
-                foreach (var caliber in firearmGrouping.Value)
+                foreach (var Caliber in firearmGrouping.Value)
                 {
-                    var excludedIndicators = caliber.SearchIndicators.Where(x => x.StartsWith("!")).Select(x => x.Replace("!", ""));
-                    var includedIndicators = caliber.SearchIndicators.Where(x => !x.StartsWith("!"));
+                    var excludedIndicators = Caliber.SearchIndicators.Where(x => x.StartsWith("!")).Select(x => x.Replace("!", ""));
+                    var includedIndicators = Caliber.SearchIndicators.Where(x => !x.StartsWith("!"));
 
                     if (descriptionLower.ContainsAny(excludedIndicators))
                         continue;
@@ -26,7 +26,7 @@ namespace AmmoFinder.Parsers
                         if (!descriptionLower.Contains(indicator.ToLower()))
                             continue;
 
-                        return caliber.Name;
+                        return Caliber.Name;
                     }
                 }
             }

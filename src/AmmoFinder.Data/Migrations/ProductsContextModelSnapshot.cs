@@ -60,6 +60,9 @@ namespace AmmoFinder.Data.Migrations
                     b.Property<string>("RetailerProductId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("RoundContainer")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("RoundCount")
                         .HasColumnType("nvarchar(max)");
 

@@ -14,6 +14,12 @@
             return RoundCount.Parse(description);
         }
 
+        private static RoundContainerParser RoundContainer = new RoundContainerParser();
+        public static string GetRoundContainer(this string description)
+        {
+            return RoundContainer.Parse(description);
+        }
+
         private static GrainParser Grain = new GrainParser();
         public static string GetGrain(this string description)
         {

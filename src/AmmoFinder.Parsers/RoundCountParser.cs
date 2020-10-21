@@ -35,10 +35,10 @@ namespace AmmoFinder.Parsers
                         .RightFromIndex(index + indicator.Length, VARIANCE)
                         .Trim().GetDigitsUntilWhiteSpace(false);
 
-                    if (left != null)
+                    if (left != null && int.Parse(left) % 5 == 0)
                         return left;
 
-                    if (right != null)
+                    if (right != null && int.Parse(right) % 5 == 0)
                         return right;
 
                     descriptionLowered = descriptionLowered.Substring(index + indicator.Length);

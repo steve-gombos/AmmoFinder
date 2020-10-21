@@ -27,6 +27,8 @@ namespace AmmoFinder.Retailers.Cabelas
                     .QuerySelector<IHtmlDivElement>("div.Grain").Text().GetGrain()))
                 .ForMember(dst => dst.RoundCount, opt => opt.MapFrom(src => GetProductDetailsDiv(src.Item1, src.Item2)
                     .QuerySelector<IHtmlDivElement>("div.Quantity").Text().GetRoundCount()))
+                .ForMember(dst => dst.RoundContainer, opt => opt.MapFrom(src => GetProductDetailsDiv(src.Item1, src.Item2)
+                    .QuerySelector<IHtmlDivElement>("div.Quantity").Text().GetRoundContainer()))
                 .ForMember(dst => dst.Price, opt => opt.MapFrom(src => GetProductDetailsDiv(src.Item1, src.Item2)
                     .QuerySelector<IHtmlInputElement>($"input#ProductInfoPrice_{src.Item2.catentry_id}").Value.Replace("$", "")))
                 .ForMember(dst => dst.RetailerProductId, opt => opt.MapFrom(src => src.Item2.productId))

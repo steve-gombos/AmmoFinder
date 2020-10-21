@@ -13,6 +13,7 @@ namespace AmmoFinder.Parsers.UnitTests
         [InlineData("Red Army Standard 7.62x54R FMJ 148grn", null)]
         [InlineData("1000 Rounds of .25 ACP Ammo by Aguila - 50gr FMJ", "1000")]
         [InlineData("Box of 1000 of .25 ACP Ammo by Aguila - 50gr FMJ", "1000")]
+        [InlineData("RED ARMY STANDARD 308 150grn FMJ 20rd Box", "20")]
         public void RoundCount_IsValid(string input, string expected)
         {
             // Arrange
