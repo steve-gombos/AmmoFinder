@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Rewrite;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -58,7 +59,10 @@ namespace AmmoFinder.Api
 
             #endregion Core
 
-            services.AddProductPersistence(Configuration.GetConnectionString("Products"));
+            services.AddProductPersistence(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("Products"));
+            });
             services.AddRetailers();
         }
 

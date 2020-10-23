@@ -4,6 +4,7 @@ namespace AmmoFinder.Common.Models
 {
     public class ProductModel
     {
+        public long Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Brand { get; set; }
@@ -19,5 +20,7 @@ namespace AmmoFinder.Common.Models
         public string Url { get; set; }
         public string RetailerProductId { get; set; }
         public DateTime UpdatedOn { get; set; }
+
+        public RetailerModel Retailer { get; set; }
     }
 }
