@@ -83,6 +83,5 @@ namespace AmmoFinder.Common.UnitTests
             // Assert
             Assert.Equal(expected, actual);
         }
-
     }
 }

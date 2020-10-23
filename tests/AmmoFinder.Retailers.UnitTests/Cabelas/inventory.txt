@@ -1,0 +1,50 @@
+
+		/*
+		{
+		"onlineInventory": 
+			{
+			
+				"3074457345618960344": 
+				{
+					"status": "Out of Stock",
+					"image": "widget_product_info/outofstock_icon.svg",
+					"altText": "Out of Stock",
+					"isDropShip": false ,
+					"quantity": 115,
+					"availableDate":""
+				}
+				,
+				"3074457345618960347": 
+				{
+					"status": "Out of Stock",
+					"image": "widget_product_info/outofstock_icon.svg",
+					"altText": "Out of Stock",
+					"isDropShip": false ,
+					"quantity": 8,
+					"availableDate":""
+				}
+				,
+				"3074457345620166152": 
+				{
+					"status": "In Stock",
+					"image": "widget_product_info/checkmark_icon.svg",
+					"altText": "In-Stock",
+					"isDropShip": false ,
+					"quantity": 30,
+					"availableDate":""
+				}
+				,
+				"3074457345620166153": 
+				{
+					"status": "In Stock",
+					"image": "widget_product_info/checkmark_icon.svg",
+					"altText": "In-Stock",
+					"isDropShip": false ,
+					"quantity": 10,
+					"availableDate":""
+				}
+				
+			}
+		}
+		*/
+	

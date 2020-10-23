@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace AmmoFinder.Retailers.Cabelas
 {
@@ -19,6 +20,11 @@ namespace AmmoFinder.Retailers.Cabelas
                     client.DefaultRequestHeaders.Add("Accept", "text/html");
                     client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip, deflate, br");
                     client.DefaultRequestHeaders.Add("Origin", "https://www.cabelas.com");
+                    client.DefaultRequestHeaders.Add("Host", "www.cabelas.com");
+                    client.DefaultRequestHeaders.CacheControl = new CacheControlHeaderValue
+                    {
+                        NoCache = true
+                    };
                 })
                 .ConfigurePrimaryHttpMessageHandler(config => new HttpClientHandler
                 {

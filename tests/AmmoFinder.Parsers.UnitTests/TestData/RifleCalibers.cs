@@ -15,6 +15,7 @@ namespace AmmoFinder.Parsers.UnitTests.TestData
             Add("20 Rounds of .224 Valkyrie Ammo by Federal American Eagle - 75gr TMJ", "224 Valkyrie");
             Add("20 Rounds of .243 Win Ammo by Black Hills Gold Ammunition - 85gr TSX", "243");
             Add("243 - 70 Grain BlitzKing - Sierra Prairie Enemy - 20 Rounds", "243");
+            Add("Prvi Partizan PPU .264 Win Mag 140grn PSP 20rd Box", "264 Win Mag");
             Add("Prvi Partizan PPU .270 Winchester 150grn SP 20rd Box", "270");
             Add("270 - 150 Grain PP - Winchester Super-X - 20 Rounds", "270");
             Add("1080 Rounds of .30 Carbine Ammo in Ammo Can by Korean Military Surplus - 110gr FMJ", "30 Carbine");
@@ -60,6 +61,11 @@ namespace AmmoFinder.Parsers.UnitTests.TestData
             Add("5.6x52mm Rimmed - 70 Grain FMJ - Sellier & Bellot - 20 Rounds", "5.6x52mm");
             Add("50 Rounds of 7.62x38mm Nagant Ammo by Prvi Partizan - 98gr FMJFN", "7.62x38mm Nagant");
             Add("Prvi Partizan PPU 6.5 Carcano 139grn FMJ 20rd Box", "6.5 Carcano");
+            Add("Prvi Partizan PPU 25.06 90grn JHP 20rd Box", "25-06");
+            Add("Prvi Partizan PPU .22 Remington Jet Magnum 45grn SP 50rd Box", "22 Rem Jet");
+            Add("7.62x51mm - 145 Grain M80 FMJBT - Prvi Partizan - 20 Rounds", "308");
+            Add("6mm ARC - 105 Grain HPBT - Hornady BLACK - 20 Rounds", "6mm ARC");
+            Add(".270 WSM Win Short Mag", "270");
 
         }
     }

@@ -15,6 +15,9 @@ using System.Threading.Tasks;
 
 namespace AmmoFinder.Retailers.LuckyGunner
 {
+    /// <summary>
+    /// LuckGunner only shows "in stock" ammo, so everything collected here should be in stock
+    /// </summary>
     public class ProductService : ProductServiceBase
     {
         private readonly HttpClient _httpClient;

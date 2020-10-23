@@ -3,6 +3,7 @@ using AmmoFinder.RateLimiter;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace AmmoFinder.Retailers.AimSurplus
 {
@@ -12,10 +13,14 @@ namespace AmmoFinder.Retailers.AimSurplus
 
         public static IServiceCollection AddAimSurplusClient(this IServiceCollection services)
         {
-            services.AddHttpClient<IProductService, ProductService>(RetailerNames.AimSurplus, config =>
+            services.AddHttpClient<IProductService, ProductService>(RetailerNames.AimSurplus, client =>
                 {
-                    config.BaseAddress = new Uri(BaseUrl);
-                    config.DefaultRequestHeaders.Add("Accept", "application/json");
+                    client.BaseAddress = new Uri(BaseUrl);
+                    client.DefaultRequestHeaders.Add("Accept", "application/json");
+                    client.DefaultRequestHeaders.CacheControl = new CacheControlHeaderValue
+                    {
+                        NoCache = true
+                    };
                 })
                 .AddPolicyHandler(RateLimiterAsyncPolicy<HttpResponseMessage>.Create(25, TimeSpan.FromMinutes(1)));
 

@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.Api.UnitTests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmmoFinder.RateLimiter.UnitTests", "tests\AmmoFinder.RateLimiter.UnitTests\AmmoFinder.RateLimiter.UnitTests.csproj", "{9FD3AC7C-0A63-4675-8869-829710772529}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmmoFinder.Persistence.UnitTests", "AmmoFinder.Persistence.UnitTests\AmmoFinder.Persistence.UnitTests.csproj", "{68DE0060-9472-4219-A1E8-C9E7517F623D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +105,10 @@ Global
 		{9FD3AC7C-0A63-4675-8869-829710772529}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FD3AC7C-0A63-4675-8869-829710772529}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FD3AC7C-0A63-4675-8869-829710772529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68DE0060-9472-4219-A1E8-C9E7517F623D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68DE0060-9472-4219-A1E8-C9E7517F623D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68DE0060-9472-4219-A1E8-C9E7517F623D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68DE0060-9472-4219-A1E8-C9E7517F623D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -123,6 +129,7 @@ Global
 		{9B7ACB12-A9E3-4E7A-B63E-9CEC8BD24384} = {24D27E12-E159-4379-B553-9159E1A3076C}
 		{7A276C19-19E1-4722-BC12-776599180A8C} = {81DEEFB1-4E9C-4B28-A122-80A408ED3ADA}
 		{9FD3AC7C-0A63-4675-8869-829710772529} = {81DEEFB1-4E9C-4B28-A122-80A408ED3ADA}
+		{68DE0060-9472-4219-A1E8-C9E7517F623D} = {81DEEFB1-4E9C-4B28-A122-80A408ED3ADA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {796E156A-4CF2-45E7-AC76-33F9F8BAB25F}

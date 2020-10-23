@@ -1,16 +1,20 @@
-﻿using AmmoFinder.Common.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using AmmoFinder.Common.Interfaces;
+using AmmoFinder.Common.Models;
 using System;
 using System.Collections.Generic;
-using Xunit;
+using System.Threading.Tasks;
 
-namespace AmmoFinder.Api.UnitTests.TestData
+namespace AmmoFinder.Persistence.UnitTests.Services
 {
-    public class ProductsData : TheoryData<IEnumerable<ProductModel>, Type>
+    public class TestProductService : IProductService
     {
-        public ProductsData()
+        public string Retailer => "Test Retailer";
+
+        public async Task<IEnumerable<ProductModel>> Fetch()
         {
-            Add(new List<ProductModel>
+            await Task.CompletedTask;
+
+            return new List<ProductModel>
             {
                 new ProductModel
                 {
@@ -26,13 +30,11 @@ namespace AmmoFinder.Api.UnitTests.TestData
                     RoundCount = "50",
                     RoundType = "FMJ",
                     RoundContainer = "Box",
-                    RetailerProductId = "Test",
+                    RetailerProductId = Retailer,
                     UpdatedOn = DateTime.Now,
                     Url = "https://test.test/test-product"
                 }
-            }, typeof(OkObjectResult));
-
-            Add(new List<ProductModel>(), typeof(NotFoundResult));
+            };
         }
     }
 }

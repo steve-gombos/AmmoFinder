@@ -14,7 +14,7 @@ namespace AmmoFinder.Retailers.LuckyGunner
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.QuerySelector<IHtmlElement>("h3.product-name")
                     .QuerySelector<IHtmlSpanElement>("span").Text()))
                 .ForMember(dst => dst.Description, opt => opt.MapFrom(src => src.QuerySelector<IHtmlDivElement>("div.desc.std").OuterHtml))
-                .ForMember(dst => dst.IsAvailable, opt => opt.MapFrom(src => !string.IsNullOrEmpty(src.QuerySelector<IHtmlSpanElement>("span.stock-qty").Text())))
+                .ForMember(dst => dst.IsAvailable, opt => opt.MapFrom(src => src.QuerySelector<IHtmlSpanElement>("span.out-of-stock") == null))
                 .ForMember(dst => dst.Inventory, opt => opt.MapFrom(src => src.QuerySelector<IHtmlSpanElement>("span.stock-qty").Text()))
                 .ForMember(dst => dst.Url, opt => opt.MapFrom(src => src.QuerySelector<IHtmlElement>("h3.product-name").QuerySelector<IHtmlAnchorElement>("a").Href))
                 .ForMember(dst => dst.Price, opt => opt.MapFrom(src => decimal.Parse(src.QuerySelector<IHtmlSpanElement>("span.regular-price").Text().Replace("$", ""))))

@@ -1,7 +1,7 @@
-﻿select distinct CAST(roundcount AS int) from products
-ORDER BY CAST(roundcount AS int)
-
-select * from products
+﻿select * from products 
+--where retailerid = 4
+order by inventory desc
+--and RetailerProductId like '%3074457345618960344%'
 --where roundtype is null
 --where Caliber is null
 --where name like '%cci%'

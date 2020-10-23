@@ -3,13 +3,14 @@ using System.Collections.Generic;
 
 namespace AmmoFinder.Parsers
 {
-    public class ProjectileTypeParser : IDataParser
+    public class BulletTypeParser : IDataParser
     {
         public List<string> SearchIndicators => new List<string>
         {
-            "hunting",
-            "fmj",
-            "self defense"
+            "JHP", // Jacketed Hallow Point
+            "FMJ", // Full Metal Jacket
+            "SP", // Soft Point
+            "HP", // Hallow Point
         };
 
         public string Parse(string description)
@@ -18,7 +19,7 @@ namespace AmmoFinder.Parsers
             {
                 var descriptionLower = description.ToLower();
 
-                if (!descriptionLower.Contains(indicator))
+                if (!descriptionLower.Contains(indicator.ToLower()))
                     continue;
 
                 return indicator;
