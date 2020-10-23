@@ -30,7 +30,6 @@ namespace AmmoFinder.Persistence.UnitTests.Services
                 {
                     config.AddProfile<PersistenceMapper>();
                 })
-                .AddLogging()
                 .BuildServiceProvider();
             var mockedLogger = new Mock<ILogger<RefreshProducts>>();
             var productServices = new List<IProductService>{ new TestProductService() };
