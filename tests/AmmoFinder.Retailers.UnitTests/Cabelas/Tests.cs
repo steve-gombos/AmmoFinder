@@ -7,6 +7,7 @@ using Moq;
 using RichardSzalay.MockHttp;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -96,6 +97,30 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
 
             // Assert
             Assert.True(!products.Any());
+        }
+
+        [Fact]
+        public async Task ProductService_InvalidInventory_IsValid()
+        {
+            // Arrange
+            var mapper = CreateMapper();
+            var mockedLogger = new Mock<ILogger<ProductService>>();
+            var mockedHttp = new MockHttpMessageHandler();
+            mockedHttp.When(Extension.BaseUrl + "BVProductListingView?categoryId=3074457345616967890&resultsPerPage=36&storeId=10651")
+                .Respond("text/html", File.OpenRead("Cabelas/products.html"));
+            mockedHttp.When("https://www.cabelas.com/shop/en/winchester-usa-9mm-handgun-ammo")
+                .Respond("text/html", File.OpenRead("Cabelas/product-details.html"));
+            mockedHttp.When("https://www.cabelas.com/shop/BPSGetOnlineInventoryStatusByIDView")
+                .Respond(HttpStatusCode.NotFound);
+            var mockedHttpClient = mockedHttp.ToHttpClient();
+            mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
+
+            // Act
+            var products = await productService.Fetch();
+
+            // Assert
+            Assert.True(products.Any());
         }
     }
 }
