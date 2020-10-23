@@ -69,19 +69,22 @@ namespace AmmoFinder.Retailers.Cabelas
                 var jsonString = productSection.Children.ToCollection().FirstOrDefault(x => x.Id.Contains("entitledItem"));
                 var attributeData = JsonSerializer.Deserialize<IEnumerable<AttributeData>>(jsonString.Text());
 
-                foreach (var attribute in attributeData)
+                var productUrl = productSection.QuerySelector<IHtmlDivElement>("div.product_name").QuerySelector<IHtmlAnchorElement>("a").Href;
+
+                var mappedProducts = await GetProductDetails(productUrl, attributeData);
+
+                if (mappedProducts.Any())
                 {
-                    var productUrl = productSection.QuerySelector<IHtmlDivElement>("div.product_name").QuerySelector<IHtmlAnchorElement>("a").Href;
-                    var mappedProduct = await GetProductDetails(productUrl, attribute);
-                    products.Add(mappedProduct);
+                    products.AddRange(mappedProducts);
                 }
             }
 
             return products;
         }
 
-        private async Task<ProductModel> GetProductDetails(string url, AttributeData attribute)
+        private async Task<IEnumerable<ProductModel>> GetProductDetails(string url, IEnumerable<AttributeData> attributes)
         {
+            var products = new List<ProductModel>();
             _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
 
             var response = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
@@ -89,20 +92,61 @@ namespace AmmoFinder.Retailers.Cabelas
             if (!response.IsSuccessStatusCode)
             {
                 _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
-                return new ProductModel();
+                return products;
             }
 
             var source = await response.Content.ReadAsStringAsync();
-
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(source));
 
-            var product = _mapper.Map<Product>(Tuple.Create(document, attribute));
-            product.Url = url;
+            var inventoryData = await GetInventoryData(attributes.First().productId);
+
+            foreach (var attribute in attributes)
+            {
+                inventoryData.TryGetValue(attribute.catentry_id, out var inventory);
+
+                var product = _mapper.Map<Product>(Tuple.Create(document, attribute, inventory));
+                product.Url = url;
+
+                if (!string.IsNullOrWhiteSpace(product.Name))
+                {
+                    products.Add(product);
+                }
+            }
 
             _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}");
 
-            return product;
+            return products;
+        }
+
+        private async Task<Dictionary<string, InventoryData>> GetInventoryData(string productId)
+        {
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, "BPSGetOnlineInventoryStatusByIDView")
+            {
+                Content = new FormUrlEncodedContent(new List<KeyValuePair<string, string>>
+                {
+                    new KeyValuePair<string, string>("productId", productId),
+                    new KeyValuePair<string, string>("storeId", "10651"),
+                    new KeyValuePair<string, string>("catalogId", "10551"),
+                    new KeyValuePair<string, string>("langId", "-1"),
+                })
+            };
+
+            httpRequest.Headers.Add("Accept", "application/json");
+
+            var response = await _httpClient.SendAsync(httpRequest);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                return new Dictionary<string, InventoryData>();
+            }
+
+            var jsonString = await response.Content.ReadAsStringAsync();
+            jsonString = jsonString.Replace("/*", "").Replace("*/", "");
+            var inventoryData = JsonSerializer.Deserialize<InventoryWrapper>(jsonString);
+
+            return inventoryData.onlineInventory;
         }
     }
 }

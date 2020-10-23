@@ -6,7 +6,7 @@ namespace AmmoFinder.Parsers.UnitTests
     public class ExtensionTests
     {
         [Theory]
-        [InlineData("brass", "brass")]
+        [InlineData("brass", Casings.Brass)]
         public void CasingExtension_IsValid(string input, string expected)
         {
             // Arrange
@@ -59,20 +59,20 @@ namespace AmmoFinder.Parsers.UnitTests
         }
 
         [Theory]
-        [InlineData("FMJ", "fmj")]
-        public void ProjectileTypeExtension_IsValid(string input, string expected)
+        [InlineData("FMJ", "FMJ")]
+        public void BulletTypeExtension_IsValid(string input, string expected)
         {
             // Arrange
 
             // Act
-            var actual = input.GetProjectileType();
+            var actual = input.GetBulletType();
 
             // Assert
             Assert.Equal(expected, actual);
         }
 
         [Theory]
-        [InlineData("Federal", Brands.Federal)]
+        [InlineData("federal", Brands.Federal)]
         public void BrandExtension_IsValid(string input, string expected)
         {
             // Arrange

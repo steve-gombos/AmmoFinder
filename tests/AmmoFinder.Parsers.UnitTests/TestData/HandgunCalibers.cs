@@ -14,7 +14,7 @@ namespace AmmoFinder.Parsers.UnitTests.TestData
             Add("Norma .32 Auto 73grn FMJ Ammunition 50rd Box", "32 ACP");
             Add("Prvi Partizan PPU .32 S&W Long LRN 98grn 50rd Box", "32 S&W");
             Add("50 Rounds of .32S&W Long Ammo by Prvi Partizan - 98gr LRN", "32 S&W");
-            Add("Prvi Partizan PPU .357 Magnum FPJ 158grn 50rd Box", "357 Magnum");
+            Add("Prvi Partizan PPU .357 Magnum FPJ 158grn 50rd Box", "357 Mag");
             Add("50 Rounds of .357 SIG Ammo by Speer Gold Dot LE - 125gr JHP", "357 Sig");
             Add("Prvi Partizan PPU .38 S&W 145grn LRN 50rd Box", "38 S&W");
             Add("Prvi Partizan PPU .38 Special 130grn FMJ 50rd Box", "38 Special");
@@ -25,9 +25,9 @@ namespace AmmoFinder.Parsers.UnitTests.TestData
             Add("Prvi Partizan PPU .40SW 165grn FMJ 50rd Box", "40 S&W");
             Add("Federal BALLISTICLEAN .40S&W 125grn Frangible RHT 50rd box", "40 S&W");
             Add("CCI Blazer Brass .40 S&W FMJ 180grn 50rd box", "40 S&W");
-            Add("Prvi Partizan PPU .44 Magnum 240grn JHP 50rd Box", "44 Magnum");
-            Add("500 Rounds of .44 Mag Ammo by PMC - 180gr JHP", "44 Magnum");
-            Add("Magtech .44 Rem. Magnum 240grn Jacketed Soft Point 50rd Box", "44 Magnum");
+            Add("Prvi Partizan PPU .44 Magnum 240grn JHP 50rd Box", "44 Mag");
+            Add("500 Rounds of .44 Mag Ammo by PMC - 180gr JHP", "44 Mag");
+            Add("Magtech .44 Rem. Magnum 240grn Jacketed Soft Point 50rd Box", "44 Mag");
             Add("Fiocchi .44spl 200grn Jacketed Soft Point (44SA) 50rd box", "44 Special");
             Add("Prvi Partizan PPU .45 AUTO SJHP 185grn 50rd Box", "45 ACP");
             Add("Hotshot .45 Auto  230grn FMJ Ammunition 50rd box", "45 ACP");
@@ -44,7 +44,7 @@ namespace AmmoFinder.Parsers.UnitTests.TestData
             Add("750 Rounds of 5.45x39mm Ammo by Wolf WPA - 60gr FMJ", "5.45x39mm");
             Add("WOLF 9x18 Makarov FMJ 92grn 50rd Box", "9x18 Makarov");
             Add("Prvi Partizan PPU 9x18 95grn JHP 50rd Box", "9x18 Makarov");
-            Add("41 Mag - 210 Grain Semi-Jacketed Soft Point - Remington HTP - 50 Rounds", "41 Magnum");
+            Add("41 Mag - 210 Grain Semi-Jacketed Soft Point - Remington HTP - 50 Rounds", "41 Mag");
             Add("7.62mm Nagant - 98 gr FPJ - Prvi Partizan - 50 Rounds", "7.62mm Nagant");
             Add("7.62 Nagant - 97 Grain FMJ - Fiocchi - 50 Rounds", "7.62mm Nagant");
             Add("9x23mm Winchester - 124 gr JSP - Winchester USA - 50 Rounds", "9x23mm Winchester");

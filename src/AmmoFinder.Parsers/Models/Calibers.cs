@@ -138,7 +138,7 @@ namespace AmmoFinder.Parsers.Models
                         },
                     new SearchCriteria
                         {
-                            Name = "32 H&R Magnum",
+                            Name = "32 H&R Mag",
                             SearchIndicators = new List<string>
                             {
                                 "32hr",
@@ -148,7 +148,7 @@ namespace AmmoFinder.Parsers.Models
                         },
                     new SearchCriteria
                         {
-                            Name = "327 Magnum",
+                            Name = "327 Mag",
                             SearchIndicators = new List<string>
                             {
                                 "327fed",
@@ -157,7 +157,7 @@ namespace AmmoFinder.Parsers.Models
                         },
                     new SearchCriteria
                         {
-                            Name = "357 Magnum",
+                            Name = "357 Mag",
                             SearchIndicators = new List<string>
                             {
                                 "357mag",
@@ -228,7 +228,7 @@ namespace AmmoFinder.Parsers.Models
                         },
                     new SearchCriteria
                         {
-                            Name = "41 Magnum",
+                            Name = "41 Mag",
                             SearchIndicators = new List<string>
                             {
                                 "41mag",
@@ -237,7 +237,7 @@ namespace AmmoFinder.Parsers.Models
                         },
                     new SearchCriteria
                         {
-                            Name = "44 Magnum",
+                            Name = "44 Mag",
                             SearchIndicators = new List<string>
                             {
                                 "44mag",
@@ -492,6 +492,15 @@ namespace AmmoFinder.Parsers.Models
                     },
                  new SearchCriteria
                     {
+                        Name = "22 Rem Jet",
+                        SearchIndicators = new List<string>
+                        {
+                            "22remjet",
+                            "22remingtonjet"
+                        }
+                    },
+                 new SearchCriteria
+                    {
                         Name = "22-250",
                         SearchIndicators = new List<string>
                         {
@@ -545,7 +554,8 @@ namespace AmmoFinder.Parsers.Models
                         Name = "25-06",
                         SearchIndicators = new List<string>
                         {
-                            "25-06"
+                            "25-06",
+                            "25.06"
                         }
                     },
                  new SearchCriteria
@@ -554,6 +564,14 @@ namespace AmmoFinder.Parsers.Models
                         SearchIndicators = new List<string>
                         {
                             "260rem"
+                        }
+                    },
+                 new SearchCriteria
+                    {
+                        Name = "264 Win Mag",
+                        SearchIndicators = new List<string>
+                        {
+                            "264winmag"
                         }
                     },
                  new SearchCriteria
@@ -662,7 +680,8 @@ namespace AmmoFinder.Parsers.Models
                         Name = "308",
                         SearchIndicators = new List<string>
                         {
-                            "308"
+                            "308",
+                            "7.62x51mm"
                         }
                     },
                  new SearchCriteria
@@ -966,6 +985,14 @@ namespace AmmoFinder.Parsers.Models
                         {
                             "8mmmauser",
                             "8mmmaus"
+                        }
+                    },
+                 new SearchCriteria
+                    {
+                        Name = "6mm ARC",
+                        SearchIndicators = new List<string>
+                        {
+                            "6mmarc"
                         }
                     }
                 });

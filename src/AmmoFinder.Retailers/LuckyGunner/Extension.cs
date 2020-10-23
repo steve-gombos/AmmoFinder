@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace AmmoFinder.Retailers.LuckyGunner
 {
@@ -18,6 +19,10 @@ namespace AmmoFinder.Retailers.LuckyGunner
                     client.BaseAddress = new Uri(BaseUrl);
                     client.DefaultRequestHeaders.Add("Accept", "text/html");
                     client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip, deflate, br");
+                    client.DefaultRequestHeaders.CacheControl = new CacheControlHeaderValue
+                    {
+                        NoCache = true
+                    };
                 })
                 .ConfigurePrimaryHttpMessageHandler(config => new HttpClientHandler
                 {

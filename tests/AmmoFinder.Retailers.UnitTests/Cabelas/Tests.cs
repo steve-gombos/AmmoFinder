@@ -66,7 +66,9 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
             mockedHttp.When(Extension.BaseUrl + "BVProductListingView?categoryId=3074457345616967890&resultsPerPage=36&storeId=10651")
                 .Respond("text/html", File.OpenRead("Cabelas/products.html"));
             mockedHttp.When("https://www.cabelas.com/shop/en/winchester-usa-9mm-handgun-ammo")
-                .Respond("text/html", File.OpenRead("BulkAmmo/product-detail.html"));
+                .Respond("text/html", File.OpenRead("Cabelas/product-details.html"));
+            mockedHttp.When("https://www.cabelas.com/shop/BPSGetOnlineInventoryStatusByIDView")
+                .Respond("text/html", File.OpenRead("Cabelas/inventory.txt"));
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
             var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);

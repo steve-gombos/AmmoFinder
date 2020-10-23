@@ -14,10 +14,4 @@ namespace AmmoFinder.Retailers.Cabelas.Models
         public string ItemImage467 { get; set; }
         public string ItemThumbnailImage { get; set; }
     }
-
-    [ExcludeFromCodeCoverage]
-    public class AttributeDataWrapper
-    {
-        public List<AttributeData> AttributeData { get; set; }
-    }
 }

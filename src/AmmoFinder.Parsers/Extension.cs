@@ -32,10 +32,10 @@
             return Caliber.Parse(description);
         }
 
-        private static ProjectileTypeParser ProjectileType = new ProjectileTypeParser();
-        public static string GetProjectileType(this string description)
+        private static BulletTypeParser BulletType = new BulletTypeParser();
+        public static string GetBulletType(this string description)
         {
-            return ProjectileType.Parse(description);
+            return BulletType.Parse(description);
         }
 
         private static BrandParser Brand = new BrandParser();

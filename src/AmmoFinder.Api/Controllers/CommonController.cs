@@ -9,7 +9,7 @@ namespace AmmoFinder.Api.Controllers
     [ApiController]
     public class CommonController : ControllerBase
     {
-        [HttpGet("cartridge-types")]
+        [HttpGet("calibers")]
         public ActionResult<Dictionary<string, IEnumerable<string>>> GetCalibers()
         {
             var calibers = new Calibers().ToDictionary(k => k.Key, v => v.Value.Select(x => x.Name));
