@@ -223,7 +223,8 @@ namespace AmmoFinder.Parsers.Models
                             {
                                 "40sw",
                                 "40s&w",
-                                "40s&amp;w"
+                                "40s&amp;w",
+                                "40cal"
                             }
                         },
                     new SearchCriteria

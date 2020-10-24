@@ -11,11 +11,11 @@ namespace AmmoFinder.Retailers
     {
         public static IServiceCollection AddRetailers(this IServiceCollection services)
         {
-            services.AddAimSurplusClient();
+            //services.AddAimSurplusClient();
             services.AddAmmoDotComClient();
-            services.AddBulkAmmoClient();
-            services.AddCabelasClient();
-            services.AddLuckyGunnerClient();
+            //services.AddBulkAmmoClient();
+            //services.AddCabelasClient();
+            //services.AddLuckyGunnerClient();
 
             return services;
         }

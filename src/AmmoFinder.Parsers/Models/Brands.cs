@@ -10,6 +10,7 @@ namespace AmmoFinder.Parsers.Models
             {EstateCartridge, new List<string>{"Estate Cartidge", "Estate"} },
             {NobleSport, new List<string>{"Nobel Sport" } },
             {PrviPartizan, new List<string>{"PPU", "Prvi"} },
+            {SellierBellot, new List<string>{ "Sellier and Bellot" } },
             {SigSauer, new List<string>{"Sig"} }
         }.ToImmutableDictionary();
 
@@ -28,7 +29,7 @@ namespace AmmoFinder.Parsers.Models
         public const string CCI = "CCI";
         public const string Challenger = "Challenger";
         public const string Corbon = "Corbon";
-        public const string EleySubsonic = "Eley Subsonic";
+        public const string Eley = "Eley";
         public const string EstateCartridge = "Estate Cartridge";
         public const string Federal = "Federal";
         public const string Fiocchi = "Fiocchi";
@@ -46,6 +47,7 @@ namespace AmmoFinder.Parsers.Models
         public const string KynochSurplus = "Kynoch Surplus";
         public const string LakeCity = "Lake City";
         public const string MagTech = "MagTech";
+        public const string MaxxTech = "MaxxTech";
         public const string MEDEF = "MEDEF";
         public const string MilitarySurplus = "Military Surplus";
         public const string MTM = "MTM";
