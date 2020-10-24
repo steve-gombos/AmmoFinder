@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\AmmoFinder.Persistence\AmmoFinder.Persistence.csproj" />
-    <ProjectReference Include="..\src\AmmoFinder.Testing\AmmoFinder.Testing.csproj" />
+    <ProjectReference Include="..\..\src\AmmoFinder.Persistence\AmmoFinder.Persistence.csproj" />
+    <ProjectReference Include="..\..\src\AmmoFinder.Testing\AmmoFinder.Testing.csproj" />
   </ItemGroup>
 
 </Project>
