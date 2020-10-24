@@ -67,6 +67,8 @@ namespace AmmoFinder.Retailers.UnitTests.AmmoDotCom
                 .Respond("text/html", File.OpenRead("AmmoDotCom/category.html"));
             mockedHttp.When("https://ammo.com/handgun/9mm-ammo?limit=all")
                 .Respond("text/html", File.OpenRead("AmmoDotCom/products.html"));
+            mockedHttp.When("https://ammo.com/handgun/380-acp-ammo?limit=all")
+                .Respond("text/html", File.OpenRead("AmmoDotCom/products-empty.html"));
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
             var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
