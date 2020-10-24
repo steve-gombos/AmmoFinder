@@ -53,7 +53,7 @@ namespace AmmoFinder.Retailers.UnitTests.AmmoDotCom
 
             // Assert
             Assert.IsType<ProductService>(productService);
-            Assert.Equal(RetailerNames.LuckyGunner, productService.Retailer);
+            Assert.Equal(RetailerNames.AmmoDotCom, productService.Retailer);
         }
 
         [Fact]

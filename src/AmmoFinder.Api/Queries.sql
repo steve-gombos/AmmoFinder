@@ -1,5 +1,6 @@
 ﻿select * from products 
 where brand is null
+select * from retailers
 --order by inventory desc
 --and RetailerProductId like '%3074457345618960344%'
 --where roundtype is null

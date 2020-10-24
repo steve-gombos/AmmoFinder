@@ -35,7 +35,7 @@ namespace AmmoFinder.Retailers.AmmoDotCom
             _logger = logger;
         }
 
-        public override string Retailer => RetailerNames.LuckyGunner;
+        public override string Retailer => RetailerNames.AmmoDotCom;
 
         public async override Task<IEnumerable<ProductModel>> Fetch()
         {
