@@ -79,8 +79,6 @@ namespace AmmoFinder.Common.Extensions
 
         public static decimal GetDecimalValueInRange(this string value, bool maximum = true)
         {
-            var test = "$6.99 - $7.99";
-
             value = value.Replace("$", "");
 
             if (!value.Contains("-"))
