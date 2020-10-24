@@ -49,6 +49,7 @@ namespace AmmoFinder.Parsers.UnitTests.TestData
             Add("7.62 Nagant - 97 Grain FMJ - Fiocchi - 50 Rounds", "7.62mm Nagant");
             Add("9x23mm Winchester - 124 gr JSP - Winchester USA - 50 Rounds", "9x23mm Winchester");
             Add("Prvi Partizan PPU 7.63 Mauser 85grn FMJ 50rd Box", "7.63mm Mauser");
+            Add("Speer 40 cal Ammo - 50 Rounds of 180 Grain JHP Ammunition", "40 S&W");
         }
     }
 }

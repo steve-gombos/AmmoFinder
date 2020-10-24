@@ -37,7 +37,7 @@ namespace AmmoFinder.Parsers.UnitTests
         [InlineData("50 Beowulf - 300 Grain Bonded JHP - Underwood - 20 Rounds", Brands.Underwood)]
         [InlineData("Surplus Russian 7.62x54R 147grn FMJ 440rd Can", Brands.Russian)]
         [InlineData("38 Special - 77 Grain ARX - Inceptor - 20 Rounds", Brands.Inceptor)]
-        [InlineData("22 LR - 38 gr HP - Eley Subsonic - 500 Rounds", Brands.EleySubsonic)]
+        [InlineData("22 LR - 38 gr HP - Eley Subsonic - 500 Rounds", Brands.Eley)]
         [InlineData("30-06 - 148 Grain FMJ - Kynoch Surplus (1950s Production) - 20 Rounds", Brands.KynochSurplus)]
         [InlineData("5.56x45 - 55 Grain Frangible - SinterFire - 250 Rounds", Brands.Sinterfire)]
         [InlineData("Silver Bear .380ACP FMJ 94grn 50rd Box", Brands.SilverBear)]
@@ -47,6 +47,8 @@ namespace AmmoFinder.Parsers.UnitTests
         [InlineData("STV Technology Scorpio 9mm 124grn FMJ Ammunition 50rd Box", Brands.STVTechnology)]
         [InlineData("Surplus 7.62x54R 147grn FMJ 440rd Can", Brands.Surplus)]
         [InlineData("50 Rounds of 5.7x28 mm Ammo by FN Herstal - 40gr V-MAX", Brands.FNHerstal)]
+        [InlineData("Sellier and Bellot 6.5x57mm Ammo - 20 Rounds of 131 Grain SP Ammunition", Brands.SellierBellot)]
+        [InlineData("MAXXTech 9mm Ammo - 50 Rounds of 115 Grain FMJ Ammunition", Brands.MaxxTech)]
         [InlineData("", null)]
         public void Brand_IsValid(string input, string expected)
         {
