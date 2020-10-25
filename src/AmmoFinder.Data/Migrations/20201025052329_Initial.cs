@@ -59,6 +59,13 @@ namespace AmmoFinder.Data.Migrations
                 name: "IX_Products_RetailerId",
                 table: "Products",
                 column: "RetailerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_RetailerProductId",
+                table: "Products",
+                column: "RetailerProductId",
+                unique: true,
+                filter: "[RetailerProductId] IS NOT NULL");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -58,7 +58,7 @@ namespace AmmoFinder.Data.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("RetailerProductId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("RoundContainer")
                         .HasColumnType("nvarchar(max)");
@@ -78,6 +78,10 @@ namespace AmmoFinder.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("RetailerId");
+
+                    b.HasIndex("RetailerProductId")
+                        .IsUnique()
+                        .HasFilter("[RetailerProductId] IS NOT NULL");
 
                     b.ToTable("Products");
                 });

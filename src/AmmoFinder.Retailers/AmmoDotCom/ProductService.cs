@@ -9,7 +9,6 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace AmmoFinder.Retailers.AmmoDotCom
@@ -39,17 +38,15 @@ namespace AmmoFinder.Retailers.AmmoDotCom
 
         public async override Task<IEnumerable<ProductModel>> Fetch()
         {
-            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
-
             var products = new List<ProductModel>();
 
             foreach (var category in _categories)
             {
                 var links = await GetCaliberLinks(category);
 
-                foreach(var link in links)
+                foreach (var link in links)
                 {
-                    var linkProducts = await FetchProducts(link);
+                    var linkProducts = await GetProducts(link);
 
                     if (linkProducts.Any())
                     {
@@ -58,27 +55,24 @@ namespace AmmoFinder.Retailers.AmmoDotCom
                 }
             }
 
-            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}; Product Count: {products.Count()}");
+            _logger.LogInformation($"Product Count: {products.DistinctProducts().Count()}");
 
-            return products;
+            return products.DistinctProducts();
         }
 
         private async Task<IEnumerable<string>> GetCaliberLinks(string category)
         {
-            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
-
             var calibers = new List<string>();
 
             var response = await _httpClient.GetAsync(category);
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
                 return calibers;
             }
 
             var source = await response.Content.ReadAsStringAsync();
-
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(source));
 
@@ -89,29 +83,24 @@ namespace AmmoFinder.Retailers.AmmoDotCom
                 var link = listItem.QuerySelector<IHtmlAnchorElement>("a.content-box__subcat-link").Href;
 
                 calibers.Add(link);
-            }            
-
-            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}");
+            }
 
             return calibers;
         }
 
-        private async Task<IEnumerable<ProductModel>> FetchProducts(string productsUrl)
+        private async Task<IEnumerable<ProductModel>> GetProducts(string productsUrl)
         {
             var products = new List<ProductModel>();
-
-            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
 
             var response = await _httpClient.GetAsync($"{productsUrl}?limit=all");
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
                 return products;
             }
 
             var source = await response.Content.ReadAsStringAsync();
-
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(source));
 
@@ -119,7 +108,7 @@ namespace AmmoFinder.Retailers.AmmoDotCom
 
             if (productList == null)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; No Products for {productsUrl}");
+                _logger.LogWarning("No Products Found");
                 return products;
             }
             var productSections = productList.QuerySelectorAll<IHtmlListItemElement>("li.item");
@@ -130,8 +119,6 @@ namespace AmmoFinder.Retailers.AmmoDotCom
 
                 products.Add(mappedProduct);
             }
-
-            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}");
 
             return products;
         }

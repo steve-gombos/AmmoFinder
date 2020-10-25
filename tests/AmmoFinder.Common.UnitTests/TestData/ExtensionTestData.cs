@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Xunit;
 
-namespace AmmoFinder.Common.UnitTests
+namespace AmmoFinder.Common.UnitTests.TestData
 {
     public class ExtensionTestData : TheoryData<string, IEnumerable<string>, bool>
     {

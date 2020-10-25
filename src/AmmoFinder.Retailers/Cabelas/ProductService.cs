@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Reflection;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -36,28 +35,26 @@ namespace AmmoFinder.Retailers.Cabelas
 
         public async override Task<IEnumerable<ProductModel>> Fetch()
         {
-            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
+            var products = await GetProducts();
 
-            var products = await FetchProducts();
+            _logger.LogInformation($"Product Count: {products.DistinctProducts().Count()}");
 
-            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}; Product Count: {products.Count()}");
-
-            return products;
+            return products.DistinctProducts();
         }
 
-        private async Task<IEnumerable<ProductModel>> FetchProducts()
+        private async Task<IEnumerable<ProductModel>> GetProducts()
         {
             var products = new List<ProductModel>();
+
             var response = await _httpClient.PostAsync($"BVProductListingView?categoryId=3074457345616967890&resultsPerPage=36&storeId=10651", null);
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
                 return products;
             }
 
             var source = await response.Content.ReadAsStringAsync();
-
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(source));
 
@@ -85,13 +82,12 @@ namespace AmmoFinder.Retailers.Cabelas
         private async Task<IEnumerable<ProductModel>> GetProductDetails(string url, IEnumerable<AttributeData> attributes)
         {
             var products = new List<ProductModel>();
-            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
 
             var response = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
                 return products;
             }
 
@@ -113,8 +109,6 @@ namespace AmmoFinder.Retailers.Cabelas
                     products.Add(product);
                 }
             }
-
-            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}");
 
             return products;
         }
@@ -138,7 +132,7 @@ namespace AmmoFinder.Retailers.Cabelas
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
                 return new Dictionary<string, InventoryData>();
             }
 

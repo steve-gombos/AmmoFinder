@@ -40,7 +40,7 @@ namespace AmmoFinder.Retailers.BulkAmmo
                 .ForMember(dst => dst.Grain, opt => opt.MapFrom(src => src.Item1.QuerySelector<IHtmlAnchorElement>("a.product-name").Text.GetGrain() ?? src.Item2.GetGrain()))
                 .ForMember(dst => dst.RoundCount, opt => opt.MapFrom(src => src.Item1.QuerySelector<IHtmlAnchorElement>("a.product-name").Text.GetRoundCount() ?? src.Item2.GetRoundCount()))
                 .ForMember(dst => dst.RoundContainer, opt => opt.MapFrom(src => src.Item1.QuerySelector<IHtmlAnchorElement>("a.product-name").Text.GetRoundContainer() ?? src.Item2.GetRoundContainer()))
-                .ForMember(dst => dst.RetailerProductId, opt => opt.MapFrom(src => src.Item1.QuerySelector<IHtmlAnchorElement>("a.product-name").Text.Replace(" ", "-")))
+                .ForMember(dst => dst.RetailerProductId, opt => opt.MapFrom(src => new Uri(src.Item1.QuerySelector<IHtmlAnchorElement>("a.product-name").Href).AbsolutePath.Substring(1)))
                 .ForAllOtherMembers(opt => opt.Ignore());
         }
 

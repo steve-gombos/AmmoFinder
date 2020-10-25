@@ -2,7 +2,6 @@
 using AmmoFinder.Data;
 using AmmoFinder.Data.Models;
 using AutoMapper;
-using EFCore.BulkExtensions;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;

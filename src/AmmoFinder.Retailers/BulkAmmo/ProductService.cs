@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace AmmoFinder.Retailers.BulkAmmo
@@ -43,23 +42,21 @@ namespace AmmoFinder.Retailers.BulkAmmo
 
         public async override Task<IEnumerable<ProductModel>> Fetch()
         {
-            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
-
             var products = new List<ProductModel>();
 
             foreach (var category in _categories)
             {
-                var categoryProducts = await FetchProducts(category);
+                var categoryProducts = await GetProducts(category);
 
                 products.AddRange(categoryProducts);
             }
 
-            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}; Product Count: {products.Count()}");
+            _logger.LogInformation($"Product Count: {products.DistinctProducts().Count()}");
 
-            return products;
+            return products.DistinctProducts();
         }
 
-        private async Task<IEnumerable<ProductModel>> FetchProducts(string category)
+        private async Task<IEnumerable<ProductModel>> GetProducts(string category)
         {
             var products = new List<ProductModel>();
 
@@ -68,12 +65,11 @@ namespace AmmoFinder.Retailers.BulkAmmo
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
                 return products;
             }
 
             var source = await response.Content.ReadAsStringAsync();
-
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(source));
 
@@ -93,24 +89,19 @@ namespace AmmoFinder.Retailers.BulkAmmo
 
         private async Task<string> GetProductDetails(string url)
         {
-            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
-
             var response = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
                 return string.Empty;
             }
 
             var source = await response.Content.ReadAsStringAsync();
-
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(source));
 
             var details = document.QuerySelector<IHtmlDivElement>("div.std").Text();
-
-            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}");
 
             return details;
         }
