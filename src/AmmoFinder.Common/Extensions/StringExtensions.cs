@@ -76,5 +76,18 @@ namespace AmmoFinder.Common.Extensions
 
             return null;
         }
+
+        public static decimal GetDecimalValueInRange(this string value, bool maximum = true)
+        {
+            value = value.Replace("$", "");
+
+            if (!value.Contains("-"))
+                return decimal.Parse(value);
+
+            var split = value.Split("-");
+            var index = maximum ? 1 : 0;
+
+            return decimal.Parse(split[index]);
+        }
     }
 }

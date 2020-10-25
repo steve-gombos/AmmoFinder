@@ -14,6 +14,7 @@ namespace AmmoFinder.Parsers.Models
             {SigSauer, new List<string>{"Sig"} }
         }.ToImmutableDictionary();
 
+        public const string Unknown = "Unknown";
 
         public const string Aguila = "Aguila";
         public const string AlexanderArms = "Alexander Arms";
@@ -46,6 +47,8 @@ namespace AmmoFinder.Parsers.Models
         public const string Korea = "Korea";
         public const string KynochSurplus = "Kynoch Surplus";
         public const string LakeCity = "Lake City";
+        public const string Liberty = "Liberty";
+        public const string Lightfield = "Lightfield";
         public const string MagTech = "MagTech";
         public const string MaxxTech = "MaxxTech";
         public const string MEDEF = "MEDEF";

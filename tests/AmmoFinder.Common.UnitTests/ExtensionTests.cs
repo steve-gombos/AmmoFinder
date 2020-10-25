@@ -83,5 +83,18 @@ namespace AmmoFinder.Common.UnitTests
             // Assert
             Assert.Equal(expected, actual);
         }
+
+        [Theory]
+        [InlineData("$6.99 - $7.99", true, 7.99)]
+        [InlineData("$6.99 - $7.99", false, 6.99)]
+        [InlineData("$6.99", true, 6.99)]
+        public void GetDecimalValueInRange_IsValid(string input, bool maximum, decimal expected)
+        {
+            // Act
+            var actual = input.GetDecimalValueInRange(maximum);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
     }
 }

@@ -49,6 +49,8 @@ namespace AmmoFinder.Parsers.UnitTests
         [InlineData("50 Rounds of 5.7x28 mm Ammo by FN Herstal - 40gr V-MAX", Brands.FNHerstal)]
         [InlineData("Sellier and Bellot 6.5x57mm Ammo - 20 Rounds of 131 Grain SP Ammunition", Brands.SellierBellot)]
         [InlineData("MAXXTech 9mm Ammo - 50 Rounds of 115 Grain FMJ Ammunition", Brands.MaxxTech)]
+        [InlineData("Liberty Civil Defense, .40 S&W, HP, 60 Grain, 20 Rounds", Brands.Liberty)]
+        [InlineData("Lightfield Home Defender, 12 Gauge, 2 3/4\", 130 Grain, Rubber Slug Rounds, 5 Rounds", Brands.Lightfield)]
         [InlineData("", null)]
         public void Brand_IsValid(string input, string expected)
         {

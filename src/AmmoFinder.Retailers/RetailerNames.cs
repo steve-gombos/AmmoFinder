@@ -7,5 +7,6 @@
         public const string BulkAmmo = "Bulk Ammo";
         public const string Cabelas = "Cabela's";
         public const string LuckyGunner = "Lucky Gunner";
+        public const string SportsmansGuide = "Sportsman's Guide";
     }
 }
