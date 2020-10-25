@@ -79,6 +79,10 @@ namespace AmmoFinder.Common.UnitTests.Models
             };
 
             // Act
+            var test1 = data.RetailerId;
+            var test2 = data.Name;
+            var test3 = data.CreatedOn;
+            var test4 = data.Products;
 
             // Assert
             Assert.IsType<RetailerModel>(data);
