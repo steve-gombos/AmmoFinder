@@ -10,14 +10,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace AmmoFinder.Retailers.SportsmansGuide
 {
-    /// <summary>
-    /// LuckGunner only shows "in stock" ammo, so everything collected here should be in stock
-    /// </summary>
     public class ProductService : ProductServiceBase
     {
         private readonly HttpClient _httpClient;
@@ -35,8 +31,6 @@ namespace AmmoFinder.Retailers.SportsmansGuide
 
         public async override Task<IEnumerable<ProductModel>> Fetch()
         {
-            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
-
             var products = new List<ProductModel>();
 
             var links = await GetCategoryLinks();
@@ -48,9 +42,9 @@ namespace AmmoFinder.Retailers.SportsmansGuide
                 products.AddRange(categoryProducts);
             }
 
-            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}; Product Count: {products.Count()}");
+            _logger.LogInformation($"Product Count: {products.DistinctProducts().Count()}");
 
-            return products;
+            return products.DistinctProducts();
         }
 
         private async Task<IEnumerable<string>> GetCategoryLinks()
@@ -61,12 +55,11 @@ namespace AmmoFinder.Retailers.SportsmansGuide
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
                 return links;
             }
 
             var source = await response.Content.ReadAsStringAsync();
-
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(source).Address(Extension.BaseUrl));
 
@@ -86,18 +79,15 @@ namespace AmmoFinder.Retailers.SportsmansGuide
         {
             var products = new List<ProductModel>();
 
-            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
-
             var response = await _httpClient.GetAsync($"{productsUrl}&istko=1&ipp=96&pg={page}");
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
                 return products;
             }
 
             var source = await response.Content.ReadAsStringAsync();
-
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(source).Address(Extension.BaseUrl));
 
@@ -105,7 +95,7 @@ namespace AmmoFinder.Retailers.SportsmansGuide
 
             if (productList == null)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; No Products for {productsUrl}");
+                _logger.LogWarning("No Products Found");
                 return products;
             }
 
@@ -123,36 +113,29 @@ namespace AmmoFinder.Retailers.SportsmansGuide
                 }
             }
 
-            if(page != lastPage)
+            if (page != lastPage)
             {
                 products.AddRange(await GetProducts(productsUrl, page + 1));
             }
-
-            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}");
 
             return products;
         }
 
         private async Task<ProductModel> GetProductDetails(string productUrl)
         {
-            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
-
             var response = await _httpClient.GetAsync(productUrl);
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
                 return null;
             }
 
             var source = await response.Content.ReadAsStringAsync();
-
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(source).Address(Extension.BaseUrl));
 
             var product = _mapper.Map<Product>(Tuple.Create(document, productUrl));
-
-            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}");
 
             return product;
         }

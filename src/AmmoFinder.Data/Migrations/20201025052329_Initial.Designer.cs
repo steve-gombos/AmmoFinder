@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AmmoFinder.Data.Migrations
 {
     [DbContext(typeof(ProductsContext))]
-    [Migration("20201021072443_Initial")]
+    [Migration("20201025052329_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,7 +60,7 @@ namespace AmmoFinder.Data.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("RetailerProductId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("RoundContainer")
                         .HasColumnType("nvarchar(max)");
@@ -80,6 +80,10 @@ namespace AmmoFinder.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("RetailerId");
+
+                    b.HasIndex("RetailerProductId")
+                        .IsUnique()
+                        .HasFilter("[RetailerProductId] IS NOT NULL");
 
                     b.ToTable("Products");
                 });

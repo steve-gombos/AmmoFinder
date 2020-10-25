@@ -32,7 +32,7 @@ namespace AmmoFinder.Persistence.UnitTests.Services
                 })
                 .BuildServiceProvider();
             var mockedLogger = new Mock<ILogger<RefreshProducts>>();
-            var productServices = new List<IProductService>{ new TestProductService() };
+            var productServices = new List<IProductService> { new TestProductService() };
             var mapper = provider.GetService<IMapper>();
             var refreshProducts = new RefreshProducts(productServices, DbContext, mapper, mockedLogger.Object);
             var expected = 1;

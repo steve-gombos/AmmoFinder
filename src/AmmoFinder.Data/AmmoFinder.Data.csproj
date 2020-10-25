@@ -23,4 +23,8 @@
     <ProjectReference Include="..\AmmoFinder.Common\AmmoFinder.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

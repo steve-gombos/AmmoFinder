@@ -15,3 +15,11 @@ where retailerid = 7
 
 --delete from products where id > 0
 --delete from retailers where id > 0
+
+SELECT retailerproductid, retailerid, COUNT(*)
+FROM products
+GROUP BY retailerproductid,retailerid
+HAVING COUNT(*) > 1
+
+select * from products
+where retailerproductid = 'bulk-17-wsm-ammo-17wsm20grvarm-ae17wsm1-fedae-50'

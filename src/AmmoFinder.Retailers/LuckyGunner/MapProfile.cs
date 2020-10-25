@@ -3,6 +3,8 @@ using AmmoFinder.Retailers.LuckyGunner.Models;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 using AutoMapper;
+using System;
+using System.Web;
 
 namespace AmmoFinder.Retailers.LuckyGunner
 {
@@ -29,8 +31,8 @@ namespace AmmoFinder.Retailers.LuckyGunner
                     .QuerySelector<IHtmlSpanElement>("span").Text().GetRoundCount() ?? src.QuerySelector<IHtmlDivElement>("div.desc.std").OuterHtml.GetRoundCount()))
                 .ForMember(dst => dst.RoundContainer, opt => opt.MapFrom(src => src.QuerySelector<IHtmlElement>("h3.product-name")
                     .QuerySelector<IHtmlSpanElement>("span").Text().GetRoundContainer() ?? src.QuerySelector<IHtmlDivElement>("div.desc.std").OuterHtml.GetRoundContainer()))
-                .ForMember(dst => dst.RetailerProductId, opt => opt.MapFrom(src => src.QuerySelector<IHtmlElement>("h3.product-name")
-                    .QuerySelector<IHtmlSpanElement>("span").Text().Replace(" ", "-")))
+                .ForMember(dst => dst.RetailerProductId, opt => opt.MapFrom(src => new Uri(src.QuerySelector<IHtmlElement>("h3.product-name")
+                    .QuerySelector<IHtmlAnchorElement>("a").Href).AbsolutePath.Substring(1)))
                 .ForAllOtherMembers(opt => opt.Ignore());
         }
 

@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace AmmoFinder.Retailers.LuckyGunner
@@ -35,8 +34,6 @@ namespace AmmoFinder.Retailers.LuckyGunner
 
         public async override Task<IEnumerable<ProductModel>> Fetch()
         {
-            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
-
             var products = new List<ProductModel>();
 
             var categories = await GetCategories();
@@ -45,15 +42,15 @@ namespace AmmoFinder.Retailers.LuckyGunner
             {
                 foreach (var link in category.Value)
                 {
-                    var categoryProducts = await FetchProducts(link);
+                    var categoryProducts = await GetProducts(link);
 
                     products.AddRange(categoryProducts);
                 }
             }
 
-            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}; Product Count: {products.Count()}");
+            _logger.LogInformation($"Product Count: {products.DistinctProducts().Count()}");
 
-            return products;
+            return products.DistinctProducts();
         }
 
         private async Task<Dictionary<string, IEnumerable<string>>> GetCategories()
@@ -64,12 +61,11 @@ namespace AmmoFinder.Retailers.LuckyGunner
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
                 return categories;
             }
 
             var source = await response.Content.ReadAsStringAsync();
-
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(source));
 
@@ -92,22 +88,19 @@ namespace AmmoFinder.Retailers.LuckyGunner
             return categories;
         }
 
-        private async Task<IEnumerable<ProductModel>> FetchProducts(string productsUrl)
+        private async Task<IEnumerable<ProductModel>> GetProducts(string productsUrl)
         {
             var products = new List<ProductModel>();
-
-            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
 
             var response = await _httpClient.GetAsync($"{productsUrl}?limit=all", HttpCompletionOption.ResponseHeadersRead);
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
                 return products;
             }
 
             var source = await response.Content.ReadAsStringAsync();
-
             var context = BrowsingContext.New(Configuration.Default);
             var document = await context.OpenAsync(req => req.Content(source));
 
@@ -115,7 +108,7 @@ namespace AmmoFinder.Retailers.LuckyGunner
 
             if (productList == null)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; No Products for {productsUrl}");
+                _logger.LogWarning("No Products Found");
                 return products;
             }
             var productSections = productList.QuerySelectorAll<IHtmlListItemElement>("li.item");
@@ -126,8 +119,6 @@ namespace AmmoFinder.Retailers.LuckyGunner
 
                 products.Add(mappedProduct);
             }
-
-            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}");
 
             return products;
         }

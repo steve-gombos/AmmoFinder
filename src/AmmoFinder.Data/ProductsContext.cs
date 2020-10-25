@@ -17,6 +17,13 @@ namespace AmmoFinder.Data
             }
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>()
+                .HasIndex(b => b.RetailerProductId)
+                .IsUnique();
+        }
+
         public DbSet<Retailer> Retailers { get; set; }
 
         public DbSet<Product> Products { get; set; }
