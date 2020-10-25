@@ -57,5 +57,15 @@ namespace AmmoFinder.Common.UnitTests.Converters
             Assert.IsType<NullableLongTestDto>(actual);
             Assert.Equal(actual.Value.HasValue, expected);
         }
+
+        [Theory, ClassData(typeof(NullableLongConverterTestData))]
+        public void NullableLongConverter_Write_IsValid(NullableLongTestDto input, string expected)
+        {
+            // Act
+            var actual = JsonSerializer.Serialize(input);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
     }
 }
