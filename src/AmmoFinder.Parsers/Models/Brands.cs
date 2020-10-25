@@ -15,14 +15,13 @@ namespace AmmoFinder.Parsers.Models
             {FNHerstal, new List<string>{"FN"} },
             {HeviShot, new List<string>{"HEVI-Shot"} },
             {HeviMetal, new List<string>{"HEVI-Metal"} },
-            {Remington, new List<string>{ "Sportsman Hi-Speed" } }
+            {Federal, new List<string>{"American Eagle"} }
         }.ToImmutableDictionary();
 
         public const string Unknown = "Unknown";
 
         public const string Aguila = "Aguila";
         public const string AlexanderArms = "Alexander Arms";
-        public const string AmericanEagle = "American Eagle";
         public const string AmmoInc = "Ammo Inc";
         public const string Armscor = "Armscor";
         public const string AtomicAmmunition = "Atomic Ammunition";
@@ -57,7 +56,6 @@ namespace AmmoFinder.Parsers.Models
         public const string Korea = "Korea";
         public const string KynochSurplus = "Kynoch Surplus";
         public const string LakeCity = "Lake City";
-        public const string Lee = "Lee";
         public const string Liberty = "Liberty";
         public const string Lightfield = "Lightfield";
         public const string MagTech = "MagTech";
@@ -69,7 +67,6 @@ namespace AmmoFinder.Parsers.Models
         public const string NobleSport = "Noble Sport";
         public const string Norma = "Norma";
         public const string Nosler = "Nosler";
-        public const string Plano = "Plano";
         public const string PMC = "PMC";
         public const string PowerBelt = "PowerBelt";
         public const string PrviPartizan = "Prvi Partizan";

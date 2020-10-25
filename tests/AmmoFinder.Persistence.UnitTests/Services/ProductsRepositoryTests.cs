@@ -61,6 +61,10 @@ namespace AmmoFinder.Persistence.UnitTests.Services
         public void GetProducts_IsValid()
         {
             // Arrange
+            var retailer = new Retailer
+            {
+                Name = "Test Retailer 1"
+            };
             var expected = new List<Product>
             {
                 new Product
@@ -77,7 +81,8 @@ namespace AmmoFinder.Persistence.UnitTests.Services
                     RoundCount = "50",
                     RoundType = "FMJ",
                     RoundContainer = "Box",
-                    RetailerProductId = "Test Retailer 1",
+                    RetailerProductId = "product1",
+                    RetailerId = 1,
                     UpdatedOn = DateTime.Now,
                     Url = "https://test.test/test-product"
                 },
@@ -95,12 +100,15 @@ namespace AmmoFinder.Persistence.UnitTests.Services
                     RoundCount = "50",
                     RoundType = "FMJ",
                     RoundContainer = "Box",
-                    RetailerProductId = "Test Retailer 2",
+                    RetailerProductId = "product2",
+                    RetailerId = 1,
                     UpdatedOn = DateTime.Now,
                     Url = "https://test.test/test-product"
                 }
             };
             var mapper = CreateMapper();
+            DbContext.Retailers.Add(retailer);
+            DbContext.SaveChanges();
             DbContext.Products.AddRange(expected);
             DbContext.SaveChanges();
             var productsRepository = new ProductsRepository(DbContext, mapper);
