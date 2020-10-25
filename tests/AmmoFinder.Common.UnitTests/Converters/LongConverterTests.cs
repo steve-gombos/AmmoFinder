@@ -6,12 +6,11 @@ namespace AmmoFinder.Common.UnitTests.Converters
 {
     public class LongConverterTests
     {
-        [Fact]
-        public void LongConverter_IsValid()
+        [Theory]
+        [InlineData("{\"value\": \"123\"}")]
+        [InlineData("{\"value\": 123}")]
+        public void LongConverter_Read_IsValid(string json)
         {
-            // Arrange
-            var json = "{\"value\": \"123\"}";
-
             // Act
             var actual = JsonSerializer.Deserialize<LongTestDto>(json);
 
@@ -23,18 +22,33 @@ namespace AmmoFinder.Common.UnitTests.Converters
         [Theory]
         [InlineData("{\"value\": \"\"}")]
         [InlineData("{\"value\": null}")]
-        public void LongConverter_ThrowsException_IsValid(string json)
+        public void LongConverter_Read_ThrowsException_IsValid(string json)
         {
             // Assert
             Assert.Throws<JsonException>(() => JsonSerializer.Deserialize<LongTestDto>(json));
         }
 
+        [Fact]
+        public void LongConverter_Write_IsValid()
+        {
+            // Arrange
+            var expected = "{\"value\":\"123\"}";
+            var obj = new LongTestDto() { Value = 123 };
+
+            // Act
+            var actual = JsonSerializer.Serialize(obj);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
         [Theory]
         [InlineData("{\"value\": \"123\"}", true)]
+        [InlineData("{\"value\": 123}", true)]
         [InlineData("{\"value\": null}", false)]
         [InlineData("{\"value\": \"\"}", false)]
         [InlineData("{\"value\": \"abc\"}", false)]
-        public void NullableLongConverter_IsValid(string json, bool expected)
+        public void NullableLongConverter_Read_IsValid(string json, bool expected)
         {
             // Act
             var actual = JsonSerializer.Deserialize<NullableLongTestDto>(json);

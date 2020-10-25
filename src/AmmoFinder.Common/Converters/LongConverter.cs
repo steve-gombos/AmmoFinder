@@ -9,11 +9,11 @@ namespace System.Text.Json.Serialization
         {
             if (reader.TokenType == JsonTokenType.String)
             {
-                ReadOnlySpan<byte> span = reader.HasValueSequence ? reader.ValueSequence.ToArray() : reader.ValueSpan;
-                if (Utf8Parser.TryParse(span, out long number, out int bytesConsumed) && span.Length == bytesConsumed)
-                    return number;
+                //ReadOnlySpan<byte> span = reader.HasValueSequence ? reader.ValueSequence.ToArray() : reader.ValueSpan;
+                //if (Utf8Parser.TryParse(span, out long number, out int bytesConsumed) && span.Length == bytesConsumed)
+                //    return number;
 
-                if (long.TryParse(reader.GetString(), out number))
+                if (long.TryParse(reader.GetString(), out var number))
                     return number;
             }
 
@@ -32,11 +32,11 @@ namespace System.Text.Json.Serialization
         {
             if (reader.TokenType == JsonTokenType.String)
             {
-                ReadOnlySpan<byte> span = reader.HasValueSequence ? reader.ValueSequence.ToArray() : reader.ValueSpan;
-                if (Utf8Parser.TryParse(span, out long number, out int bytesConsumed) && span.Length == bytesConsumed)
-                    return number;
+                //ReadOnlySpan<byte> span = reader.HasValueSequence ? reader.ValueSequence.ToArray() : reader.ValueSpan;
+                //if (Utf8Parser.TryParse(span, out long number, out int bytesConsumed) && span.Length == bytesConsumed)
+                //    return number;
 
-                if (long.TryParse(reader.GetString(), out number))
+                if (long.TryParse(reader.GetString(), out var number))
                     return number;
 
                 return null;

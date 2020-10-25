@@ -22,7 +22,7 @@ namespace System.Text.Json.Serialization
 
         public override void Write(Utf8JsonWriter writer, bool value, JsonSerializerOptions options)
         {
-            writer.WriteStringValue(value.ToString());
+            writer.WriteStringValue(value.ToString().ToLower());
         }
     }
 }

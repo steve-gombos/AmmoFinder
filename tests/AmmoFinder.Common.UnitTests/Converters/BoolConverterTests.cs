@@ -6,12 +6,11 @@ namespace AmmoFinder.Common.UnitTests.Converters
 {
     public class BoolConverterTests
     {
-        [Fact]
-        public void BoolConverter_IsValid()
+        [Theory]
+        [InlineData("{\"value\": \"true\"}")]
+        [InlineData("{\"value\": true}")]
+        public void BoolConverter_Read_IsValid(string json)
         {
-            // Arrange
-            var json = "{\"value\": \"true\"}";
-
             // Act
             var actual = JsonSerializer.Deserialize<BoolTestDto>(json);
 
@@ -23,10 +22,24 @@ namespace AmmoFinder.Common.UnitTests.Converters
         [Theory]
         [InlineData("{\"value\": \"\"}")]
         [InlineData("{\"value\": null}")]
-        public void BoolConverter_ThrowsException_IsValid(string json)
+        public void BoolConverter_Read_ThrowsException_IsValid(string json)
         {
             // Assert
             Assert.Throws<JsonException>(() => JsonSerializer.Deserialize<LongTestDto>(json));
+        }
+
+        [Fact]
+        public void BoolConverter_Write_IsValid()
+        {
+            // Arrange
+            var expected = "{\"value\":\"true\"}";
+            var obj = new BoolTestDto() { Value = true };
+
+            // Act
+            var actual = JsonSerializer.Serialize(obj);
+
+            // Assert
+            Assert.Equal(expected, actual);
         }
     }
 }
