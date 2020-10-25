@@ -1,0 +1,85 @@
+{
+	"recordSetTotal": "3",
+	"recordSetCount": "3",
+	"productinfo": [
+		{
+			"name": "CCI® 500 Small Pistol Primers 100-Pack",
+			"id": "1197837",
+			"sellable": "true",
+			"skuCount": "1",
+			"varianttype": "regular",
+			"isGiftCard": "N",
+			"bvRating": "5",
+			"manufacturer": "CCI",
+			"defaultSku": "1197838",
+			"isSingleSkuProduct": true,
+			"partNumber": "201771056",
+			"seoURL": "/shop/pdp/cci®-500-small-pistol-primers-100-pack#repChildCatid=1197838",
+			"imageURL": "//s7d2.scene7.com/is/image/academy/10383132",
+			"imageAltDescription": "CCI® 500 Small Pistol Primers 100-Pack",
+			"defaultSkuPrice": {
+				"salePrice": "4.99",
+				"priceMessage": "",
+				"savings": "",
+				"listPrice": "4.99"
+			},
+			"storeId": "10051"
+		},
+		{
+			"name": "Monarch High Velocity Light Dove 12 Gauge Shotshells",
+			"id": "7994567",
+			"shortDescription": "The Monarch High Velocity Light Dove 12 Gauge Shotshells feature a 1 ounce shot and 1,350 feet per second velocity.",
+			"sellable": "true",
+			"skuCount": "2",
+			"varianttype": "regular",
+			"isGiftCard": "N",
+			"bvRating": "4",
+			"manufacturer": "Monarch",
+			"defaultSku": "8059511",
+			"isSingleSkuProduct": false,
+			"partNumber": "121345697",
+			"seoURL": "/shop/pdp/monarch-high-velocity-light-dove-12-gauge-shotshells#repChildCatid=8059511",
+			"ppuEnabled": true,
+			"ppuMessage": "perRound",
+			"imageURL": "//s7d2.scene7.com/is/image/academy/20462771",
+			"imageAltDescription": "Monarch High Velocity Light Dove 12 Gauge Shotshells",
+			"defaultSkuPrice": {
+				"salePrice": "5.49",
+				"priceMessage": "",
+				"pricePerUnit": ".22",
+				"ppuMsg": "22.0¢",
+				"savings": "",
+				"listPrice": "5.49"
+			},
+			"storeId": "10051"
+		},
+		{
+			"name": "Federal Premium Top Gun 12 Gauge Shotshells",
+			"id": "6893267",
+			"shortDescription": "The Federal Premium Top Gun Sporting 12 Gauge Shotshells are designed for clay target shooting and feature high velocities.",
+			"sellable": "true",
+			"skuCount": "2",
+			"varianttype": "regular",
+			"isGiftCard": "N",
+			"bvRating": "4",
+			"manufacturer": "Federal Premium",
+			"defaultSku": "6893269",
+			"isSingleSkuProduct": false,
+			"partNumber": "119671012",
+			"seoURL": "/shop/pdp/federal-premium-top-gun-12-gauge-shotshells#repChildCatid=6893269",
+			"ppuEnabled": true,
+			"ppuMessage": "perRound",
+			"imageURL": "//s7d2.scene7.com/is/image/academy/20285351",
+			"imageAltDescription": "Federal Premium Top Gun 12 Gauge Shotshells",
+			"defaultSkuPrice": {
+				"salePrice": "6.49",
+				"priceMessage": "",
+				"pricePerUnit": ".26",
+				"ppuMsg": "26.0¢",
+				"savings": "",
+				"listPrice": "6.49"
+			},
+			"storeId": "10051"
+		}
+	]
+}
