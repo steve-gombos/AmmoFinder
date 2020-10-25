@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AmmoFinder.Data.Migrations
 {
     [DbContext(typeof(ProductsContext))]
-    [Migration("20201025052329_Initial")]
+    [Migration("20201025072458_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,7 +23,7 @@ namespace AmmoFinder.Data.Migrations
 
             modelBuilder.Entity("AmmoFinder.Data.Models.Product", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -56,7 +56,7 @@ namespace AmmoFinder.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<long?>("RetailerId")
+                    b.Property<long>("RetailerId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("RetailerProductId")
@@ -77,11 +77,9 @@ namespace AmmoFinder.Data.Migrations
                     b.Property<string>("Url")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ProductId");
 
-                    b.HasIndex("RetailerId");
-
-                    b.HasIndex("RetailerProductId")
+                    b.HasIndex("RetailerId", "RetailerProductId")
                         .IsUnique()
                         .HasFilter("[RetailerProductId] IS NOT NULL");
 
@@ -90,7 +88,7 @@ namespace AmmoFinder.Data.Migrations
 
             modelBuilder.Entity("AmmoFinder.Data.Models.Retailer", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long>("RetailerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -102,7 +100,7 @@ namespace AmmoFinder.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("RetailerId");
 
                     b.ToTable("Retailers");
                 });
@@ -110,8 +108,10 @@ namespace AmmoFinder.Data.Migrations
             modelBuilder.Entity("AmmoFinder.Data.Models.Product", b =>
                 {
                     b.HasOne("AmmoFinder.Data.Models.Retailer", "Retailer")
-                        .WithMany()
-                        .HasForeignKey("RetailerId");
+                        .WithMany("Products")
+                        .HasForeignKey("RetailerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

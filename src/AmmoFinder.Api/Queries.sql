@@ -1,5 +1,5 @@
 ﻿select * from products 
-where retailerid = 7
+where brand is null
 --order by inventory desc
 --and RetailerProductId like '%3074457345618960344%'
 --where roundtype is null
@@ -23,3 +23,5 @@ HAVING COUNT(*) > 1
 
 select * from products
 where retailerproductid = 'bulk-17-wsm-ammo-17wsm20grvarm-ae17wsm1-fedae-50'
+
+

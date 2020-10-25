@@ -7,6 +7,7 @@ namespace AmmoFinder.Parsers.UnitTests
     {
         [Theory]
         [InlineData("", null)]
+        [InlineData(null, null)]
         [ClassData(typeof(RimfireCaliber))]
         [ClassData(typeof(HandgunCalibers))]
         [ClassData(typeof(ShotgunCaliber))]

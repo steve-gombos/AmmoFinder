@@ -8,6 +8,11 @@ namespace AmmoFinder.Parsers
     {
         public string Parse(string description)
         {
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                return null;
+            }
+
             var casings = typeof(Casings).GetFields().Where(x => (x.GetValue(x) is string)).Select(x => (string)x.GetValue(x));
 
             foreach (var indicator in casings)

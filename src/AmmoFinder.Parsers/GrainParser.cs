@@ -15,6 +15,11 @@ namespace AmmoFinder.Parsers
 
         public string Parse(string description)
         {
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                return null;
+            }
+
             foreach (var indicator in SearchIndicators)
             {
                 var descriptionLowered = description.ToLower();

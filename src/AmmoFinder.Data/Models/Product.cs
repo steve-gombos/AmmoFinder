@@ -7,7 +7,7 @@ namespace AmmoFinder.Data.Models
     public class Product
     {
         [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Id { get; set; }
+        public long ProductId { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -42,6 +42,8 @@ namespace AmmoFinder.Data.Models
         [Required]
         public DateTime UpdatedOn { get; set; } = DateTime.Now;
 
+        [ForeignKey("Retailer")]
+        public long RetailerId { get; set; }
 
         public virtual Retailer Retailer { get; set; }
     }

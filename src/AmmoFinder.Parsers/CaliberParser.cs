@@ -9,6 +9,11 @@ namespace AmmoFinder.Parsers
     {
         public string Parse(string description)
         {
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                return null;
+            }
+
             var descriptionLower = description.ToLower().Replace(" ", "");
 
             foreach (var firearmGrouping in new Calibers())

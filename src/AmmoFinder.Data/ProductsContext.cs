@@ -20,7 +20,7 @@ namespace AmmoFinder.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>()
-                .HasIndex(b => b.RetailerProductId)
+                .HasIndex(p => new { p.RetailerId, p.RetailerProductId })
                 .IsUnique();
         }
 

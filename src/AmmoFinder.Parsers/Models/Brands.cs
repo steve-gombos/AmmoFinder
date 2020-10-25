@@ -11,19 +11,25 @@ namespace AmmoFinder.Parsers.Models
             {NobleSport, new List<string>{"Nobel Sport" } },
             {PrviPartizan, new List<string>{"PPU", "Prvi"} },
             {SellierBellot, new List<string>{ "Sellier and Bellot" } },
-            {SigSauer, new List<string>{"Sig"} }
+            {SigSauer, new List<string>{"Sig"} },
+            {FNHerstal, new List<string>{"FN"} },
+            {HeviShot, new List<string>{"HEVI-Shot"} },
+            {HeviMetal, new List<string>{"HEVI-Metal"} },
+            {Remington, new List<string>{ "Sportsman Hi-Speed" } }
         }.ToImmutableDictionary();
 
         public const string Unknown = "Unknown";
 
         public const string Aguila = "Aguila";
         public const string AlexanderArms = "Alexander Arms";
+        public const string AmericanEagle = "American Eagle";
         public const string AmmoInc = "Ammo Inc";
         public const string Armscor = "Armscor";
         public const string AtomicAmmunition = "Atomic Ammunition";
         public const string Barnes = "Barnes";
         public const string BlackHills = "Black Hills";
         public const string Blazer = "Blazer";
+        public const string Brenneke = "Brenneke";
         public const string BrownBear = "Brown Bear";
         public const string Browning = "Browning";
         public const string BuffaloBore = "Buffalo Bore";
@@ -35,29 +41,37 @@ namespace AmmoFinder.Parsers.Models
         public const string Federal = "Federal";
         public const string Fiocchi = "Fiocchi";
         public const string FNHerstal = "FN Herstal";
+        public const string FrankfordArsenal = "Frankford Arsenal";
         public const string Frontier = "Frontier";
         public const string Geco = "Geco";
         public const string Herters = "Herter's";
+        public const string HeviMetal = "HeviMetal";
         public const string HeviShot = "HeviShot";
+        public const string Hodgdon = "Hodgdon";
         public const string Hornady = "Hornady";
         public const string Hotshot = "Hotshot";
         public const string HSM = "HSM";
         public const string Inceptor = "Inceptor";
+        public const string Independence = "Independence";
         public const string Kent = "Kent";
         public const string Korea = "Korea";
         public const string KynochSurplus = "Kynoch Surplus";
         public const string LakeCity = "Lake City";
+        public const string Lee = "Lee";
         public const string Liberty = "Liberty";
         public const string Lightfield = "Lightfield";
         public const string MagTech = "MagTech";
         public const string MaxxTech = "MaxxTech";
         public const string MEDEF = "MEDEF";
         public const string MilitarySurplus = "Military Surplus";
+        public const string Monarch = "Monarch";
         public const string MTM = "MTM";
         public const string NobleSport = "Noble Sport";
         public const string Norma = "Norma";
         public const string Nosler = "Nosler";
+        public const string Plano = "Plano";
         public const string PMC = "PMC";
+        public const string PowerBelt = "PowerBelt";
         public const string PrviPartizan = "Prvi Partizan";
         public const string RedArmyStandard = "Red Army Standard";
         public const string RedMountainArsenal = "Red Mountain Arsenal";
@@ -72,6 +86,9 @@ namespace AmmoFinder.Parsers.Models
         public const string Speer = "Speer";
         public const string STVTechnology = "STV Technology";
         public const string Surplus = "Surplus";
+        public const string ThompsonCenter = "Thompson/Center";
+        public const string TopBrass = "Top Brass";
+        public const string Traditions = "Traditions";
         public const string Tula = "Tula";
         public const string Underwood = "Underwood";
         public const string Weatherby = "Weatherby";
