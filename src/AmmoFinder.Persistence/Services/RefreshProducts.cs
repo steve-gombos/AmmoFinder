@@ -58,7 +58,7 @@ namespace AmmoFinder.Persistence.Services
 
             using (var transaction = _productsContext.Database.BeginTransaction())
             {
-                var deleteProducts = _productsContext.Products.Where(p => p.Retailer.Id == retailer.Id);
+                var deleteProducts = _productsContext.Products.Where(p => p.Retailer.RetailerId == retailer.RetailerId);
                 _productsContext.RemoveRange(deleteProducts);
                 _productsContext.AddRange(dbProducts);
                 _productsContext.SaveChanges();

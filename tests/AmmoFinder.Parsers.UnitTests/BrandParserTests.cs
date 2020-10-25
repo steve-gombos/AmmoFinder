@@ -6,6 +6,9 @@ namespace AmmoFinder.Parsers.UnitTests
     public class BrandParserTests
     {
         [Theory]
+        [InlineData("", null)]
+        [InlineData(null, null)]
+        [InlineData("Invalid", null)]
         [InlineData("Norma .17 HMR 17grn V-MAX Polymer Tip Ammunition 50rd box", Brands.Norma)]
         [InlineData("Aguila .22LR High Velocity 40grn Copper Coated 50rd Box", Brands.Aguila)]
         [InlineData("RED ARMY STANDARD 7.62x39 FMJ 124grn 20rd box", Brands.RedArmyStandard)]
@@ -51,7 +54,19 @@ namespace AmmoFinder.Parsers.UnitTests
         [InlineData("MAXXTech 9mm Ammo - 50 Rounds of 115 Grain FMJ Ammunition", Brands.MaxxTech)]
         [InlineData("Liberty Civil Defense, .40 S&W, HP, 60 Grain, 20 Rounds", Brands.Liberty)]
         [InlineData("Lightfield Home Defender, 12 Gauge, 2 3/4\", 130 Grain, Rubber Slug Rounds, 5 Rounds", Brands.Lightfield)]
-        [InlineData("", null)]
+        [InlineData("Monarch® .30 Carbine FMJ 110-Grain Ammunition", Brands.Monarch)]
+        [InlineData("American Eagle .38 Special 158-Grain Lead Round Nose Handgun Ammunition", Brands.Federal)]
+        [InlineData("FN 5.7 x 28mm 40-Grain V-Max Cartridges", Brands.FNHerstal)]
+        [InlineData("Traditions LED Muzzleloader Bore Light", Brands.Traditions)]
+        [InlineData("HEVI-Shot HEVI-Hammer 20 Gauge Shotshells", Brands.HeviShot)]
+        [InlineData("Hodgdon H110 1 lb Spherical Pistol/Shotgun Powder", Brands.Hodgdon)]
+        [InlineData("Top Brass Premium Reconditioned .223 Rem Brass Headstamps", Brands.TopBrass)]
+        [InlineData("Frankford Arsenal Platinum Series Multi Caliber Case Prep Center", Brands.FrankfordArsenal)]
+        [InlineData("HEVI-Metal™ 12 Gauge Turkey Shotshells", Brands.HeviMetal)]
+        [InlineData("Brenneke Magnum Crush 12 Gauge Shotgun Slugs", Brands.Brenneke)]
+        [InlineData("PowerBelt AeroTip™ Copper .50 Caliber 295-Grain Ammunition", Brands.PowerBelt)]
+        [InlineData("Thompson/Center Maxi Hunter .50 350-Grain Black Powder Ammunition", Brands.ThompsonCenter)]
+        [InlineData("Independence® Aluminum .45 Auto 230-Grain Handgun Ammunition", Brands.Independence)]
         public void Brand_IsValid(string input, string expected)
         {
             // Arrange

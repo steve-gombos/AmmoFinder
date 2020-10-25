@@ -13,12 +13,17 @@ namespace AmmoFinder.Parsers
             "rd",
             "rnd",
             "box of",
-            "per",
+            //"per",
             "box"
         };
 
         public string Parse(string description)
         {
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                return null;
+            }
+
             foreach (var indicator in SearchIndicators)
             {
                 var descriptionLowered = description.ToLower();

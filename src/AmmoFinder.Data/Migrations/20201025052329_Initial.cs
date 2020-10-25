@@ -11,21 +11,21 @@ namespace AmmoFinder.Data.Migrations
                 name: "Retailers",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false)
+                    RetailerId = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Retailers", x => x.Id);
+                    table.PrimaryKey("PK_Retailers", x => x.RetailerId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false)
+                    ProductId = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: true),
@@ -42,28 +42,23 @@ namespace AmmoFinder.Data.Migrations
                     Url = table.Column<string>(nullable: true),
                     RetailerProductId = table.Column<string>(nullable: true),
                     UpdatedOn = table.Column<DateTime>(nullable: false),
-                    RetailerId = table.Column<long>(nullable: true)
+                    RetailerId = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.ProductId);
                     table.ForeignKey(
                         name: "FK_Products_Retailers_RetailerId",
                         column: x => x.RetailerId,
                         principalTable: "Retailers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "RetailerId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_RetailerId",
+                name: "IX_Products_RetailerId_RetailerProductId",
                 table: "Products",
-                column: "RetailerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_RetailerProductId",
-                table: "Products",
-                column: "RetailerProductId",
+                columns: new[] { "RetailerId", "RetailerProductId" },
                 unique: true,
                 filter: "[RetailerProductId] IS NOT NULL");
         }

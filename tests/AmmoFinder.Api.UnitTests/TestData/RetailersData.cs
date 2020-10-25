@@ -15,7 +15,7 @@ namespace AmmoFinder.Api.UnitTests.TestData
                 new RetailerModel
                 {
                     CreatedOn = DateTime.Now,
-                    Id = 1,
+                    RetailerId = 1,
                     Name = "AmmoSurplus"
                 }
             }, typeof(OkObjectResult));
