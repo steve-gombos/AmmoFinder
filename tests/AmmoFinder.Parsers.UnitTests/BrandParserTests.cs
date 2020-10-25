@@ -8,6 +8,7 @@ namespace AmmoFinder.Parsers.UnitTests
         [Theory]
         [InlineData("", null)]
         [InlineData(null, null)]
+        [InlineData("Invalid", null)]
         [InlineData("Norma .17 HMR 17grn V-MAX Polymer Tip Ammunition 50rd box", Brands.Norma)]
         [InlineData("Aguila .22LR High Velocity 40grn Copper Coated 50rd Box", Brands.Aguila)]
         [InlineData("RED ARMY STANDARD 7.62x39 FMJ 124grn 20rd box", Brands.RedArmyStandard)]
