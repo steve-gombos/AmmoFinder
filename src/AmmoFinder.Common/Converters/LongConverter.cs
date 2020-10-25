@@ -39,10 +39,6 @@
             {
                 writer.WriteStringValue(value.ToString());
             }
-            else
-            {
-                writer.WriteNullValue();
-            }
         }
     }
 }

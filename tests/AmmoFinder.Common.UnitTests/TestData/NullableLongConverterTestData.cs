@@ -8,6 +8,7 @@ namespace AmmoFinder.Common.UnitTests.TestData
         {
             Add(new NullableLongTestDto() { Value = 123 }, "{\"value\":\"123\"}");
             Add(new NullableLongTestDto() { Value = null }, "{\"value\":null}");
+            Add(new NullableLongTestDto(), "{\"value\":null}");
         }
     }
 }
