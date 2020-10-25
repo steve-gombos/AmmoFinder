@@ -4,7 +4,6 @@ using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 using AutoMapper;
 using System;
-using System.Web;
 
 namespace AmmoFinder.Retailers.LuckyGunner
 {
