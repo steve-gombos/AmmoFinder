@@ -7,6 +7,7 @@ using Moq;
 using RichardSzalay.MockHttp;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -74,6 +75,8 @@ namespace AmmoFinder.Retailers.UnitTests.Academy
                 .Respond("application/json", File.OpenRead("Academy/product-details-1.json"));
             mockedHttp.When(Extension.BaseUrl + "api/product/1234567")
                 .Respond("application/json", File.OpenRead("Academy/product-details-2.json"));
+            mockedHttp.When(Extension.BaseUrl + "api/product/987654321")
+                .Respond(HttpStatusCode.NotFound);
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
             var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);

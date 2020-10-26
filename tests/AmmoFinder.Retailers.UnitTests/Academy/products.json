@@ -108,6 +108,34 @@
 				"listPrice": "6.49"
 			},
 			"storeId": "10051"
+		},
+		{
+			"name": "Federal Premium Top Gun 12 Gauge Shotshells",
+			"id": "987654321",
+			"shortDescription": "The Federal Premium Top Gun Sporting 12 Gauge Shotshells are designed for clay target shooting and feature high velocities.",
+			"sellable": "true",
+			"skuCount": "2",
+			"varianttype": "regular",
+			"isGiftCard": "N",
+			"bvRating": "4",
+			"manufacturer": "Federal Premium",
+			"defaultSku": "6893269",
+			"isSingleSkuProduct": false,
+			"partNumber": "119671012",
+			"seoURL": "/shop/pdp/federal-premium-top-gun-12-gauge-shotshells#repChildCatid=6893269",
+			"ppuEnabled": true,
+			"ppuMessage": "perRound",
+			"imageURL": "//s7d2.scene7.com/is/image/academy/20285351",
+			"imageAltDescription": "Federal Premium Top Gun 12 Gauge Shotshells",
+			"defaultSkuPrice": {
+				"salePrice": "6.49",
+				"priceMessage": "",
+				"pricePerUnit": ".26",
+				"ppuMsg": "26.0¢",
+				"savings": "",
+				"listPrice": "6.49"
+			},
+			"storeId": "10051"
 		}
 
 	]
