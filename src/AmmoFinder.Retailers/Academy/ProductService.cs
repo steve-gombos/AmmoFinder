@@ -16,11 +16,11 @@ namespace AmmoFinder.Retailers.Academy
         private readonly List<string> _categories = new List<string>
         {
             "15808", //Handgun
-            //"15807", //Rifle
-            //"15806", //Shotgun
-            //"15809", //Rimfire
-            //"3074457345616934684", //subsonic
-            //"202538", //bulk
+            "15807", //Rifle
+            "15806", //Shotgun
+            "15809", //Rimfire
+            "3074457345616934684", //subsonic
+            "202538", //bulk
         };
         private readonly HttpClient _httpClient;
         private readonly IMapper _mapper;
