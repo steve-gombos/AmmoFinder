@@ -15,7 +15,9 @@ namespace AmmoFinder.Parsers.Models
             {FNHerstal, new List<string>{"FN"} },
             {HeviShot, new List<string>{"HEVI-Shot"} },
             {HeviMetal, new List<string>{"HEVI-Metal"} },
-            {Federal, new List<string>{"American Eagle"} }
+            {Federal, new List<string>{"American Eagle"} },
+            {Remington, new List<string>{"Sportsman Hi-Speed" } },
+            {Inceptor, new List<string>{"Ruger ARX" } }
         }.ToImmutableDictionary();
 
         public const string Unknown = "Unknown";

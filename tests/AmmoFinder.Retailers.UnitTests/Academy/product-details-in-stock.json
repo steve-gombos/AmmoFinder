@@ -1,0 +1,629 @@
+{"inventory":{
+  "online" : [ {
+    "skuId" : "5043036",
+    "availableQuantity" : "47.0",
+    "ecomCode" : "04",
+    "inventoryStatus" : "IN_STOCK",
+    "deliveryMessage" : {
+      "onlineDeliveryMessage" : {
+        "value" : "In Stock Online",
+        "additionalInfoKey" : "IN_STOCK_ONLINE_MORE_INFO_1",
+        "additionalInfoValue" : "Usually leaves warehouse in 3-4 business days",
+        "key" : "IN_STOCK_ONLINE",
+        "showTick" : "true"
+      },
+      "storeDeliveryMessage" : {
+        "storeInvType" : "LSI",
+        "value" : "Not Sold In Stores",
+        "key" : "NOT_SOLD_IN_STORE",
+        "showTick" : "false"
+      }
+    },
+    "isClearance" : "N",
+    "addToCart" : "true",
+    "isSafetyStockEnabled" : "N",
+    "onlineStoreName" : "Academy",
+    "products" : [ ],
+    "availabilityDate" : "null"
+  } ]
+},"product-info":{
+  "productinfo" : {
+    "name" : "Weatherby Nosler Partition .270 Weatherby Magnum 150-Grain Centerfire Rifle Ammunition",
+    "id" : "4961501",
+    "isGiftCard" : "N",
+    "ppuEnabled" : true,
+    "ppuMessage" : "perRound",
+    "shortDescription" : "The Weatherby Nosler Partition .270 Weatherby Magnum 150-Grain Centerfire Rifle Ammunition has a 3,245 feet-per-second velocity.",
+    "isBuyNowEligible" : "N",
+    "longDescription" : "The Weatherby Nosler Partition .270 Weatherby Magnum 150-Grain Centerfire Rifle Ammunition is maximized for both hunters and target shooters. The rounds feature the Nosler Partition style with brass casing to provide a 3,245 feet-per-second velocity. 20-round box.",
+    "sellable" : "true",
+    "categoryId" : "15807",
+    "varianttype" : "regular",
+    "manufacturer" : "Weatherby",
+    "defaultSku" : "5043036",
+    "isSingleSkuProduct" : true,
+    "partNumber" : "114579583P",
+    "seoURL" : "/shop/pdp/weatherby-nosler-partition-270-weatherby-magnum-150-grain-centerfire-rifle-ammunition#repChildCatid=5043036",
+    "parentCategoryURL" : "/browse/outdoors/shooting/ammunition/centerfire-rifle",
+    "xfullimage" : "//s7d2.scene7.com/is/image/academy/20085148",
+    "fullImage" : "//s7d2.scene7.com/is/image/academy/20085148",
+    "thumbnail" : "//s7d2.scene7.com/is/image/academy/20085148",
+    "imageAltDescription" : "Weatherby Nosler Partition .270 Weatherby Magnum 150-Grain Centerfire Rifle Ammunition",
+    "productAttrGroups" : [ {
+      "Gauge/Caliber" : [ {
+        "id" : "5735073",
+        "sequence" : ".00000",
+        "value" : "270 Weatherby Mag",
+        "nextAvailableDiff" : [ {
+          "ids" : [ "130053" ],
+          "key" : "Grain Weight"
+        } ]
+      } ]
+    }, {
+      "Grain Weight" : [ {
+        "id" : "130053",
+        "sequence" : ".00000",
+        "value" : "150",
+        "nextAvailableDiff" : [ {
+          "ids" : [ "5735073" ],
+          "key" : "Gauge/Caliber"
+        } ]
+      } ]
+    } ],
+    "adBug" : [ "Online Only" ],
+    "wgFlag" : "N",
+    "productSpecifications" : [ {
+      "featureBenefits" : {
+        "value" : [ "Muzzle energy: 3,507 foot-pounds", "Nosler Partition design", "3,245 feet-per-second velocity", "150 grains", "20-round box", "Brass casings", ".270 Weatherby Magnum caliber" ],
+        "key" : "featureBenefits"
+      }
+    }, {
+      "specifications" : {
+        "value" : {
+          "Caliber" : ".270 Weatherby Mag",
+          "Number of rounds" : "20",
+          "Pistol Ammo Type" : "Target",
+          "Species" : "Medium Game",
+          "Grain weight" : "150"
+        },
+        "key" : "specifications"
+      }
+    }, {
+      "whatsInTheBox" : {
+        "value" : [ "Weatherby Nosler Partition .270 Weatherby Magnum 150-Grain Centerfire Rifle Ammunition" ],
+        "key" : "whatsInTheBox"
+      }
+    }, {
+      "legalDisclaimer" : {
+        "value" : [ "You must be 18 or older to purchase Rifle or Shotgun Ammunition and 21 or older to purchase Handgun Ammunition. In ordering this product, you certify that you are of legal age and satisfy your jurisdiction's legal requirements to purchase this product.", "For safety reasons, we do not accept returns on ammunition. Always make sure you use the correct ammunition for your specific firearm.", "The sale or shipment of this product to residents of certain jurisdictions is prohibited.  Check your local laws before ordering this product. Check your local laws for any other regulations.", "We recommend the use of protective eyewear whenever using or near the use of this item.", "Item will only be shipped using Ground Shipping to the contiguous 48 states only." ],
+        "key" : "legalDisclaimer"
+      }
+    }, {
+      "stateRestriction" : {
+        "value" : [ "DC", "HI", "IL", "MA", "NY", "AE", "AA", "AP", "NJ", "CT", "AK", "CA" ],
+        "key" : "stateRestriction"
+      }
+    } ],
+    "productAttrCombinationGroups" : {
+      "5043036" : "130053_5735073"
+    },
+    "categoryLevelMessage" : {
+      "value" : "You must be 18 or older to purchase Rifle or Shotgun Ammunition and 21 or older to purchase Handgun Ammunition. By ordering this product, you certify that you are of legal age and satisfy your jurisdiction's legal requirements to purchase this product.",
+      "key" : "AMMUNITION_MESSAGE"
+    },
+    "productAttributes" : [ {
+      "sequence" : "4.00000",
+      "value" : "regular",
+      "uniqueID" : "131821",
+      "usage" : "Descriptive",
+      "key" : "variantType"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Y",
+      "uniqueID" : "166813",
+      "usage" : "Descriptive",
+      "key" : "InvInStock"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Weatherby N270150PT 270 Weatherby Mag Nosler Partition 150 GR 20Rds:270 Wthrby Mag:150 Grain Weight",
+      "uniqueID" : "35320",
+      "usage" : "Descriptive",
+      "key" : "ipItemDescription"
+    }, {
+      "sequence" : ".00000",
+      "value" : "274",
+      "uniqueID" : "35323",
+      "usage" : "Descriptive",
+      "key" : "specificationNodeID"
+    }, {
+      "sequence" : ".00000",
+      "value" : "130",
+      "uniqueID" : "132815",
+      "usage" : "Descriptive",
+      "key" : "department"
+    }, {
+      "sequence" : ".00000",
+      "value" : "01",
+      "uniqueID" : "132813",
+      "usage" : "Descriptive",
+      "key" : "division"
+    }, {
+      "sequence" : ".00000",
+      "value" : "0124",
+      "uniqueID" : "132817",
+      "usage" : "Descriptive",
+      "key" : "class"
+    }, {
+      "sequence" : ".00000",
+      "value" : "F&S/Campg",
+      "uniqueID" : "132814",
+      "usage" : "Descriptive",
+      "key" : "divisionName"
+    }, {
+      "sequence" : ".00000",
+      "value" : "5-7",
+      "uniqueID" : "29314",
+      "usage" : "Descriptive",
+      "key" : "Shipping_DSV_Attr"
+    }, {
+      "sequence" : "1.00000",
+      "value" : "Y",
+      "uniqueID" : "131825",
+      "usage" : "Descriptive",
+      "key" : "ammoAgeRestrict"
+    }, {
+      "sequence" : ".00000",
+      "value" : "1",
+      "uniqueID" : "35313",
+      "usage" : "Descriptive",
+      "key" : "Tran_level"
+    }, {
+      "sequence" : ".00000",
+      "value" : "FLY COMBOS",
+      "uniqueID" : "132818",
+      "usage" : "Descriptive",
+      "key" : "className"
+    }, {
+      "sequence" : ".00000",
+      "value" : "150",
+      "uniqueID" : "18809",
+      "usage" : "Descriptive",
+      "key" : "Grain weight"
+    }, {
+      "sequence" : ".00000",
+      "value" : "20",
+      "uniqueID" : "18712",
+      "usage" : "Descriptive",
+      "key" : "Number of rounds"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Under 18",
+      "uniqueID" : "134813",
+      "usage" : "Descriptive",
+      "key" : "UDA - Age Restriction"
+    }, {
+      "sequence" : ".00000",
+      "value" : "10745",
+      "uniqueID" : "35322",
+      "usage" : "Descriptive",
+      "key" : "primaryCategoryNodeID"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Fishing Combos",
+      "uniqueID" : "132816",
+      "usage" : "Descriptive",
+      "key" : "departmentName"
+    }, {
+      "sequence" : ".00000",
+      "value" : "DC",
+      "uniqueID" : "4206",
+      "usage" : "Descriptive",
+      "key" : "staterestriction4"
+    }, {
+      "sequence" : ".00000",
+      "value" : "We recommend the use of protective eyewear whenever using or near the use of this item.",
+      "uniqueID" : "4203",
+      "usage" : "Descriptive",
+      "key" : "legalDisclaimer4"
+    }, {
+      "sequence" : ".00000",
+      "value" : "HI",
+      "uniqueID" : "4207",
+      "usage" : "Descriptive",
+      "key" : "staterestriction5"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Item will only be shipped using Ground Shipping to the contiguous 48 states only.",
+      "uniqueID" : "4223",
+      "usage" : "Descriptive",
+      "key" : "legalDisclaimer5"
+    }, {
+      "sequence" : ".00000",
+      "value" : "IL",
+      "uniqueID" : "4208",
+      "usage" : "Descriptive",
+      "key" : "staterestriction6"
+    }, {
+      "sequence" : ".00000",
+      "value" : "MA",
+      "uniqueID" : "4209",
+      "usage" : "Descriptive",
+      "key" : "staterestriction7"
+    }, {
+      "sequence" : ".00000",
+      "value" : "270 Weatherby Mag",
+      "uniqueID" : "4214",
+      "usage" : "Defining",
+      "key" : "Gauge/Caliber"
+    }, {
+      "sequence" : ".00000",
+      "value" : "NY",
+      "uniqueID" : "4210",
+      "usage" : "Descriptive",
+      "key" : "staterestriction8"
+    }, {
+      "sequence" : ".00000",
+      "value" : "AE",
+      "uniqueID" : "4211",
+      "usage" : "Descriptive",
+      "key" : "staterestriction9"
+    }, {
+      "sequence" : ".00000",
+      "value" : "AA",
+      "uniqueID" : "4212",
+      "usage" : "Descriptive",
+      "key" : "staterestriction10"
+    }, {
+      "sequence" : ".00000",
+      "value" : "AP",
+      "uniqueID" : "4213",
+      "usage" : "Descriptive",
+      "key" : "staterestriction11"
+    }, {
+      "sequence" : ".00000",
+      "value" : "150",
+      "uniqueID" : "4234",
+      "usage" : "Defining",
+      "key" : "Grain Weight"
+    }, {
+      "sequence" : ".00000",
+      "value" : "NJ",
+      "uniqueID" : "4243",
+      "usage" : "Descriptive",
+      "key" : "staterestriction12"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Medium Game",
+      "uniqueID" : "18714",
+      "usage" : "Descriptive",
+      "key" : "Species"
+    }, {
+      "sequence" : ".00000",
+      "value" : ".270 Weatherby Mag",
+      "uniqueID" : "18724",
+      "usage" : "Descriptive",
+      "key" : "Caliber"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Target",
+      "uniqueID" : "18845",
+      "usage" : "Descriptive",
+      "key" : "Pistol Ammo Type"
+    }, {
+      "sequence" : ".00000",
+      "value" : "CT",
+      "uniqueID" : "4205",
+      "usage" : "Descriptive",
+      "key" : "staterestriction3"
+    }, {
+      "sequence" : ".00000",
+      "value" : "SPORTS SOUTH, INC.",
+      "uniqueID" : "1202",
+      "usage" : "Descriptive",
+      "key" : "vendorName"
+    }, {
+      "sequence" : ".00000",
+      "value" : "AK",
+      "uniqueID" : "3736",
+      "usage" : "Descriptive",
+      "key" : "staterestriction1"
+    }, {
+      "sequence" : ".00000",
+      "value" : "You must be 18 or older to purchase Rifle or Shotgun Ammunition and 21 or older to purchase Handgun Ammunition. In ordering this product, you certify that you are of legal age and satisfy your jurisdiction's legal requirements to purchase this product.",
+      "uniqueID" : "1212",
+      "usage" : "Descriptive",
+      "key" : "legalDisclaimer1"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Weatherby Nosler Partition .270 Weatherby Magnum 150-Grain Centerfire Rifle Ammunition",
+      "uniqueID" : "1205",
+      "usage" : "Descriptive",
+      "key" : "whatIncluded1"
+    }, {
+      "sequence" : ".00000",
+      "value" : "For safety reasons, we do not accept returns on ammunition. Always make sure you use the correct ammunition for your specific firearm.",
+      "uniqueID" : "3735",
+      "usage" : "Descriptive",
+      "key" : "legalDisclaimer2"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Muzzle energy: 3,507 foot-pounds",
+      "uniqueID" : "3705",
+      "usage" : "Descriptive",
+      "key" : "featureBenefit6"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Cartridges, Small Arms",
+      "uniqueID" : "1204",
+      "usage" : "Descriptive",
+      "key" : "hazmatName"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Nosler Partition design",
+      "uniqueID" : "3704",
+      "usage" : "Descriptive",
+      "key" : "featureBenefit5"
+    }, {
+      "sequence" : ".00000",
+      "value" : "3,245 feet-per-second velocity",
+      "uniqueID" : "3708",
+      "usage" : "Descriptive",
+      "key" : "featureBenefit7"
+    }, {
+      "sequence" : ".00000",
+      "value" : "2971",
+      "uniqueID" : "1201",
+      "usage" : "Descriptive",
+      "key" : "vendor"
+    }, {
+      "sequence" : ".00000",
+      "value" : "150 grains",
+      "uniqueID" : "1209",
+      "usage" : "Descriptive",
+      "key" : "featureBenefit2"
+    }, {
+      "sequence" : ".00000",
+      "value" : "CA",
+      "uniqueID" : "4204",
+      "usage" : "Descriptive",
+      "key" : "staterestriction2"
+    }, {
+      "sequence" : ".00000",
+      "value" : "C1",
+      "uniqueID" : "3701",
+      "usage" : "Descriptive",
+      "key" : "hazmat"
+    }, {
+      "sequence" : ".00000",
+      "value" : "18",
+      "uniqueID" : "3702",
+      "usage" : "Descriptive",
+      "key" : "ageRestrictionFlag"
+    }, {
+      "sequence" : ".00000",
+      "value" : "The sale or shipment of this product to residents of certain jurisdictions is prohibited.  Check your local laws before ordering this product. Check your local laws for any other regulations.",
+      "uniqueID" : "4202",
+      "usage" : "Descriptive",
+      "key" : "legalDisclaimer3"
+    }, {
+      "sequence" : ".00000",
+      "value" : "20-round box",
+      "uniqueID" : "1210",
+      "usage" : "Descriptive",
+      "key" : "featureBenefit3"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Brass casings",
+      "uniqueID" : "1211",
+      "usage" : "Descriptive",
+      "key" : "featureBenefit4"
+    }, {
+      "sequence" : ".00000",
+      "value" : ".270 Weatherby Magnum caliber",
+      "uniqueID" : "1208",
+      "usage" : "Descriptive",
+      "key" : "featureBenefit1"
+    } ],
+    "productAttributeGroups" : [ "Gauge/Caliber", "Grain Weight" ],
+    "productMessage" : [ {
+      "value" : "You must be 18 or older to purchase Rifle or Shotgun Ammunition and 21 or older to purchase Handgun Ammunition. By ordering this product, you certify that you are of legal age and satisfy your jurisdiction's legal requirements to purchase this product.",
+      "key" : "hazmat"
+    }, {
+      "value" : "This item may ship from a different location therefore only eligible for ground shipping. Standard delivery of 10-14 days. Additionally, this item is not eligble for APO/FPO delivery.",
+      "key" : "dropShip"
+    } ],
+    "disclaimerMessage" : "Must be 18 or older to purchase Rifle or Shotgun Ammunition and 21 or older to purchase Handgun Ammunition. This product does not ship to P.O. Box, APO, or FPO. Shipping is limited to ground for this product.",
+    "productPrice" : {
+      "salePrice" : "85.99",
+      "pricePerUnit" : "4.30",
+      "ppuMsg" : "$4.30",
+      "priceMessage" : "",
+      "savings" : "",
+      "listPrice" : "85.99"
+    },
+    "sKUs" : [ {
+      "itemId" : "114579583",
+      "mfItemId" : "68713",
+      "skuId" : "5043036",
+      "multiMediaSetName" : "114579583_0_0_0_0_mms",
+      "imageURL" : "//s7d2.scene7.com/is/image/academy/20085148",
+      "thumbnail" : "//s7d2.scene7.com/is/image/academy/20085148",
+      "sellable" : "true",
+      "alternateImages" : [ ],
+      "skuResolvingAttrIdentifiers" : {
+        "Gauge/Caliber" : "5735073",
+        "sequenceGrain Weight" : ".00000",
+        "Grain Weight" : "130053",
+        "sequenceGauge/Caliber" : ".00000"
+      },
+      "productMessage" : [ {
+        "value" : "You must be 18 or older to purchase Rifle or Shotgun Ammunition and 21 or older to purchase Handgun Ammunition. By ordering this product, you certify that you are of legal age and satisfy your jurisdiction's legal requirements to purchase this product.",
+        "key" : "hazmat"
+      }, {
+        "value" : "This item may ship from a different location therefore only eligible for ground shipping. Standard delivery of 10-14 days. Additionally, this item is not eligble for APO/FPO delivery.",
+        "key" : "dropShip"
+      } ],
+      "price" : {
+        "salePrice" : "85.99",
+        "pricePerUnit" : "4.30",
+        "ppuMsg" : "$4.30",
+        "priceMessage" : "",
+        "savings" : "",
+        "listPrice" : "85.99"
+      },
+      "adBug" : [ "Online Only" ],
+      "attributes" : [ {
+        "uniqueID" : "35319",
+        "name" : "labelPickFlag",
+        "usage" : "Descriptive",
+        "value" : "N",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "35317",
+        "name" : "shipFromStoreFlag",
+        "usage" : "Descriptive",
+        "value" : "N",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "35321",
+        "name" : "SafetyStockLevel",
+        "usage" : "Descriptive",
+        "value" : "1",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "35318",
+        "name" : "isSerialTrackedFlag",
+        "usage" : "Descriptive",
+        "value" : "N",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "166813",
+        "name" : "InvInStock",
+        "usage" : "Descriptive",
+        "value" : "Y",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "81813",
+        "name" : "vendorShipRestrictionFlag",
+        "usage" : "Descriptive",
+        "value" : "Y",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "134814",
+        "name" : "bopisFlag",
+        "usage" : "Descriptive",
+        "value" : "N",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "35315",
+        "name" : "Diff2",
+        "usage" : "Descriptive",
+        "value" : "150GRAIN",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "29314",
+        "name" : "Shipping_DSV_Attr",
+        "usage" : "Descriptive",
+        "value" : "5-7",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "35314",
+        "name" : "Diff1",
+        "usage" : "Descriptive",
+        "value" : "270WBYMAG",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "161313",
+        "name" : "isProductAPGPDisable",
+        "usage" : "Descriptive",
+        "value" : "true",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "35313",
+        "name" : "Tran_level",
+        "usage" : "Descriptive",
+        "value" : "1",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "131814",
+        "name" : "multiMediaSetName",
+        "usage" : "Descriptive",
+        "value" : "114579583_0_0_0_0_mms",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "134813",
+        "name" : "UDA - Age Restriction",
+        "usage" : "Descriptive",
+        "value" : "Under 18",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "4214",
+        "name" : "Gauge/Caliber",
+        "usage" : "Defining",
+        "value" : "270 Weatherby Mag",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "4234",
+        "name" : "Grain Weight",
+        "usage" : "Defining",
+        "value" : "150",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "1202",
+        "name" : "vendorName",
+        "usage" : "Descriptive",
+        "value" : "SPORTS SOUTH, INC.",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "3202",
+        "name" : "UPCcode",
+        "usage" : "Descriptive",
+        "value" : "0747115020287",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "1204",
+        "name" : "hazmatName",
+        "usage" : "Descriptive",
+        "value" : "Cartridges, Small Arms",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "1201",
+        "name" : "vendor",
+        "usage" : "Descriptive",
+        "value" : "2971",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "3701",
+        "name" : "hazmat",
+        "usage" : "Descriptive",
+        "value" : "C1",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "3702",
+        "name" : "ageRestrictionFlag",
+        "usage" : "Descriptive",
+        "value" : "18",
+        "sequence" : ".00000"
+      } ]
+    } ],
+    "productType" : "standard",
+    "showBIS" : "true",
+    "breadCrumb" : [ {
+      "value" : "220431",
+      "label" : "Outdoors",
+      "seoURL" : "/shop/browse/outdoors"
+    }, {
+      "value" : "64413",
+      "label" : "Shooting",
+      "seoURL" : "/shop/browse/outdoors/shooting"
+    }, {
+      "value" : "15759",
+      "label" : "Ammunition",
+      "seoURL" : "/shop/browse/outdoors/shooting/ammunition"
+    }, {
+      "value" : "15807",
+      "label" : "Centerfire Rifle",
+      "seoURL" : "/shop/browse/outdoors/shooting/ammunition/centerfire-rifle"
+    } ]
+  }
+}}

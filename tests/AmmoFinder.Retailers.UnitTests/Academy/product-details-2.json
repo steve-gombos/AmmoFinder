@@ -1,0 +1,573 @@
+{"inventory":{
+  "online" : [ {
+    "skuId" : "1197838",
+    "ecomCode" : "02",
+    "inventoryStatus" : "OUT_OF_STOCK",
+    "deliveryMessage" : {
+      "onlineDeliveryMessage" : {
+        "value" : "Not Sold Online",
+        "key" : "NOT_SOLD_ONLINE",
+        "showTick" : "false"
+      },
+      "storeDeliveryMessage" : {
+        "storeInvType" : "LSI",
+        "value" : "Only Sold In Stores",
+        "key" : "ONLY_SOLD_IN_STORE",
+        "showTick" : "true"
+      }
+    },
+    "isClearance" : "N",
+    "addToCart" : "true",
+    "isSafetyStockEnabled" : "N",
+    "availabilityDate" : "null",
+    "products" : [ ]
+  } ]
+},"product-info":{
+  "productinfo" : {
+    "name" : "CCI® 500 Small Pistol Primers 100-Pack",
+    "id" : "1234567",
+    "isGiftCard" : "N",
+    "isBuyNowEligible" : "N",
+    "sellable" : "true",
+    "categoryId": "67709",
+    "varianttype" : "regular",
+    "bvRating" : "5",
+    "manufacturer" : "CCI",
+    "defaultSku" : "1197838",
+    "isSingleSkuProduct" : true,
+    "partNumber" : "201771056",
+    "seoURL" : "/shop/pdp/cci®-500-small-pistol-primers-100-pack#repChildCatid=1197838",
+    "parentCategoryURL" : "/browse/outdoors/shooting/ammunition/reloading/reloading-powder-primers",
+    "xfullimage" : "//s7d2.scene7.com/is/image/academy/10383132",
+    "fullImage" : "//s7d2.scene7.com/is/image/academy/10383132",
+    "thumbnail" : "//s7d2.scene7.com/is/image/academy/10383132",
+    "imageAltDescription" : "CCI® 500 Small Pistol Primers 100-Pack",
+    "productAttrGroups" : [ {
+      "Size" : [ {
+        "id" : "4290",
+        "sequence" : "611.00000",
+        "value" : "Small",
+        "nextAvailableDiff" : [ ]
+      } ]
+    } ],
+    "wgFlag" : "N",
+    "productSpecifications" : [ {
+      
+    }, {
+      "whatsInTheBox" : {
+        "value" : [ "CCI® 500 Small Pistol Primers 100-Pack" ],
+        "key" : "whatsInTheBox"
+      }
+    }, {
+      "legalDisclaimer" : {
+        "value" : [ "You must be 18 or older to purchase Rifle or Shotgun Ammunition and 21 or older to purchase Handgun Ammunition. In ordering this product, you certify that you are of legal age and satisfy your jurisdiction's legal requirements to purchase this product.", "For safety reasons, we do not accept returns on ammunition. Always make sure you use the correct ammunition for your specific firearm.", "The sale or shipment of this product to residents of certain jurisdictions is prohibited.  Check your local laws before ordering this product. Check your local laws for any other regulations.", "We recommend the use of protective eyewear whenever using or near the use of this item.", "Item will only be shipped using Ground Shipping to the contiguous 48 states only." ],
+        "key" : "legalDisclaimer"
+      }
+    }, {
+      "stateRestriction" : {
+        "value" : [ "AK", "AP", "CA", "CT", "DC", "HI", "IL", "MA", "NY", "NJ", "AE", "AA" ],
+        "key" : "stateRestriction"
+      }
+    } ],
+    "productAttrCombinationGroups" : {
+      "1197838" : "4290"
+    },
+    "productAttributes" : [ {
+      "sequence" : ".00000",
+      "value" : "2",
+      "uniqueID" : "35313",
+      "usage" : "Descriptive",
+      "key" : "Tran_level"
+    }, {
+      "sequence" : "4.00000",
+      "value" : "regular",
+      "uniqueID" : "131821",
+      "usage" : "Descriptive",
+      "key" : "variantType"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Y",
+      "uniqueID" : "166813",
+      "usage" : "Descriptive",
+      "key" : "InvInStock"
+    }, {
+      "sequence" : ".00000",
+      "value" : "0518",
+      "uniqueID" : "132817",
+      "usage" : "Descriptive",
+      "key" : "class"
+    }, {
+      "sequence" : "1.00000",
+      "value" : "Y",
+      "uniqueID" : "131825",
+      "usage" : "Descriptive",
+      "key" : "ammoAgeRestrict"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Youth Soccer",
+      "uniqueID" : "132818",
+      "usage" : "Descriptive",
+      "key" : "className"
+    }, {
+      "sequence" : ".00000",
+      "value" : "263",
+      "uniqueID" : "35323",
+      "usage" : "Descriptive",
+      "key" : "specificationNodeID"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Footwear",
+      "uniqueID" : "132814",
+      "usage" : "Descriptive",
+      "key" : "divisionName"
+    }, {
+      "sequence" : ".00000",
+      "value" : "CCI SMALL PISTOL PRIMER",
+      "uniqueID" : "35320",
+      "usage" : "Descriptive",
+      "key" : "ipItemDescription"
+    }, {
+      "sequence" : ".00000",
+      "value" : "05",
+      "uniqueID" : "132813",
+      "usage" : "Descriptive",
+      "key" : "division"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Under 18",
+      "uniqueID" : "134813",
+      "usage" : "Descriptive",
+      "key" : "UDA - Age Restriction"
+    }, {
+      "sequence" : ".00000",
+      "value" : "TPP - Goods (Unreviewed)",
+      "uniqueID" : "36315",
+      "usage" : "Descriptive",
+      "key" : "taxCategory"
+    }, {
+      "sequence" : ".00000",
+      "value" : "502",
+      "uniqueID" : "132815",
+      "usage" : "Descriptive",
+      "key" : "department"
+    }, {
+      "sequence" : ".00000",
+      "value" : "10743",
+      "uniqueID" : "35322",
+      "usage" : "Descriptive",
+      "key" : "primaryCategoryNodeID"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Soccer",
+      "uniqueID" : "132816",
+      "usage" : "Descriptive",
+      "key" : "departmentName"
+    }, {
+      "sequence" : ".00000",
+      "value" : "CORE SIZES",
+      "uniqueID" : "35314",
+      "usage" : "Descriptive",
+      "key" : "Diff1"
+    }, {
+      "sequence" : "611.00000",
+      "value" : "Small",
+      "uniqueID" : "3717",
+      "usage" : "Defining",
+      "key" : "Size"
+    }, {
+      "sequence" : ".00000",
+      "value" : "3",
+      "uniqueID" : "9701",
+      "usage" : "Descriptive",
+      "key" : "reviewcount"
+    }, {
+      "sequence" : "1.00000",
+      "value" : "5",
+      "uniqueID" : "9700",
+      "usage" : "Descriptive",
+      "key" : "rating"
+    }, {
+      "sequence" : ".00000",
+      "value" : "AK",
+      "uniqueID" : "4206",
+      "usage" : "Descriptive",
+      "key" : "staterestriction4"
+    }, {
+      "sequence" : ".00000",
+      "value" : "We recommend the use of protective eyewear whenever using or near the use of this item.",
+      "uniqueID" : "4203",
+      "usage" : "Descriptive",
+      "key" : "legalDisclaimer4"
+    }, {
+      "sequence" : ".00000",
+      "value" : "AP",
+      "uniqueID" : "4207",
+      "usage" : "Descriptive",
+      "key" : "staterestriction5"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Item will only be shipped using Ground Shipping to the contiguous 48 states only.",
+      "uniqueID" : "4223",
+      "usage" : "Descriptive",
+      "key" : "legalDisclaimer5"
+    }, {
+      "sequence" : ".00000",
+      "value" : "CA",
+      "uniqueID" : "4208",
+      "usage" : "Descriptive",
+      "key" : "staterestriction6"
+    }, {
+      "sequence" : ".00000",
+      "value" : "CT",
+      "uniqueID" : "4209",
+      "usage" : "Descriptive",
+      "key" : "staterestriction7"
+    }, {
+      "sequence" : ".00000",
+      "value" : "DC",
+      "uniqueID" : "4210",
+      "usage" : "Descriptive",
+      "key" : "staterestriction8"
+    }, {
+      "sequence" : ".00000",
+      "value" : "HI",
+      "uniqueID" : "4211",
+      "usage" : "Descriptive",
+      "key" : "staterestriction9"
+    }, {
+      "sequence" : ".00000",
+      "value" : "IL",
+      "uniqueID" : "4212",
+      "usage" : "Descriptive",
+      "key" : "staterestriction10"
+    }, {
+      "sequence" : ".00000",
+      "value" : "MA",
+      "uniqueID" : "4213",
+      "usage" : "Descriptive",
+      "key" : "staterestriction11"
+    }, {
+      "sequence" : ".00000",
+      "value" : "NY",
+      "uniqueID" : "4243",
+      "usage" : "Descriptive",
+      "key" : "staterestriction12"
+    }, {
+      "sequence" : ".00000",
+      "value" : "NJ",
+      "uniqueID" : "3736",
+      "usage" : "Descriptive",
+      "key" : "staterestriction1"
+    }, {
+      "sequence" : ".00000",
+      "value" : "AE",
+      "uniqueID" : "4205",
+      "usage" : "Descriptive",
+      "key" : "staterestriction3"
+    }, {
+      "sequence" : ".00000",
+      "value" : "You must be 18 or older to purchase Rifle or Shotgun Ammunition and 21 or older to purchase Handgun Ammunition. In ordering this product, you certify that you are of legal age and satisfy your jurisdiction's legal requirements to purchase this product.",
+      "uniqueID" : "1212",
+      "usage" : "Descriptive",
+      "key" : "legalDisclaimer1"
+    }, {
+      "sequence" : ".00000",
+      "value" : "100-round box",
+      "uniqueID" : "1210",
+      "usage" : "Descriptive",
+      "key" : "featureBenefit3"
+    }, {
+      "sequence" : ".00000",
+      "value" : "PRIMERS, CAP TYPE",
+      "uniqueID" : "1204",
+      "usage" : "Descriptive",
+      "key" : "hazmatName"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Clean burning",
+      "uniqueID" : "1208",
+      "usage" : "Descriptive",
+      "key" : "featureBenefit1"
+    }, {
+      "sequence" : ".00000",
+      "value" : "For safety reasons, we do not accept returns on ammunition. Always make sure you use the correct ammunition for your specific firearm.",
+      "uniqueID" : "3735",
+      "usage" : "Descriptive",
+      "key" : "legalDisclaimer2"
+    }, {
+      "sequence" : ".00000",
+      "value" : "For most handgun cartridges requiring small pistol primers",
+      "uniqueID" : "1211",
+      "usage" : "Descriptive",
+      "key" : "featureBenefit4"
+    }, {
+      "sequence" : ".00000",
+      "value" : "VISTA OUTDOOR SALES LLC",
+      "uniqueID" : "1202",
+      "usage" : "Descriptive",
+      "key" : "vendorName"
+    }, {
+      "sequence" : ".00000",
+      "value" : "AA",
+      "uniqueID" : "4204",
+      "usage" : "Descriptive",
+      "key" : "staterestriction2"
+    }, {
+      "sequence" : ".00000",
+      "value" : "CCI® 500 Small Pistol Primers 100-Pack",
+      "uniqueID" : "1205",
+      "usage" : "Descriptive",
+      "key" : "whatIncluded1"
+    }, {
+      "sequence" : ".00000",
+      "value" : "2145",
+      "uniqueID" : "1201",
+      "usage" : "Descriptive",
+      "key" : "vendor"
+    }, {
+      "sequence" : ".00000",
+      "value" : "The sale or shipment of this product to residents of certain jurisdictions is prohibited.  Check your local laws before ordering this product. Check your local laws for any other regulations.",
+      "uniqueID" : "4202",
+      "usage" : "Descriptive",
+      "key" : "legalDisclaimer3"
+    }, {
+      "sequence" : ".00000",
+      "value" : "A6",
+      "uniqueID" : "3701",
+      "usage" : "Descriptive",
+      "key" : "hazmat"
+    }, {
+      "sequence" : ".00000",
+      "value" : "Reliable",
+      "uniqueID" : "1209",
+      "usage" : "Descriptive",
+      "key" : "featureBenefit2"
+    } ],
+    "productAttributeGroups" : [ "Size" ],
+    "disclaimerMessage" : "Must be 18 or older to purchase Rifle or Shotgun Ammunition and 21 or older to purchase Handgun Ammunition. This product does not ship to P.O. Box, APO, or FPO. Shipping is limited to ground for this product.",
+    "productPrice" : {
+      "salePrice" : "4.99",
+      "priceMessage" : "",
+      "savings" : "",
+      "listPrice" : "4.99"
+    },
+    "sKUs" : [ {
+      "itemId" : "026932749",
+      "mfItemId" : "0014",
+      "skuId" : "1197838",
+      "multiMediaSetName" : "201771056_0_0_0_0_mms",
+      "imageURL" : "//s7d2.scene7.com/is/image/academy/10383132",
+      "thumbnail" : "//s7d2.scene7.com/is/image/academy/10383132",
+      "sellable" : "true",
+      "alternateImages" : [ ],
+      "skuResolvingAttrIdentifiers" : {
+        "sequenceSize" : "611.00000",
+        "Size" : "4290"
+      },
+      "price" : {
+        "salePrice" : "4.99",
+        "priceMessage" : "",
+        "savings" : "",
+        "listPrice" : "4.99"
+      },
+      "attributes" : [ {
+        "uniqueID" : "36317",
+        "name" : "ecomPackagingHeightUOM",
+        "usage" : "Descriptive",
+        "value" : "in",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "36319",
+        "name" : "ecomPackagingLengthUOM",
+        "usage" : "Descriptive",
+        "value" : "in",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "36322",
+        "name" : "ecomPackagingWidthUOM",
+        "usage" : "Descriptive",
+        "value" : "in",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "81813",
+        "name" : "vendorShipRestrictionFlag",
+        "usage" : "Descriptive",
+        "value" : "N",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "36813",
+        "name" : "ecomPackagingWeightUOM",
+        "usage" : "Descriptive",
+        "value" : "lbs",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "35321",
+        "name" : "SafetyStockLevel",
+        "usage" : "Descriptive",
+        "value" : "1",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "35317",
+        "name" : "shipFromStoreFlag",
+        "usage" : "Descriptive",
+        "value" : "Y",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "35313",
+        "name" : "Tran_level",
+        "usage" : "Descriptive",
+        "value" : "2",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "35318",
+        "name" : "isSerialTrackedFlag",
+        "usage" : "Descriptive",
+        "value" : "N",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "134815",
+        "name" : "bopisSafetyStockLevel",
+        "usage" : "Descriptive",
+        "value" : "0",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "166813",
+        "name" : "InvInStock",
+        "usage" : "Descriptive",
+        "value" : "Y",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "134814",
+        "name" : "bopisFlag",
+        "usage" : "Descriptive",
+        "value" : "Y",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "36320",
+        "name" : "ecomPackagingWidth",
+        "usage" : "Descriptive",
+        "value" : "2",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "134813",
+        "name" : "UDA - Age Restriction",
+        "usage" : "Descriptive",
+        "value" : "Under 21",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "36316",
+        "name" : "ecomPackagingHeight",
+        "usage" : "Descriptive",
+        "value" : "2",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "161313",
+        "name" : "isProductAPGPDisable",
+        "usage" : "Descriptive",
+        "value" : "true",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "36321",
+        "name" : "ecomPackagingWeight",
+        "usage" : "Descriptive",
+        "value" : "0.25",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "131814",
+        "name" : "multiMediaSetName",
+        "usage" : "Descriptive",
+        "value" : "201771056_0_0_0_0_mms",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "35319",
+        "name" : "labelPickFlag",
+        "usage" : "Descriptive",
+        "value" : "Y",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "36318",
+        "name" : "ecomPackagingLength",
+        "usage" : "Descriptive",
+        "value" : "4",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "35314",
+        "name" : "Diff1",
+        "usage" : "Descriptive",
+        "value" : "SMALL",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "36315",
+        "name" : "taxCategory",
+        "usage" : "Descriptive",
+        "value" : "TPP - Hunting",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "162813",
+        "name" : "cupidName",
+        "usage" : "Descriptive",
+        "value" : "201771056_0_0_0_0",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "3717",
+        "name" : "Size",
+        "usage" : "Defining",
+        "value" : "Small",
+        "sequence" : "611.00000"
+      }, {
+        "uniqueID" : "3202",
+        "name" : "UPCcode",
+        "usage" : "Descriptive",
+        "value" : "00076683000149",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "1201",
+        "name" : "vendor",
+        "usage" : "Descriptive",
+        "value" : "02145",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "1204",
+        "name" : "hazmatName",
+        "usage" : "Descriptive",
+        "value" : "PRIMERS, CAP TYPE",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "1202",
+        "name" : "vendorName",
+        "usage" : "Descriptive",
+        "value" : "VISTA OUTDOOR SALES LLC",
+        "sequence" : ".00000"
+      }, {
+        "uniqueID" : "3701",
+        "name" : "hazmat",
+        "usage" : "Descriptive",
+        "value" : "A6",
+        "sequence" : ".00000"
+      } ]
+    } ],
+    "productType" : "standard",
+    "showBIS" : "true",
+    "breadCrumb" : [ {
+      "value" : "220431",
+      "label" : "Outdoors",
+      "seoURL" : "/shop/browse/outdoors"
+    }, {
+      "value" : "64413",
+      "label" : "Shooting",
+      "seoURL" : "/shop/browse/outdoors/shooting"
+    }, {
+      "value" : "15759",
+      "label" : "Ammunition",
+      "seoURL" : "/shop/browse/outdoors/shooting/ammunition"
+    }, {
+      "value" : "67704",
+      "label" : "Reloading Supplies",
+      "seoURL" : "/shop/browse/outdoors/shooting/ammunition/reloading"
+    }, {
+      "value" : "67709",
+      "label" : "Reloading Powder + Primers",
+      "seoURL" : "/shop/browse/outdoors/shooting/ammunition/reloading/reloading-powder-primers"
+    } ]
+  }
+}}

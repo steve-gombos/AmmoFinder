@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Academy\product-details-1.json" />
+    <None Remove="Academy\product-details-2.json" />
+    <None Remove="Academy\product-details-in-stock.json" />
+    <None Remove="Academy\product-details-out-of-stock.json" />
+    <None Remove="Academy\products.json" />
     <None Remove="AimSurplus\product-detail.html" />
     <None Remove="AimSurplus\products-1.json" />
     <None Remove="AimSurplus\products-2.json" />
@@ -28,6 +33,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Academy\product-details-2.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Academy\product-details-in-stock.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Academy\product-details-1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Academy\product-details-out-of-stock.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Academy\products.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="AimSurplus\product-detail.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
