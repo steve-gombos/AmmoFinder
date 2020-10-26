@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
 namespace AmmoFinder.Retailers.Academy.Models
 {
-
+    [ExcludeFromCodeCoverage]
     public class ProductsResponse
     {
         [JsonPropertyName("recordSetTotal")]
@@ -18,6 +19,7 @@ namespace AmmoFinder.Retailers.Academy.Models
         public List<Product> Products { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class ProductResponse
     {
 
@@ -28,18 +30,21 @@ namespace AmmoFinder.Retailers.Academy.Models
         public ProductWrapper Product { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class InventoryWrapper
     {
         [JsonPropertyName("online")]
         public List<InventoryData> Online { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public partial class ProductWrapper
     {
         [JsonPropertyName("productinfo")]
         public Product Product { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class InventoryData
     {
         [JsonPropertyName("skuId")]
@@ -75,6 +80,7 @@ namespace AmmoFinder.Retailers.Academy.Models
         public string AvailabilityDate { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public partial class DeliveryMessage
     {
         [JsonPropertyName("onlineDeliveryMessage")]
@@ -84,6 +90,7 @@ namespace AmmoFinder.Retailers.Academy.Models
         public StoreDeliveryMessage StoreDeliveryMessage { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public partial class OnlineDeliveryMessage
     {
         [JsonPropertyName("value")]
@@ -103,6 +110,7 @@ namespace AmmoFinder.Retailers.Academy.Models
         public bool ShowTick { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public partial class StoreDeliveryMessage
     {
         [JsonPropertyName("storeInvType")]
@@ -119,6 +127,7 @@ namespace AmmoFinder.Retailers.Academy.Models
         public bool ShowTick { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class Product
     {
         [JsonPropertyName("name")]
@@ -203,6 +212,7 @@ namespace AmmoFinder.Retailers.Academy.Models
         public List<ProductSpecification> ProductSpecifications { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class Pricing
     {
         [JsonPropertyName("salePrice")]
@@ -224,6 +234,7 @@ namespace AmmoFinder.Retailers.Academy.Models
         public string PpuMsg { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public partial class ProductSpecification
     {
         [JsonPropertyName("featureBenefits")]
@@ -239,6 +250,7 @@ namespace AmmoFinder.Retailers.Academy.Models
         public FeatureBenefits StateRestriction { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public partial class FeatureBenefits
     {
         [JsonPropertyName("value")]

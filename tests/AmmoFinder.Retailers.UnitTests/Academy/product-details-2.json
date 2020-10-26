@@ -25,12 +25,11 @@
 },"product-info":{
   "productinfo" : {
     "name" : "CCI® 500 Small Pistol Primers 100-Pack",
-    "id" : "1197837",
+    "id" : "1234567",
     "isGiftCard" : "N",
     "isBuyNowEligible" : "N",
     "sellable" : "true",
     "categoryId": "67709",
-    "shortDescription": "Short Description",
     "varianttype" : "regular",
     "bvRating" : "5",
     "manufacturer" : "CCI",
@@ -53,10 +52,7 @@
     } ],
     "wgFlag" : "N",
     "productSpecifications" : [ {
-      "featureBenefits" : {
-        "value" : [ "100-round box", "Clean burning", "For most handgun cartridges requiring small pistol primers", "Reliable" ],
-        "key" : "featureBenefits"
-      }
+      
     }, {
       "whatsInTheBox" : {
         "value" : [ "CCI® 500 Small Pistol Primers 100-Pack" ],
