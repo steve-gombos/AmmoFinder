@@ -1,5 +1,4 @@
-﻿using AmmoFinder.Common.Extensions;
-using AmmoFinder.Common.Models;
+﻿using AmmoFinder.Common.Models;
 using AmmoFinder.Retailers.PalmettoStateArmory.Models;
 using AngleSharp;
 using AngleSharp.Dom;
@@ -9,7 +8,6 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace AmmoFinder.Retailers.PalmettoStateArmory
@@ -31,11 +29,9 @@ namespace AmmoFinder.Retailers.PalmettoStateArmory
 
         public async override Task<IEnumerable<ProductModel>> Fetch()
         {
-            _logger.LogInformation($"Started: {MethodBase.GetCurrentMethod().GetName()}");
-
             var products = await FetchProducts(1);
 
-            _logger.LogInformation($"Completed: {MethodBase.GetCurrentMethod().GetName()}; Product Count: {products.Count()}");
+            _logger.LogInformation($"Product Count: {products.Count()}");
 
             return products;
         }
@@ -48,7 +44,7 @@ namespace AmmoFinder.Retailers.PalmettoStateArmory
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning($"Warning: {MethodBase.GetCurrentMethod().GetName()}; StatusCode: {response.StatusCode}");
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
                 return products;
             }
 
