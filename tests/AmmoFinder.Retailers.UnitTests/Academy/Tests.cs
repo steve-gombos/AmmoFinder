@@ -64,8 +64,12 @@ namespace AmmoFinder.Retailers.UnitTests.Academy
             var mapper = CreateMapper();
             var mockedLogger = new Mock<ILogger<ProductService>>();
             var mockedHttp = new MockHttpMessageHandler();
-            mockedHttp.When(Extension.BaseUrl + $"api/search/?displayFacets=true&facets=ads_f49001_ntk_cs%3A%22Y%22&orderBy=7&categoryId=15759&pageSize={pageSize}&pageNumber=1")
+            mockedHttp.When(Extension.BaseUrl + $"api/search/?displayFacets=true&facets=ads_f49001_ntk_cs%3A%22Y%22&orderBy=7&categoryId=15808&pageSize={pageSize}&pageNumber=1")
                 .Respond("application/json", File.OpenRead("Academy/products.json"));
+            mockedHttp.When(Extension.BaseUrl + "api/product/1197837")
+                .Respond("application/json", File.OpenRead("Academy/product-details-out-of-stock.json"));
+            mockedHttp.When(Extension.BaseUrl + "api/product/4961501")
+                .Respond("application/json", File.OpenRead("Academy/product-details-in-stock.json"));
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
             var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);

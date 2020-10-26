@@ -67,6 +67,8 @@ namespace AmmoFinder.Parsers.UnitTests
         [InlineData("PowerBelt AeroTip™ Copper .50 Caliber 295-Grain Ammunition", Brands.PowerBelt)]
         [InlineData("Thompson/Center Maxi Hunter .50 350-Grain Black Powder Ammunition", Brands.ThompsonCenter)]
         [InlineData("Independence® Aluminum .45 Auto 230-Grain Handgun Ammunition", Brands.Independence)]
+        [InlineData("Sportsman Hi-Speed 12 Gauge Steel Shotshells", Brands.Remington)]
+        [InlineData("Ruger ARX .380 Auto 56-Grain Pistol Ammunition", Brands.Inceptor)]
         public void Brand_IsValid(string input, string expected)
         {
             // Arrange

@@ -22,7 +22,7 @@ namespace AmmoFinder.Parsers
 
             foreach (var indicator in SearchIndicators)
             {
-                var descriptionLowered = description.ToLower();
+                var descriptionLowered = description.ToLower().Replace("-", "");
 
                 while (descriptionLowered.Contains(indicator))
                 {

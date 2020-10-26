@@ -14,12 +14,12 @@ namespace AmmoFinder.Retailers
         public static IServiceCollection AddRetailers(this IServiceCollection services)
         {
             services.AddAcademyClient();
-            //services.AddAimSurplusClient();
-            //services.AddAmmoDotComClient();
-            //services.AddBulkAmmoClient();
-            //services.AddCabelasClient();
-            //services.AddLuckyGunnerClient();
-            //services.AddSportsmansGuideClient();
+            services.AddAimSurplusClient();
+            services.AddAmmoDotComClient();
+            services.AddBulkAmmoClient();
+            services.AddCabelasClient();
+            services.AddLuckyGunnerClient();
+            services.AddSportsmansGuideClient();
 
             return services;
         }

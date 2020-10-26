@@ -16,6 +16,7 @@ namespace AmmoFinder.Parsers.UnitTests
         [InlineData("1000 Rounds of .25 ACP Ammo by Aguila - gr50 FMJ", "50")]
         [InlineData("1000 Rounds of .25 ACP Ammo by gr Aguila - gr50 FMJ", "50")]
         [InlineData("17 Mach 2 (HM2) - 15.5 Grain NTX - Hornady Varmint Express - 500 Rounds", "15.5")]
+        [InlineData("Monarch Auto FMJ .380 94-Grain Centerfire Ammunition", "94")]
         public void Grain_IsValid(string input, string expected)
         {
             // Arrange

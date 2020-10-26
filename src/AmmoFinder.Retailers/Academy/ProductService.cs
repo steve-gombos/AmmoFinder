@@ -16,11 +16,11 @@ namespace AmmoFinder.Retailers.Academy
         private readonly List<string> _categories = new List<string>
         {
             "15808", //Handgun
-            "15807", //Rifle
-            "15806", //Shotgun
-            "15809", //Rimfire
-            "3074457345616934684", //subsonic
-            "202538", //bulk
+            //"15807", //Rifle
+            //"15806", //Shotgun
+            //"15809", //Rimfire
+            //"3074457345616934684", //subsonic
+            //"202538", //bulk
         };
         private readonly HttpClient _httpClient;
         private readonly IMapper _mapper;
@@ -48,13 +48,12 @@ namespace AmmoFinder.Retailers.Academy
                 products.AddRange(categoryProducts);
             }
             
-
             _logger.LogInformation($"Product Count: {products.DistinctProducts().Count()}");
 
             return products.DistinctProducts();
         }
 
-        private async Task<IEnumerable<ProductModel>> GetProducts(string category, int page = 1)
+        private async Task<IEnumerable<ProductModel>> GetProducts(string category)
         {
             var products = new List<ProductModel>();
 
@@ -70,7 +69,6 @@ namespace AmmoFinder.Retailers.Academy
 
             foreach (var product in result.Products)
             {
-                //var mappedProduct = _mapper.Map<ProductModel>(product);
                 var productDetails = await GetProductDetails(product.Id);
 
                 if(productDetails != null)
@@ -94,14 +92,9 @@ namespace AmmoFinder.Retailers.Academy
 
             var productResponse = await response.Content.ReadFromJsonAsync<ProductResponse>();
 
-            if (productResponse.Inventory.Online.First().InventoryStatus == "OUT_OF_STOCK")
-                return null;
-
             var mappedProduct = _mapper.Map<ProductModel>(productResponse);
 
             return mappedProduct;
         }
-        //https://www.academy.com/api/product/1197837
-        //https://www.academy.com/api/inventory?productId=1378941&storeId=243&storeEligibility=1&isSTSEnabled=true
     }
 }
