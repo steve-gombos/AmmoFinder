@@ -104,7 +104,13 @@ namespace AmmoFinder.Retailers.SportsmansGuide
 
             foreach (var productSection in productSections)
             {
-                var productUrl = productSection.QuerySelector<IHtmlDivElement>("div.btn-quickview").QuerySelector<IHtmlAnchorElement>("a").Href;
+                var buttonDiv = productSection.QuerySelector<IHtmlDivElement>("div.btn-quickview");
+
+                if (buttonDiv == null)
+                    continue;
+
+                var productUrl = buttonDiv.QuerySelector<IHtmlAnchorElement>("a").Href;
+
                 var product = await GetProductDetails(productUrl);
 
                 if (product != null)
