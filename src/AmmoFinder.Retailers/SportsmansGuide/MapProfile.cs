@@ -38,7 +38,7 @@ namespace AmmoFinder.Retailers.SportsmansGuide
                 .ForMember(dst => dst.RoundType, opt => opt.MapFrom(src =>
                     src.Item1.QuerySelector("h1").Text().GetBulletType() ??
                     src.Item1.QuerySelector("div.key-features").TextContent.GetBulletType()))
-                .ForMember(dst => dst.RetailerProductId, opt => opt.MapFrom(src => HttpUtility.ParseQueryString(new Uri(src.Item2).Query).Get("AdId")))
+                .ForMember(dst => dst.RetailerProductId, opt => opt.MapFrom(src => HttpUtility.ParseQueryString(new Uri(src.Item2).Query).Get("a")))
                 .ForAllOtherMembers(opt => opt.Ignore());
         }
 

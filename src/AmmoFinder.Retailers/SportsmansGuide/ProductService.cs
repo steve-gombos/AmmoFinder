@@ -128,13 +128,11 @@ namespace AmmoFinder.Retailers.SportsmansGuide
 
             foreach (var productSection in productSections)
             {
-                var buttonDiv = productSection.QuerySelector<IHtmlDivElement>("div.btn-quickview");
-
-                if (buttonDiv == null)
+                // Skip over divs that are ads
+                if (productSection.ClassList.Contains("double-wide"))
                     continue;
 
-                var productUrl = buttonDiv.QuerySelector<IHtmlAnchorElement>("a").Href;
-
+                var productUrl = productSection.QuerySelector<IHtmlAnchorElement>("a.anchor-container").Href;
                 var productDetails = await GetProductDetailsAsync(productUrl);
 
                 if (productDetails != null)
