@@ -19,12 +19,14 @@ namespace AmmoFinder.Retailers.SportsmansGuide
         private readonly HttpClient _httpClient;
         private readonly IMapper _mapper;
         private readonly ILogger<ProductService> _logger;
+        private readonly IBrowsingContext _browsingContext;
 
-        public ProductService(HttpClient httpClient, IMapper mapper, ILogger<ProductService> logger) : base(httpClient, mapper, logger)
+        public ProductService(HttpClient httpClient, IMapper mapper, ILogger<ProductService> logger, IBrowsingContext browsingContext) : base(httpClient, mapper, logger, browsingContext)
         {
             _httpClient = httpClient;
             _mapper = mapper;
             _logger = logger;
+            _browsingContext = browsingContext;
         }
 
         public override string Retailer => RetailerNames.SportsmansGuide;
@@ -60,8 +62,7 @@ namespace AmmoFinder.Retailers.SportsmansGuide
             }
 
             var source = await response.Content.ReadAsStringAsync();
-            var context = BrowsingContext.New(Configuration.Default);
-            var document = await context.OpenAsync(req => req.Content(source).Address(Extension.BaseUrl));
+            var document = await _browsingContext.OpenAsync(req => req.Content(source).Address(Extension.BaseUrl));
 
             var listItems = document.QuerySelectorAll<IHtmlDivElement>("div.visual-nav-item");
 
@@ -88,8 +89,7 @@ namespace AmmoFinder.Retailers.SportsmansGuide
             }
 
             var source = await response.Content.ReadAsStringAsync();
-            var context = BrowsingContext.New(Configuration.Default);
-            var document = await context.OpenAsync(req => req.Content(source).Address(Extension.BaseUrl));
+            var document = await _browsingContext.OpenAsync(req => req.Content(source).Address(Extension.BaseUrl));
 
             var productList = document.QuerySelector<IHtmlDivElement>("div.products-grid.products-grouping");
 
@@ -138,8 +138,7 @@ namespace AmmoFinder.Retailers.SportsmansGuide
             }
 
             var source = await response.Content.ReadAsStringAsync();
-            var context = BrowsingContext.New(Configuration.Default);
-            var document = await context.OpenAsync(req => req.Content(source).Address(Extension.BaseUrl));
+            var document = await _browsingContext.OpenAsync(req => req.Content(source).Address(Extension.BaseUrl));
 
             var product = _mapper.Map<Product>(Tuple.Create(document, productUrl));
 
