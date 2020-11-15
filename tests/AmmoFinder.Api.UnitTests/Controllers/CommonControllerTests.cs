@@ -2,7 +2,6 @@ using AmmoFinder.Api.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AmmoFinder.Api.UnitTests.Controllers
@@ -11,7 +10,7 @@ namespace AmmoFinder.Api.UnitTests.Controllers
     {
         [Theory]
         [InlineData(typeof(OkObjectResult))]
-        public async Task GetCalibers_ReturnsList(Type type)
+        public void GetCalibers_ReturnsList(Type type)
         {
             // Arrange
             var controller = new CommonController();
@@ -26,7 +25,7 @@ namespace AmmoFinder.Api.UnitTests.Controllers
 
         [Theory]
         [InlineData(typeof(OkObjectResult))]
-        public async Task GetBrands_ReturnsList(Type type)
+        public void GetBrands_ReturnsList(Type type)
         {
             // Arrange
             var controller = new CommonController();

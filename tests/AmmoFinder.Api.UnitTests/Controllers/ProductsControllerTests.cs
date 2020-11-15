@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AmmoFinder.Api.UnitTests.Controllers
@@ -14,7 +13,7 @@ namespace AmmoFinder.Api.UnitTests.Controllers
     public class ProductsControllerTests
     {
         [Theory, ClassData(typeof(ProductsData))]
-        public async Task GetProducts_ReturnsList(IEnumerable<ProductModel> expected, Type type)
+        public void GetProducts_ReturnsList(IEnumerable<ProductModel> expected, Type type)
         {
             // Arrange
             var mockedProductsRepository = new Mock<IProductsRepository>();
