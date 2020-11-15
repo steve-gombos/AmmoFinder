@@ -45,7 +45,7 @@ namespace AmmoFinder.Persistence.Services
         {
             _logger.LogInformation($"Started Refresh Products; Retailer: {productService.Retailer}");
 
-            var products = await productService.Fetch();
+            var products = await productService.GetProductsAsync();
 
             var dbProducts = _mapper.Map<IEnumerable<Product>>(products);
 

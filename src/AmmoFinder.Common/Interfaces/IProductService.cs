@@ -7,6 +7,9 @@ namespace AmmoFinder.Common.Interfaces
     public interface IProductService
     {
         string Retailer { get; }
-        Task<IEnumerable<ProductModel>> Fetch();
+
+        Task<IEnumerable<ProductModel>> GetProductsAsync();
+
+        Task<ProductModel> GetProductDetailsAsync(string productUrl);
     }
 }

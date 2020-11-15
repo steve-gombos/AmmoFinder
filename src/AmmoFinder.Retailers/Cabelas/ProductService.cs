@@ -35,7 +35,9 @@ namespace AmmoFinder.Retailers.Cabelas
 
         public override string Retailer => RetailerNames.Cabelas;
 
-        public async override Task<IEnumerable<ProductModel>> Fetch()
+        #region Public Methods
+
+        public async override Task<IEnumerable<ProductModel>> GetProductsAsync()
         {
             var products = await GetProducts();
 
@@ -43,6 +45,15 @@ namespace AmmoFinder.Retailers.Cabelas
 
             return products.DistinctProducts();
         }
+
+        public override Task<ProductModel> GetProductDetailsAsync(string productUrl)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region Private Methods
 
         private async Task<IEnumerable<ProductModel>> GetProducts()
         {
@@ -142,5 +153,7 @@ namespace AmmoFinder.Retailers.Cabelas
 
             return inventoryData.onlineInventory;
         }
+
+        #endregion
     }
 }

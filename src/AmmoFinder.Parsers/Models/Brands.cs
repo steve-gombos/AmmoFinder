@@ -61,6 +61,7 @@ namespace AmmoFinder.Parsers.Models
         public const string MagTech = "MagTech";
         public const string MaxxTech = "MaxxTech";
         public const string MEDEF = "MEDEF";
+        public const string Migra = "Migra";
         public const string MilitarySurplus = "Military Surplus";
         public const string Monarch = "Monarch";
         public const string MTM = "MTM";
@@ -81,6 +82,7 @@ namespace AmmoFinder.Parsers.Models
         public const string SilverBear = "Silver Bear";
         public const string Sinterfire = "SinterFire";
         public const string Speer = "Speer";
+        public const string Sterling = "Sterling";
         public const string STVTechnology = "STV Technology";
         public const string Surplus = "Surplus";
         public const string ThompsonCenter = "Thompson/Center";

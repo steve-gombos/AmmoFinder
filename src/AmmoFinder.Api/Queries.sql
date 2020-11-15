@@ -1,5 +1,6 @@
 ﻿select * from products 
-where brand is null
+where caliber is null
+--and brand is null
 --order by inventory desc
 --and RetailerProductId like '%3074457345618960344%'
 --where roundtype is null
@@ -21,7 +22,10 @@ FROM products
 GROUP BY retailerproductid,retailerid
 HAVING COUNT(*) > 1
 
+
+select * from retailers
+
 select * from products
-where retailerproductid = 'bulk-17-wsm-ammo-17wsm20grvarm-ae17wsm1-fedae-50'
+where retailerproductid = 'bulk-32-acp-ammo-32auto65hsjhpfed-20'
 
 

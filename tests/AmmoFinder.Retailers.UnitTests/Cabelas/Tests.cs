@@ -78,7 +78,7 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
             var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
 
             // Act
-            var products = await productService.Fetch();
+            var products = await productService.GetProductsAsync();
 
             // Assert
             Assert.True(products.Any());
@@ -97,7 +97,7 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
             var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
 
             // Act
-            var products = await productService.Fetch();
+            var products = await productService.GetProductsAsync();
 
             // Assert
             Assert.True(!products.Any());
@@ -122,7 +122,7 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
             var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
 
             // Act
-            var products = await productService.Fetch();
+            var products = await productService.GetProductsAsync();
 
             // Assert
             Assert.True(products.Any());

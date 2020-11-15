@@ -10,7 +10,7 @@ namespace AmmoFinder.Persistence.UnitTests.Services
     {
         public string Retailer => "Test Retailer";
 
-        public async Task<IEnumerable<ProductModel>> Fetch()
+        public async Task<IEnumerable<ProductModel>> GetProductsAsync()
         {
             await Task.CompletedTask;
 
@@ -29,12 +29,16 @@ namespace AmmoFinder.Persistence.UnitTests.Services
                     Price = 10.99m,
                     RoundCount = "50",
                     RoundType = "FMJ",
-                    RoundContainer = "Box",
                     RetailerProductId = Retailer,
                     UpdatedOn = DateTime.Now,
                     Url = "https://test.test/test-product"
                 }
             };
+        }
+
+        public Task<ProductModel> GetProductDetailsAsync(string productUrl)
+        {
+            throw new NotImplementedException();
         }
     }
 }

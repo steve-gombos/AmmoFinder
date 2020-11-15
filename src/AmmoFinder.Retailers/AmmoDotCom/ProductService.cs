@@ -38,7 +38,9 @@ namespace AmmoFinder.Retailers.AmmoDotCom
 
         public override string Retailer => RetailerNames.AmmoDotCom;
 
-        public async override Task<IEnumerable<ProductModel>> Fetch()
+        #region Public Methods
+
+        public override async Task<IEnumerable<ProductModel>> GetProductsAsync()
         {
             var products = new List<ProductModel>();
 
@@ -61,6 +63,44 @@ namespace AmmoFinder.Retailers.AmmoDotCom
 
             return products.DistinctProducts();
         }
+
+        public override async Task<ProductModel> GetProductDetailsAsync(string productUrl)
+        {
+            var response = await _httpClient.GetAsync(productUrl);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
+                return null;
+            }
+
+            var source = await response.Content.ReadAsStringAsync();
+            var document = await _browsingContext.OpenAsync(req => req.Content(source));
+
+            var productList = document.QuerySelector<IHtmlOrderedListElement>("ol.products-list");
+
+            if (productList == null)
+            {
+                _logger.LogWarning("No Product Found");
+                return null;
+            }
+
+            var productSection = productList.QuerySelectorAll<IHtmlListItemElement>("li.item").FirstOrDefault();
+
+            if (productSection == null)
+            {
+                _logger.LogWarning("No Product Found");
+                return null;
+            }
+
+            var product = _mapper.Map<Product>(productSection);
+
+            return product;
+        }
+
+        #endregion
+
+        #region Private Methods
 
         private async Task<IEnumerable<string>> GetCaliberLinks(string category)
         {
@@ -122,5 +162,7 @@ namespace AmmoFinder.Retailers.AmmoDotCom
 
             return products;
         }
+
+        #endregion
     }
 }

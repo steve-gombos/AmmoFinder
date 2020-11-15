@@ -89,5 +89,15 @@ namespace AmmoFinder.Common.Extensions
 
             return decimal.Parse(split[index]);
         }
+
+        public static string TrimExtra(this string value)
+        {
+            return value.Replace("\n", "").Replace("\r", "").Replace("  ", " ").Trim();
+        }
+
+        public static string TrimTrailingSlash(this string value)
+        {
+            return value.EndsWith("/") ? value.Substring(0, value.Length - 1) : value;
+        }
     }
 }

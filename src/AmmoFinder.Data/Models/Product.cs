@@ -25,8 +25,6 @@ namespace AmmoFinder.Data.Models
 
         public string RoundCount { get; set; }
 
-        public string RoundContainer { get; set; }
-
         public string RoundType { get; set; }
 
         public string Caliber { get; set; }

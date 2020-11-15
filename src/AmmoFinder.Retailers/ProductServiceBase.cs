@@ -17,6 +17,8 @@ namespace AmmoFinder.Retailers
 
         public abstract string Retailer { get; }
 
-        public abstract Task<IEnumerable<ProductModel>> Fetch();
+        public abstract Task<IEnumerable<ProductModel>> GetProductsAsync();
+
+        public abstract Task<ProductModel> GetProductDetailsAsync(string productUrl);
     }
 }

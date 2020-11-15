@@ -97,5 +97,32 @@ namespace AmmoFinder.Common.UnitTests
             // Assert
             Assert.Equal(expected, actual);
         }
+
+        [Theory]
+        [InlineData("\n   test  ", "test")]
+        [InlineData("\r   test  ", "test")]
+        [InlineData("   test  ", "test")]
+        [InlineData("\n\r   test  ", "test")]
+        [InlineData("\n\r   test  test", "test test")]
+        public void TrimExtra_IsValid(string input, string expected)
+        {
+            // Act
+            var actual = input.TrimExtra();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("test/", "test")]
+        [InlineData("test", "test")]
+        public void TrimTrailingSlash_IsValid(string input, string expected)
+        {
+            // Act
+            var actual = input.TrimTrailingSlash();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
     }
 }

@@ -1,18 +1,11 @@
 ﻿using AmmoFinder.Common.Interfaces;
-using System.Collections.Generic;
+using AmmoFinder.Parsers.Models;
+using System.Linq;
 
 namespace AmmoFinder.Parsers
 {
     public class BulletTypeParser : IDataParser
     {
-        public List<string> SearchIndicators => new List<string>
-        {
-            "JHP", // Jacketed Hallow Point
-            "FMJ", // Full Metal Jacket
-            "SP", // Soft Point
-            "HP", // Hallow Point
-        };
-
         public string Parse(string description)
         {
             if (string.IsNullOrWhiteSpace(description))
@@ -20,14 +13,16 @@ namespace AmmoFinder.Parsers
                 return null;
             }
 
-            foreach (var indicator in SearchIndicators)
+            var bulletTypes = typeof(BulletTypes).GetFields().Where(x => (x.GetValue(x) is string)).Select(x => (string)x.GetValue(x));
+
+            foreach (var bulletType in bulletTypes)
             {
                 var descriptionLower = description.ToLower();
 
-                if (!descriptionLower.Contains(indicator.ToLower()))
+                if (!descriptionLower.Contains(bulletType.ToLower()))
                     continue;
 
-                return indicator;
+                return bulletType;
             }
 
             return null;

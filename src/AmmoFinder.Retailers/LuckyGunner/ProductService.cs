@@ -34,7 +34,9 @@ namespace AmmoFinder.Retailers.LuckyGunner
 
         public override string Retailer => RetailerNames.LuckyGunner;
 
-        public async override Task<IEnumerable<ProductModel>> Fetch()
+        #region Public Methods
+
+        public override async Task<IEnumerable<ProductModel>> GetProductsAsync()
         {
             var products = new List<ProductModel>();
 
@@ -54,6 +56,28 @@ namespace AmmoFinder.Retailers.LuckyGunner
 
             return products.DistinctProducts();
         }
+
+        public override async Task<ProductModel> GetProductDetailsAsync(string productUrl)
+        {
+            var response = await _httpClient.GetAsync(productUrl);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
+                return null;
+            }
+
+            var source = await response.Content.ReadAsStringAsync();
+            var document = await _browsingContext.OpenAsync(req => req.Content(source).Address(Extension.BaseUrl));
+
+            var product = _mapper.Map<Product>(Tuple.Create(document, productUrl));
+
+            return product;
+        }
+
+        #endregion
+
+        #region Private Methods
 
         private async Task<Dictionary<string, IEnumerable<string>>> GetCategories()
         {
@@ -115,12 +139,22 @@ namespace AmmoFinder.Retailers.LuckyGunner
 
             foreach (var productSection in productSections)
             {
-                var mappedProduct = _mapper.Map<Product>(productSection);
+                var productUrl = productSection.QuerySelector("h3.product-name").QuerySelector<IHtmlAnchorElement>("a").Href;
+                var productDetails = await GetProductDetailsAsync(productUrl);
 
-                products.Add(mappedProduct);
+                if(productDetails != null)
+                {
+                    products.Add(productDetails);
+                }
+
+                //var mappedProduct = _mapper.Map<Product>(productSection);
+
+                //products.Add(mappedProduct);
             }
 
             return products;
         }
+
+        #endregion
     }
 }

@@ -23,7 +23,6 @@ namespace AmmoFinder.Retailers.AmmoDotCom
                 .ForMember(dst => dst.Caliber, opt => opt.MapFrom(src => src.QuerySelector<IHtmlElement>("h2.product-name").Text().Trim().GetCaliber()))
                 .ForMember(dst => dst.Grain, opt => opt.MapFrom(src => src.QuerySelector<IHtmlDivElement>("div.product-attributes").TextContent.GetGrain()))
                 .ForMember(dst => dst.RoundCount, opt => opt.MapFrom(src => src.QuerySelector<IHtmlDivElement>("div.product-attributes").TextContent.GetRoundCount()))
-                .ForMember(dst => dst.RoundContainer, opt => opt.MapFrom(src => src.QuerySelector<IHtmlDivElement>("div.product-attributes").TextContent.GetRoundContainer()))
                 .ForMember(dst => dst.RetailerProductId, opt => opt.MapFrom(src => src.Id))
                 .ForAllOtherMembers(opt => opt.Ignore());
         }

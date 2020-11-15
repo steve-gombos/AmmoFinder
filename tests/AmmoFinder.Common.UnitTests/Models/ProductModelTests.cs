@@ -202,20 +202,6 @@ namespace AmmoFinder.Common.UnitTests.Models
         }
 
         [Fact]
-        public void RoundContainer_IsValid()
-        {
-            // Arrange
-            var expected = "test";
-            var data = new ProductModel
-            {
-                RoundContainer = expected
-            };
-
-            // Assert
-            Assert.Equal(expected, data.RoundContainer);
-        }
-
-        [Fact]
         public void RoundCount_IsValid()
         {
             // Arrange
