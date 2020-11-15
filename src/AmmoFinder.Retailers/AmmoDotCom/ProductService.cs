@@ -26,12 +26,14 @@ namespace AmmoFinder.Retailers.AmmoDotCom
         private readonly HttpClient _httpClient;
         private readonly IMapper _mapper;
         private readonly ILogger<ProductService> _logger;
+        private readonly IBrowsingContext _browsingContext;
 
-        public ProductService(HttpClient httpClient, IMapper mapper, ILogger<ProductService> logger) : base(httpClient, mapper, logger)
+        public ProductService(HttpClient httpClient, IMapper mapper, ILogger<ProductService> logger, IBrowsingContext browsingContext) : base(httpClient, mapper, logger, browsingContext)
         {
             _httpClient = httpClient;
             _mapper = mapper;
             _logger = logger;
+            _browsingContext = browsingContext;
         }
 
         public override string Retailer => RetailerNames.AmmoDotCom;
@@ -73,8 +75,7 @@ namespace AmmoFinder.Retailers.AmmoDotCom
             }
 
             var source = await response.Content.ReadAsStringAsync();
-            var context = BrowsingContext.New(Configuration.Default);
-            var document = await context.OpenAsync(req => req.Content(source));
+            var document = await _browsingContext.OpenAsync(req => req.Content(source));
 
             var listItems = document.QuerySelectorAll<IHtmlListItemElement>("li.content-box__subcat-wrapper");
 
@@ -101,8 +102,7 @@ namespace AmmoFinder.Retailers.AmmoDotCom
             }
 
             var source = await response.Content.ReadAsStringAsync();
-            var context = BrowsingContext.New(Configuration.Default);
-            var document = await context.OpenAsync(req => req.Content(source));
+            var document = await _browsingContext.OpenAsync(req => req.Content(source));
 
             var productList = document.QuerySelector<IHtmlOrderedListElement>("ol.products-list");
 

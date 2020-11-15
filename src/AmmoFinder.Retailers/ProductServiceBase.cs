@@ -1,5 +1,6 @@
 ﻿using AmmoFinder.Common.Interfaces;
 using AmmoFinder.Common.Models;
+using AngleSharp;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace AmmoFinder.Retailers
 {
     public abstract class ProductServiceBase : IProductService
     {
-        protected ProductServiceBase(HttpClient httpClient, IMapper mapper, ILogger logger)
+        protected ProductServiceBase(HttpClient httpClient, IMapper mapper, ILogger logger, IBrowsingContext browsingContext)
         {
         }
 

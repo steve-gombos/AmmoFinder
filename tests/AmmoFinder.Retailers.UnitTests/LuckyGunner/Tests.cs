@@ -1,5 +1,6 @@
 ﻿using AmmoFinder.Common.Interfaces;
 using AmmoFinder.Retailers.LuckyGunner;
+using AngleSharp;
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -45,6 +46,7 @@ namespace AmmoFinder.Retailers.UnitTests.LuckyGunner
                 {
                     config.AddProfile<MapProfile>();
                 })
+                .AddAngleSharp()
                 .AddLuckyGunnerClient()
                 .BuildServiceProvider();
 
@@ -71,7 +73,8 @@ namespace AmmoFinder.Retailers.UnitTests.LuckyGunner
                 .Respond("text/html", File.OpenRead("LuckyGunner/products-empty.html"));
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
-            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
+            var browsingContext = BrowsingContext.New(Configuration.Default);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
 
             // Act
             var products = await productService.Fetch();
@@ -89,7 +92,8 @@ namespace AmmoFinder.Retailers.UnitTests.LuckyGunner
             var mockedHttp = new MockHttpMessageHandler();
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
-            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
+            var browsingContext = BrowsingContext.New(Configuration.Default);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
 
             // Act
             var products = await productService.Fetch();

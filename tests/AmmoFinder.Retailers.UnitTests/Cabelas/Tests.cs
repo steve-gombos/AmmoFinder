@@ -1,5 +1,6 @@
 ﻿using AmmoFinder.Common.Interfaces;
 using AmmoFinder.Retailers.Cabelas;
+using AngleSharp;
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -46,6 +47,7 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
                 {
                     config.AddProfile<MapProfile>();
                 })
+                .AddAngleSharp()
                 .AddCabelasClient()
                 .BuildServiceProvider();
 
@@ -72,7 +74,8 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
                 .Respond("text/html", File.OpenRead("Cabelas/inventory.txt"));
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
-            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
+            var browsingContext = BrowsingContext.New(Configuration.Default);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
 
             // Act
             var products = await productService.Fetch();
@@ -90,7 +93,8 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
             var mockedHttp = new MockHttpMessageHandler();
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
-            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
+            var browsingContext = BrowsingContext.New(Configuration.Default);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
 
             // Act
             var products = await productService.Fetch();
@@ -114,7 +118,8 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
                 .Respond(HttpStatusCode.NotFound);
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
-            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object);
+            var browsingContext = BrowsingContext.New(Configuration.Default);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
 
             // Act
             var products = await productService.Fetch();
