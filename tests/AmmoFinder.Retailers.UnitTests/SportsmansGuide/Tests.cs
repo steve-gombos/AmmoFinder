@@ -75,7 +75,7 @@ namespace AmmoFinder.Retailers.UnitTests.SportsmansGuide
                 .Respond("text/html", File.OpenRead("SportsmansGuide/products.html"));
             mockedHttp.When(Extension.BaseUrl + "productlist/ammo/rimfire-ammo?d=121&c=417&istko=1&ipp=96&pg=1")
                 .Respond("text/html", File.OpenRead("SportsmansGuide/products-empty.html"));
-            mockedHttp.When(Extension.BaseUrl + "product/getproductcartdata?AdId=2233527")
+            mockedHttp.When(Extension.BaseUrl + "product/index/tulammo-762x54mmr-fmj-148-grain-20-rounds?a=2233527")
                 .Respond("text/html", File.OpenRead("SportsmansGuide/product-details.html"));
             var mockedHttpClient = mockedHttp.ToHttpClient();
             mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
