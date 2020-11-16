@@ -1,5 +1,5 @@
 ﻿select * from products 
-where retailerid = 4
+where caliber is null
 --and brand is null
 --order by inventory desc
 --and RetailerProductId like '%3074457345618960344%'

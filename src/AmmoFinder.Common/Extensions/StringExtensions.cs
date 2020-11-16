@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace AmmoFinder.Common.Extensions
 {
@@ -92,7 +93,9 @@ namespace AmmoFinder.Common.Extensions
 
         public static string TrimExtra(this string value)
         {
-            return value.Replace("\n", "").Replace("\r", "").Replace("  ", " ").Trim();
+            RegexOptions options = RegexOptions.None;
+            Regex regex = new Regex("[ ]{2,}", options);
+            return regex.Replace(value.Replace("\n", "").Replace("\r", "").Trim(), " ");
         }
 
         public static string TrimTrailingSlash(this string value)

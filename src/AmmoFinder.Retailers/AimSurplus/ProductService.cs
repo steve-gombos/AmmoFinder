@@ -84,7 +84,7 @@ namespace AmmoFinder.Retailers.AimSurplus
             {
                 var productDetails = await GetProductDetailsAsync(product.Url.ToString());
 
-                if(productDetails != null)
+                if (productDetails != null)
                 {
                     products.Add(productDetails);
                 }

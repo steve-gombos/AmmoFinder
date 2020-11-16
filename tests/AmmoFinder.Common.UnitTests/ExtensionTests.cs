@@ -103,7 +103,7 @@ namespace AmmoFinder.Common.UnitTests
         [InlineData("\r   test  ", "test")]
         [InlineData("   test  ", "test")]
         [InlineData("\n\r   test  ", "test")]
-        [InlineData("\n\r   test  test", "test test")]
+        [InlineData("\n\r   test        test", "test test")]
         public void TrimExtra_IsValid(string input, string expected)
         {
             // Act

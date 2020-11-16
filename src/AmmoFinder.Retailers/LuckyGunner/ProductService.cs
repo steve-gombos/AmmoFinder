@@ -142,14 +142,10 @@ namespace AmmoFinder.Retailers.LuckyGunner
                 var productUrl = productSection.QuerySelector("h3.product-name").QuerySelector<IHtmlAnchorElement>("a").Href;
                 var productDetails = await GetProductDetailsAsync(productUrl);
 
-                if(productDetails != null)
+                if (productDetails != null)
                 {
                     products.Add(productDetails);
                 }
-
-                //var mappedProduct = _mapper.Map<Product>(productSection);
-
-                //products.Add(mappedProduct);
             }
 
             return products;

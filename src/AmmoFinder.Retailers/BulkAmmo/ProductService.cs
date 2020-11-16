@@ -105,7 +105,7 @@ namespace AmmoFinder.Retailers.BulkAmmo
                 var productUrl = productSection.QuerySelector<IHtmlAnchorElement>("a.product-name").Href;
                 var productDetails = await GetProductDetailsAsync(productUrl);
 
-                if(productDetails != null)
+                if (productDetails != null)
                 {
                     products.Add(productDetails);
                 }

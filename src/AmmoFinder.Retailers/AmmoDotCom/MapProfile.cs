@@ -1,4 +1,5 @@
-﻿using AmmoFinder.Parsers;
+﻿using AmmoFinder.Common.Extensions;
+using AmmoFinder.Parsers;
 using AmmoFinder.Retailers.AmmoDotCom.Models;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
@@ -12,7 +13,7 @@ namespace AmmoFinder.Retailers.AmmoDotCom
         {
             CreateMap<IHtmlListItemElement, Product>()
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.QuerySelector<IHtmlElement>("h2.product-name").Text().Trim()))
-                .ForMember(dst => dst.Description, opt => opt.MapFrom(src => src.QuerySelector<IHtmlDivElement>("div.product-attributes").TextContent))
+                .ForMember(dst => dst.Description, opt => opt.MapFrom(src => src.QuerySelector<IHtmlDivElement>("div.product-attributes").TextContent.TrimExtra()))
                 .ForMember(dst => dst.IsAvailable, opt => opt.MapFrom(src => src.QuerySelector<IHtmlSpanElement>("span.availability-label")
                     .Text().Contains("in stock", System.StringComparison.CurrentCultureIgnoreCase)))
                 .ForMember(dst => dst.Inventory, opt => opt.MapFrom(src => src.QuerySelector<IHtmlSpanElement>("span.availability-count").Text()))
