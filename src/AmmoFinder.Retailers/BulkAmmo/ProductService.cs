@@ -61,7 +61,7 @@ namespace AmmoFinder.Retailers.BulkAmmo
             return products.DistinctProducts();
         }
 
-        public override async Task<ProductModel> GetProductDetailsAsync(string productUrl)
+        public override async Task<ProductModel> GetProductDetailsAsync(string productUrl, string identifier = null)
         {
             var response = await _httpClient.GetAsync(productUrl, HttpCompletionOption.ResponseHeadersRead);
 

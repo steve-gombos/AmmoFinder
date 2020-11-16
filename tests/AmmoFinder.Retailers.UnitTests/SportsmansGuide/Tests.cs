@@ -78,7 +78,7 @@ namespace AmmoFinder.Retailers.UnitTests.SportsmansGuide
             mockedHttp.When(Extension.BaseUrl + "product/index/tulammo-762x54mmr-fmj-148-grain-20-rounds?a=2233527")
                 .Respond("text/html", File.OpenRead("SportsmansGuide/product-details.html"));
             var mockedHttpClient = mockedHttp.ToHttpClient();
-            mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
+            mockedHttpClient.BaseAddress = new Uri(Extension.BaseUrl);
             var browsingContext = BrowsingContext.New(Configuration.Default);
             var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
 
@@ -97,7 +97,7 @@ namespace AmmoFinder.Retailers.UnitTests.SportsmansGuide
             var mockedLogger = new Mock<ILogger<ProductService>>();
             var mockedHttp = new MockHttpMessageHandler();
             var mockedHttpClient = mockedHttp.ToHttpClient();
-            mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
+            mockedHttpClient.BaseAddress = new Uri(Extension.BaseUrl);
             var browsingContext = BrowsingContext.New(Configuration.Default);
             var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
 

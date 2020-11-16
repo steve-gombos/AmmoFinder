@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Moq;
 using RichardSzalay.MockHttp;
+using System;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -60,7 +61,7 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
         }
 
         [Fact]
-        public async Task ProductService_Fetch_IsValid()
+        public async Task ProductService_GetProductsAsync_IsValid()
         {
             // Arrange
             var mapper = CreateMapper();
@@ -73,7 +74,7 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
             mockedHttp.When("https://www.cabelas.com/shop/BPSGetOnlineInventoryStatusByIDView")
                 .Respond("text/html", File.OpenRead("Cabelas/inventory.txt"));
             var mockedHttpClient = mockedHttp.ToHttpClient();
-            mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
+            mockedHttpClient.BaseAddress = new Uri(Extension.BaseUrl);
             var browsingContext = BrowsingContext.New(Configuration.Default);
             var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
 
@@ -85,14 +86,14 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
         }
 
         [Fact]
-        public async Task ProductService_Fetch_NoProducts_IsValid()
+        public async Task ProductService_GetProductsAsync_NoProducts_IsValid()
         {
             // Arrange
             var mapper = CreateMapper();
             var mockedLogger = new Mock<ILogger<ProductService>>();
             var mockedHttp = new MockHttpMessageHandler();
             var mockedHttpClient = mockedHttp.ToHttpClient();
-            mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
+            mockedHttpClient.BaseAddress = new Uri(Extension.BaseUrl);
             var browsingContext = BrowsingContext.New(Configuration.Default);
             var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
 
@@ -117,7 +118,7 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
             mockedHttp.When("https://www.cabelas.com/shop/BPSGetOnlineInventoryStatusByIDView")
                 .Respond(HttpStatusCode.NotFound);
             var mockedHttpClient = mockedHttp.ToHttpClient();
-            mockedHttpClient.BaseAddress = new System.Uri(Extension.BaseUrl);
+            mockedHttpClient.BaseAddress = new Uri(Extension.BaseUrl);
             var browsingContext = BrowsingContext.New(Configuration.Default);
             var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
 
@@ -126,6 +127,51 @@ namespace AmmoFinder.Retailers.UnitTests.Cabelas
 
             // Assert
             Assert.True(products.Any());
+        }
+
+        [Fact]
+        public async Task ProductService_GetProductDetailsAsync_IsValid()
+        {
+            // Arrange
+            var productUrl = "https://www.cabelas.com/shop/en/winchester-usa-9mm-handgun-ammo";
+            var productIdentifier = "24057-114777";
+            var mapper = CreateMapper();
+            var mockedLogger = new Mock<ILogger<ProductService>>();
+            var mockedHttp = new MockHttpMessageHandler();
+            mockedHttp.When(productUrl)
+                .Respond("text/html", File.OpenRead("Cabelas/product-details.html"));
+            var mockedHttpClient = mockedHttp.ToHttpClient();
+            mockedHttpClient.BaseAddress = new Uri(Extension.BaseUrl);
+            var browsingContext = BrowsingContext.New(Configuration.Default);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
+
+            // Act
+            var product = await productService.GetProductDetailsAsync(productUrl, productIdentifier);
+
+            // Assert
+            Assert.NotNull(product);
+        }
+
+        [Fact]
+        public async Task ProductService_GetProductDetailsAsync_NotFound_IsValid()
+        {
+            // Arrange
+            var productUrl = "https://www.cabelas.com/shop/en/winchester-usa-9mm-handgun-ammo";
+            var productIdentifier = "24057-114777";
+            var mapper = CreateMapper();
+            var mockedLogger = new Mock<ILogger<ProductService>>();
+            var mockedHttp = new MockHttpMessageHandler();
+            mockedHttp.When(productUrl).Respond(HttpStatusCode.NotFound);
+            var mockedHttpClient = mockedHttp.ToHttpClient();
+            mockedHttpClient.BaseAddress = new Uri(Extension.BaseUrl);
+            var browsingContext = BrowsingContext.New(Configuration.Default);
+            var productService = new ProductService(mockedHttpClient, mapper, mockedLogger.Object, browsingContext);
+
+            // Act
+            var product = await productService.GetProductDetailsAsync(productUrl, productIdentifier);
+
+            // Assert
+            Assert.Null(product);
         }
     }
 }

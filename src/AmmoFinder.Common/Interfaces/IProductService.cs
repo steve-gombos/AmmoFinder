@@ -10,6 +10,6 @@ namespace AmmoFinder.Common.Interfaces
 
         Task<IEnumerable<ProductModel>> GetProductsAsync();
 
-        Task<ProductModel> GetProductDetailsAsync(string productUrl);
+        Task<ProductModel> GetProductDetailsAsync(string productUrl, string identifier = null);
     }
 }

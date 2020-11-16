@@ -1,6 +1,5 @@
 ﻿select * from products 
-where caliber = '9mm'
-and IsAvailable = 1
+where retailerid = 4
 --and brand is null
 --order by inventory desc
 --and RetailerProductId like '%3074457345618960344%'

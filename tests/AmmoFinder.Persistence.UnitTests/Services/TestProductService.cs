@@ -36,7 +36,7 @@ namespace AmmoFinder.Persistence.UnitTests.Services
             };
         }
 
-        public Task<ProductModel> GetProductDetailsAsync(string productUrl)
+        public Task<ProductModel> GetProductDetailsAsync(string productUrl, string identifier = null)
         {
             throw new NotImplementedException();
         }

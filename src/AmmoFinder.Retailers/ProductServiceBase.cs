@@ -19,6 +19,6 @@ namespace AmmoFinder.Retailers
 
         public abstract Task<IEnumerable<ProductModel>> GetProductsAsync();
 
-        public abstract Task<ProductModel> GetProductDetailsAsync(string productUrl);
+        public abstract Task<ProductModel> GetProductDetailsAsync(string productUrl, string identifier = null);
     }
 }
