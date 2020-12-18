@@ -1,22 +1,28 @@
 ﻿using AmmoFinder.Common.Models;
+using AmmoFinder.Data;
 using AmmoFinder.Data.Models;
 using AmmoFinder.Persistence.Mappers;
 using AmmoFinder.Persistence.Services;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AmmoFinder.Persistence.UnitTests.Services
 {
-    public class ProductsRepositoryTests : SqlLiteContext
+    public class ProductsRepositoryTests
     {
-        [Fact]
-        public async Task DatabaseIsAvailableAndCanBeConnectedTo()
+        public ProductsContext GetContextWithInMemoryDb()
         {
-            Assert.True(await DbContext.Database.CanConnectAsync());
+            var options = new DbContextOptionsBuilder<ProductsContext>()
+                .UseInMemoryDatabase(Guid.NewGuid().ToString())
+                .ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning))
+                .Options;
+
+            return new ProductsContext(options);
         }
 
         private IMapper CreateMapper()
@@ -45,9 +51,10 @@ namespace AmmoFinder.Persistence.UnitTests.Services
                 },
             };
             var mapper = CreateMapper();
-            DbContext.Retailers.AddRange(expected);
-            DbContext.SaveChanges();
-            var productsRepository = new ProductsRepository(DbContext, mapper);
+            var context = GetContextWithInMemoryDb();
+            context.Retailers.AddRange(expected);
+            context.SaveChanges();
+            var productsRepository = new ProductsRepository(context, mapper);
 
             // Act
             var actual = productsRepository.GetRetailers();
@@ -105,11 +112,12 @@ namespace AmmoFinder.Persistence.UnitTests.Services
                 }
             };
             var mapper = CreateMapper();
-            DbContext.Retailers.Add(retailer);
-            DbContext.SaveChanges();
-            DbContext.Products.AddRange(expected);
-            DbContext.SaveChanges();
-            var productsRepository = new ProductsRepository(DbContext, mapper);
+            var context = GetContextWithInMemoryDb();
+            context.Retailers.Add(retailer);
+            context.SaveChanges();
+            context.Products.AddRange(expected);
+            context.SaveChanges();
+            var productsRepository = new ProductsRepository(context, mapper);
 
             // Act
             var actual = productsRepository.GetProducts();

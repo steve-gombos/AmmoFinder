@@ -1,26 +1,22 @@
 ﻿using AmmoFinder.Common.Interfaces;
+using AmmoFinder.Data;
 using AmmoFinder.Persistence.Mappers;
 using AmmoFinder.Persistence.Services;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Moq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AmmoFinder.Persistence.UnitTests.Services
 {
-    public class RefreshProductsTests : SqlLiteContext
+    public class RefreshProductsTests
     {
-
-        [Fact]
-        public async Task DatabaseIsAvailableAndCanBeConnectedTo()
-        {
-            Assert.True(await DbContext.Database.CanConnectAsync());
-        }
-
         [Fact]
         public void RefreshProducts_IsValid()
         {
@@ -30,18 +26,24 @@ namespace AmmoFinder.Persistence.UnitTests.Services
                 {
                     config.AddProfile<PersistenceMapper>();
                 })
+                .AddDbContext<ProductsContext>(options =>
+                {
+                    options.UseInMemoryDatabase(new Guid().ToString());
+                    options.ConfigureWarnings(builder => builder.Ignore(InMemoryEventId.TransactionIgnoredWarning));
+                })
                 .BuildServiceProvider();
             var mockedLogger = new Mock<ILogger<RefreshProducts>>();
             var productServices = new List<IProductService> { new TestProductService() };
             var mapper = provider.GetService<IMapper>();
-            var refreshProducts = new RefreshProducts(productServices, DbContext, mapper, mockedLogger.Object);
+            var context = provider.GetService<ProductsContext>();
+            var refreshProducts = new RefreshProducts(productServices, context, mapper, mockedLogger.Object);
             var expected = 1;
 
             // Act
             refreshProducts.Refresh();
 
             // Assert
-            Assert.Equal(expected, DbContext.Products.Count());
+            Assert.Equal(expected, context.Products.Count());
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using AmmoFinder.Common.Interfaces;
 using AmmoFinder.Common.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Internal;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AmmoFinder.Api.Controllers
 {
