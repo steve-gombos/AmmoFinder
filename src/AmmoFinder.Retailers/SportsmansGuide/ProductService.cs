@@ -31,7 +31,9 @@ namespace AmmoFinder.Retailers.SportsmansGuide
 
         public override string Retailer => RetailerNames.SportsmansGuide;
 
-        public async override Task<IEnumerable<ProductModel>> Fetch()
+        #region Public Methods
+
+        public async override Task<IEnumerable<ProductModel>> GetProductsAsync()
         {
             var products = new List<ProductModel>();
 
@@ -48,6 +50,28 @@ namespace AmmoFinder.Retailers.SportsmansGuide
 
             return products.DistinctProducts();
         }
+
+        public override async Task<ProductModel> GetProductDetailsAsync(string productUrl, string identifier = null)
+        {
+            var response = await _httpClient.GetAsync(productUrl);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
+                return null;
+            }
+
+            var source = await response.Content.ReadAsStringAsync();
+            var document = await _browsingContext.OpenAsync(req => req.Content(source).Address(Extension.BaseUrl));
+
+            var product = _mapper.Map<Product>(Tuple.Create(document, productUrl));
+
+            return product;
+        }
+
+        #endregion
+
+        #region Private Methods
 
         private async Task<IEnumerable<string>> GetCategoryLinks()
         {
@@ -104,18 +128,16 @@ namespace AmmoFinder.Retailers.SportsmansGuide
 
             foreach (var productSection in productSections)
             {
-                var buttonDiv = productSection.QuerySelector<IHtmlDivElement>("div.btn-quickview");
-
-                if (buttonDiv == null)
+                // Skip over divs that are ads
+                if (productSection.ClassList.Contains("double-wide"))
                     continue;
 
-                var productUrl = buttonDiv.QuerySelector<IHtmlAnchorElement>("a").Href;
+                var productUrl = productSection.QuerySelector<IHtmlAnchorElement>("a.anchor-container").Href;
+                var productDetails = await GetProductDetailsAsync(productUrl);
 
-                var product = await GetProductDetails(productUrl);
-
-                if (product != null)
+                if (productDetails != null)
                 {
-                    products.Add(product);
+                    products.Add(productDetails);
                 }
             }
 
@@ -127,22 +149,6 @@ namespace AmmoFinder.Retailers.SportsmansGuide
             return products;
         }
 
-        private async Task<ProductModel> GetProductDetails(string productUrl)
-        {
-            var response = await _httpClient.GetAsync(productUrl);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                _logger.LogWarning($"StatusCode: {response.StatusCode}");
-                return null;
-            }
-
-            var source = await response.Content.ReadAsStringAsync();
-            var document = await _browsingContext.OpenAsync(req => req.Content(source).Address(Extension.BaseUrl));
-
-            var product = _mapper.Map<Product>(Tuple.Create(document, productUrl));
-
-            return product;
-        }
+        #endregion
     }
 }

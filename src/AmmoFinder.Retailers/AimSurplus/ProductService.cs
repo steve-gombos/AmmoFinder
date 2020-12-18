@@ -2,8 +2,6 @@
 using AmmoFinder.Common.Models;
 using AmmoFinder.Retailers.AimSurplus.Models;
 using AngleSharp;
-using AngleSharp.Dom;
-using AngleSharp.Html.Dom;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
 using System;
@@ -35,7 +33,9 @@ namespace AmmoFinder.Retailers.AimSurplus
 
         public override string Retailer => RetailerNames.AimSurplus;
 
-        public async override Task<IEnumerable<ProductModel>> Fetch()
+        #region Public Methods
+
+        public override async Task<IEnumerable<ProductModel>> GetProductsAsync()
         {
             var products = await GetProducts();
 
@@ -43,6 +43,28 @@ namespace AmmoFinder.Retailers.AimSurplus
 
             return products.DistinctProducts();
         }
+
+        public override async Task<ProductModel> GetProductDetailsAsync(string productUrl, string identifier = null)
+        {
+            var response = await _httpClient.GetAsync(productUrl, HttpCompletionOption.ResponseHeadersRead);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
+                return null;
+            }
+
+            var source = await response.Content.ReadAsStringAsync();
+            var document = await _browsingContext.OpenAsync(req => req.Content(source));
+
+            var product = _mapper.Map<Product>(Tuple.Create(document, productUrl));
+
+            return product;
+        }
+
+        #endregion
+
+        #region Private Methods
 
         private async Task<IEnumerable<ProductModel>> GetProducts(int page = 1)
         {
@@ -60,10 +82,12 @@ namespace AmmoFinder.Retailers.AimSurplus
 
             foreach (var product in result.Products)
             {
-                var details = await GetProductDetails(product.Url.ToString());
-                var mappedProduct = _mapper.Map<ProductModel>(Tuple.Create(product, details));
+                var productDetails = await GetProductDetailsAsync(product.Url.ToString());
 
-                products.Add(mappedProduct);
+                if (productDetails != null)
+                {
+                    products.Add(productDetails);
+                }
             }
 
             if (page != result.Pages)
@@ -74,22 +98,6 @@ namespace AmmoFinder.Retailers.AimSurplus
             return products;
         }
 
-        private async Task<string> GetProductDetails(string url)
-        {
-            var response = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                _logger.LogWarning($"StatusCode: {response.StatusCode}");
-                return string.Empty;
-            }
-
-            var source = await response.Content.ReadAsStringAsync();
-            var document = await _browsingContext.OpenAsync(req => req.Content(source));
-
-            var details = document.QuerySelector<IHtmlElement>("section.item-specs").Text();
-
-            return details;
-        }
+        #endregion
     }
 }

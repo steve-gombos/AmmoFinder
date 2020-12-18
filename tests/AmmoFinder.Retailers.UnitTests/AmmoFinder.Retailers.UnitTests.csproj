@@ -6,19 +6,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="AimSurplus\product-detail.html" />
+    <None Remove="AimSurplus\product-details.html" />
     <None Remove="AimSurplus\products-1.json" />
     <None Remove="AimSurplus\products-2.json" />
     <None Remove="AmmoDotCom\category.html" />
+    <None Remove="AmmoDotCom\product-details-empty-list.html" />
+    <None Remove="AmmoDotCom\product-details-no-list.html" />
+    <None Remove="AmmoDotCom\product-details.html" />
     <None Remove="AmmoDotCom\products-empty.html" />
     <None Remove="AmmoDotCom\products.html" />
-    <None Remove="BulkAmmo\product-detail.html" />
+    <None Remove="BulkAmmo\product-details.html" />
     <None Remove="BulkAmmo\products.html" />
     <None Remove="Cabelas\inventory.txt" />
     <None Remove="Cabelas\product-details.html" />
     <None Remove="Cabelas\products.html" />
     <None Remove="Cabelas\productstest.html" />
     <None Remove="LuckyGunner\index.html" />
+    <None Remove="LuckyGunner\product-details.html" />
     <None Remove="LuckyGunner\products-empty.html" />
     <None Remove="LuckyGunner\products.html" />
     <None Remove="SportsmansGuide\category.html" />
@@ -28,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="AimSurplus\product-detail.html">
+    <Content Include="AimSurplus\product-details.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="AimSurplus\products-1.json">
@@ -40,13 +44,22 @@
     <Content Include="AmmoDotCom\category.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="AmmoDotCom\product-details-empty-list.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AmmoDotCom\product-details-no-list.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AmmoDotCom\product-details.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="AmmoDotCom\products-empty.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="AmmoDotCom\products.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="BulkAmmo\product-detail.html">
+    <Content Include="BulkAmmo\product-details.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="BulkAmmo\products.html">
@@ -62,6 +75,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LuckyGunner\index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LuckyGunner\product-details.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LuckyGunner\products-empty.html">

@@ -42,10 +42,13 @@ namespace AmmoFinder.Retailers.BulkAmmo
 
         public override string Retailer => RetailerNames.BulkAmmo;
 
-        public async override Task<IEnumerable<ProductModel>> Fetch()
+        #region Public Methods
+
+        public override async Task<IEnumerable<ProductModel>> GetProductsAsync()
         {
             var products = new List<ProductModel>();
 
+            //TODO: Implement dynamic categories from base URL and parsing DOM.
             foreach (var category in _categories)
             {
                 var categoryProducts = await GetProducts(category);
@@ -58,11 +61,32 @@ namespace AmmoFinder.Retailers.BulkAmmo
             return products.DistinctProducts();
         }
 
+        public override async Task<ProductModel> GetProductDetailsAsync(string productUrl, string identifier = null)
+        {
+            var response = await _httpClient.GetAsync(productUrl, HttpCompletionOption.ResponseHeadersRead);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
+                return null;
+            }
+
+            var source = await response.Content.ReadAsStringAsync();
+            var document = await _browsingContext.OpenAsync(req => req.Content(source));
+
+            var product = _mapper.Map<Product>(Tuple.Create(document, productUrl));
+
+            return product;
+        }
+
+        #endregion
+
+        #region Private Methods
+
         private async Task<IEnumerable<ProductModel>> GetProducts(string category)
         {
             var products = new List<ProductModel>();
 
-            //TODO: research param ?mode=list
             var response = await _httpClient.GetAsync($"{category}?limit=all", HttpCompletionOption.ResponseHeadersRead);
 
             if (!response.IsSuccessStatusCode)
@@ -79,31 +103,17 @@ namespace AmmoFinder.Retailers.BulkAmmo
             foreach (var productSection in productSections)
             {
                 var productUrl = productSection.QuerySelector<IHtmlAnchorElement>("a.product-name").Href;
-                var details = await GetProductDetails(productUrl);
-                var mappedProduct = _mapper.Map<Product>(Tuple.Create(productSection, details));
+                var productDetails = await GetProductDetailsAsync(productUrl);
 
-                products.Add(mappedProduct);
+                if (productDetails != null)
+                {
+                    products.Add(productDetails);
+                }
             }
 
             return products;
         }
 
-        private async Task<string> GetProductDetails(string url)
-        {
-            var response = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                _logger.LogWarning($"StatusCode: {response.StatusCode}");
-                return string.Empty;
-            }
-
-            var source = await response.Content.ReadAsStringAsync();
-            var document = await _browsingContext.OpenAsync(req => req.Content(source));
-
-            var details = document.QuerySelector<IHtmlDivElement>("div.std").Text();
-
-            return details;
-        }
+        #endregion
     }
 }

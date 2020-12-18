@@ -14,6 +14,7 @@ namespace AmmoFinder.Retailers
         public static IServiceCollection AddRetailers(this IServiceCollection services)
         {
             services.AddAngleSharp();
+
             services.AddAimSurplusClient();
             services.AddAmmoDotComClient();
             services.AddBulkAmmoClient();

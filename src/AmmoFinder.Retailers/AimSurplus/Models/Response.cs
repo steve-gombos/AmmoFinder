@@ -23,7 +23,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
         public object[] Suggestions { get; set; }
 
         [JsonPropertyName("products")]
-        public Product[] Products { get; set; }
+        public ProductDetail[] Products { get; set; }
 
         [JsonPropertyName("facets")]
         public Facet[] Facets { get; set; }
@@ -120,7 +120,7 @@ namespace AmmoFinder.Retailers.AimSurplus.Models
     }
 
     [ExcludeFromCodeCoverage]
-    internal partial class Product
+    internal partial class ProductDetail
     {
         [JsonPropertyName("id")]
         public long Id { get; set; }

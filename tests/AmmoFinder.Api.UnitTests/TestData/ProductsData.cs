@@ -25,7 +25,6 @@ namespace AmmoFinder.Api.UnitTests.TestData
                     Price = 10.99m,
                     RoundCount = "50",
                     RoundType = "FMJ",
-                    RoundContainer = "Box",
                     RetailerProductId = "Test",
                     UpdatedOn = DateTime.Now,
                     Url = "https://test.test/test-product"

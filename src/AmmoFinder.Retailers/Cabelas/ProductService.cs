@@ -35,7 +35,9 @@ namespace AmmoFinder.Retailers.Cabelas
 
         public override string Retailer => RetailerNames.Cabelas;
 
-        public async override Task<IEnumerable<ProductModel>> Fetch()
+        #region Public Methods
+
+        public override async Task<IEnumerable<ProductModel>> GetProductsAsync()
         {
             var products = await GetProducts();
 
@@ -43,6 +45,36 @@ namespace AmmoFinder.Retailers.Cabelas
 
             return products.DistinctProducts();
         }
+
+        public override async Task<ProductModel> GetProductDetailsAsync(string productUrl, string identifier = null)
+        {
+            var response = await _httpClient.GetAsync(productUrl, HttpCompletionOption.ResponseHeadersRead);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogWarning($"StatusCode: {response.StatusCode}");
+                return null;
+            }
+
+            var source = await response.Content.ReadAsStringAsync();
+            var document = await _browsingContext.OpenAsync(req => req.Content(source));
+
+            var identifiers = identifier.Split("-");
+            var productId = identifiers[0];
+            var catEntryId = identifiers[1];
+
+            var inventoryData = await GetInventoryData(productId);
+
+            inventoryData.TryGetValue(catEntryId, out var inventory);
+
+            var product = _mapper.Map<Product>(Tuple.Create(document, new MapperData(productId, catEntryId, productUrl, inventory)));
+
+            return product;
+        }
+
+        #endregion
+
+        #region Private Methods
 
         private async Task<IEnumerable<ProductModel>> GetProducts()
         {
@@ -101,8 +133,7 @@ namespace AmmoFinder.Retailers.Cabelas
             {
                 inventoryData.TryGetValue(attribute.catentry_id, out var inventory);
 
-                var product = _mapper.Map<Product>(Tuple.Create(document, attribute, inventory));
-                product.Url = url;
+                var product = _mapper.Map<Product>(Tuple.Create(document, new MapperData(attribute.productId, attribute.catentry_id, url, inventory)));
 
                 if (!string.IsNullOrWhiteSpace(product.Name))
                 {
@@ -142,5 +173,7 @@ namespace AmmoFinder.Retailers.Cabelas
 
             return inventoryData.onlineInventory;
         }
+
+        #endregion
     }
 }

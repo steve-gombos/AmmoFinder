@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace AmmoFinder.Common.Extensions
 {
@@ -88,6 +89,18 @@ namespace AmmoFinder.Common.Extensions
             var index = maximum ? 1 : 0;
 
             return decimal.Parse(split[index]);
+        }
+
+        public static string TrimExtra(this string value)
+        {
+            RegexOptions options = RegexOptions.None;
+            Regex regex = new Regex("[ ]{2,}", options);
+            return regex.Replace(value.Replace("\n", "").Replace("\r", "").Trim(), " ");
+        }
+
+        public static string TrimTrailingSlash(this string value)
+        {
+            return value.EndsWith("/") ? value.Substring(0, value.Length - 1) : value;
         }
     }
 }

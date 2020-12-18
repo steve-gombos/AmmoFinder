@@ -32,6 +32,7 @@ namespace AmmoFinder.Parsers.UnitTests
         [InlineData("20 Rounds of 30-06 Springfield Ammo by Prvi Partizan - 150gr SP", Brands.PrviPartizan)]
         [InlineData("20 Rounds of .350 Legend Ammo by Hornady American Whitetail - 170gr InterLock", Brands.Hornady)]
         [InlineData("20 Rounds of .270 Win Ammo by Black Hills Gold Ammunition - 130gr Hornady SST", Brands.BlackHills)]
+        [InlineData("50 Rounds of .223 Ammo by Black Hills Ammunition - 75gr Heavy Match HP", Brands.BlackHills)]
         [InlineData("250 Rounds of 12ga Ammo by Rio Target Load Trap - 7/8 ounce #7.5 shot", Brands.Rio)]
         [InlineData("250 Rounds of 20ga Ammo by NobelSport - 7/8 ounce #7 steel shot", Brands.NobleSport)]
         [InlineData("12 Gauge - 2-3/4\" 9 Pellet 00 Buckshot - Noble Sport Low Recoil - 250 Rounds", Brands.NobleSport)]
@@ -67,6 +68,8 @@ namespace AmmoFinder.Parsers.UnitTests
         [InlineData("PowerBelt AeroTip™ Copper .50 Caliber 295-Grain Ammunition", Brands.PowerBelt)]
         [InlineData("Thompson/Center Maxi Hunter .50 350-Grain Black Powder Ammunition", Brands.ThompsonCenter)]
         [InlineData("Independence® Aluminum .45 Auto 230-Grain Handgun Ammunition", Brands.Independence)]
+        [InlineData("Sterling 12 Gauge  00 Buck Ammunition 10rd Box ", Brands.Sterling)]
+        [InlineData("Migra Stack Load Steel Shot, 12 Gauge, 3.5\", #2/#4, 1 5/8 oz., 25 Rounds", Brands.Migra)]
         public void Brand_IsValid(string input, string expected)
         {
             // Arrange
