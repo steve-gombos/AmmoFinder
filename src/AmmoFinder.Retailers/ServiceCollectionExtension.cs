@@ -3,6 +3,7 @@ using AmmoFinder.Retailers.AmmoDotCom;
 using AmmoFinder.Retailers.BulkAmmo;
 using AmmoFinder.Retailers.Cabelas;
 using AmmoFinder.Retailers.LuckyGunner;
+using AmmoFinder.Retailers.PalmettoStateArmory;
 using AmmoFinder.Retailers.SportsmansGuide;
 using AngleSharp;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +21,7 @@ namespace AmmoFinder.Retailers
             services.AddBulkAmmoClient();
             services.AddCabelasClient();
             services.AddLuckyGunnerClient();
+            services.AddPalmettoStateArmoryClient();
             services.AddSportsmansGuideClient();
 
             return services;
